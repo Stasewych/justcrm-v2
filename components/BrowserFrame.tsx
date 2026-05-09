@@ -1,3 +1,5 @@
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function BrowserFrame({
   children,
 }: {
@@ -24,7 +26,7 @@ export default function BrowserFrame({
       <div className="relative">
         {children || (
           <img
-            src="/images/crm-hero.png"
+            src={`${bp}/images/crm-hero.png`}
             alt="JustCRM — контакти, справи, білінг"
             className="w-full h-auto"
           />

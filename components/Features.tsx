@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 function CardStack({
   items,
 }: {
@@ -116,7 +118,7 @@ const tabs = [
     title: "Керуйте справами, аналізуйте дані, контролюйте фінанси",
     desc: "Планування, білінг, документи, оплати — все, що стосується проєкту, доступне з одного централізованого місця.",
     cards: [
-      { label: "Kanban по стадіях справ", image: "/images/feature-cases.png" },
+      { label: "Kanban по стадіях справ", image: `${bp}/images/feature-cases.png` },
       { label: "Конфлікт-чек по контактах", image: null },
       { label: "Фінансовий дашборд проєкту", image: null },
       { label: "Звіти по ефективності", image: null },

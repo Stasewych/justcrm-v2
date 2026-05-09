@@ -10,6 +10,8 @@ import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
 import Features from "@/components/Features";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Home() {
   return (
     <>
@@ -68,15 +70,15 @@ export default function Home() {
               Компанії, які вже працюють з нами
             </p>
             <Marquee duration={80}>
-              <img src="/images/Auxilium-dark.svg" alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/everlegal.svg" alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/NABU.png" alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/Auxilium-dark.svg" alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/everlegal.svg" alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/NABU.png" alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/Auxilium-dark.svg" alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/everlegal.svg" alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src="/images/NABU.png" alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
             </Marquee>
           </div>
         </section>
@@ -89,7 +91,7 @@ export default function Home() {
             </p>
             <Marquee duration={70} reverse>
               <div className="flex items-center gap-4 shrink-0">
-                <img src="/images/award-ucu.png" alt="UCU Law" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-ucu.png`} alt="UCU Law" className="h-10 rounded grayscale opacity-60" />
                 <div>
                   <div className="text-sm font-medium">Найкраща програма юридичної автоматизації</div>
                   <div className="text-xs text-black/40">1 місце · Хакатон УКУ · 2025</div>
@@ -97,7 +99,7 @@ export default function Home() {
               </div>
               <div className="w-px h-8 bg-black/10 shrink-0" />
               <div className="flex items-center gap-4 shrink-0">
-                <img src="/images/award-ideaslab.png" alt="Ideas Lab" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-ideaslab.png`} alt="Ideas Lab" className="h-10 rounded grayscale opacity-60" />
                 <div>
                   <div className="text-sm font-medium">Найкращий юридичний стартап</div>
                   <div className="text-xs text-black/40">1 місце · Ideas Lab · 2025</div>
@@ -105,7 +107,7 @@ export default function Home() {
               </div>
               <div className="w-px h-8 bg-black/10 shrink-0" />
               <div className="flex items-center gap-4 shrink-0">
-                <img src="/images/award-aimeetups.jpg" alt="AI Meetups" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-aimeetups.jpg`} alt="AI Meetups" className="h-10 rounded grayscale opacity-60" />
                 <div>
                   <div className="text-sm font-medium">Найкраща інтеграція AI</div>
                   <div className="text-xs text-black/40">1 місце · AI Meetups × НАБУ · 2026</div>
@@ -121,7 +123,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Halftone illustration */}
               <div className="order-2 lg:order-1">
-                <HalftoneImage src="/images/problem-office.jpg" />
+                <HalftoneImage src={`${bp}/images/problem-office.jpg`} />
               </div>
 
               {/* Text */}

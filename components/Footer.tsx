@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Button from "./Button";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const columns = [
   {
     title: "Продукт",
@@ -44,7 +46,7 @@ export default function Footer() {
         <div className="bg-white rounded-t-lg pt-14 pb-8 px-8 lg:px-14">
           {/* Logo */}
           <div className="flex items-center gap-2.5 mb-14">
-            <img src="/images/logo.png" alt="JustCRM" className="h-7" />
+            <img src={`${bp}/images/logo.png`} alt="JustCRM" className="h-7" />
             <span className="text-lg font-bold tracking-tight">JustCRM</span>
           </div>
 

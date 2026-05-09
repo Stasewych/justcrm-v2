@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "./Button";
 
 const plans = [
@@ -159,7 +160,7 @@ export default function Pricing() {
 
               <div className="mb-8">
                 {plan.featured ? (
-                  <a
+                  <Link
                     href="/trial"
                     className="block text-center font-mono text-[12px] font-medium uppercase tracking-wide bg-white text-[#1c1c1c] px-6 py-2.5 transition-colors hover:bg-white/90"
                     style={{
@@ -167,7 +168,7 @@ export default function Pricing() {
                     }}
                   >
                     {plan.cta}
-                  </a>
+                  </Link>
                 ) : (
                   <Button href={plan.name === "Enterprise" ? "/contacts" : "/trial"} variant={plan.ctaVariant}>
                     {plan.cta}
@@ -198,7 +199,7 @@ export default function Pricing() {
         </div>
 
         <div className="text-center mt-8">
-          <a
+          <Link
             href="/compare"
             className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/35 hover:text-black/60 transition-colors inline-flex items-center gap-1.5"
           >
@@ -206,7 +207,7 @@ export default function Pricing() {
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

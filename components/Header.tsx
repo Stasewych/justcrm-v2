@@ -21,6 +21,8 @@ function Divider() {
   return <div className="w-px h-4 bg-black/10" />;
 }
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
@@ -31,7 +33,7 @@ export default function Header() {
       <nav className="max-w-[1440px] mx-auto px-10 h-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/images/logo.png" alt="JustCRM" className="h-6" />
+          <img src={`${bp}/images/logo.png`} alt="JustCRM" className="h-6" />
           <span className="text-sm font-bold tracking-tight">JustCRM</span>
         </Link>
 
