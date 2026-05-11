@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 type Cell = "check" | "cross" | string;
 
@@ -125,8 +125,6 @@ function CellValue({ value, featured }: { value: Cell; featured?: boolean }) {
 }
 
 export default function PricingCompare() {
-  const [annual, setAnnual] = useState(false);
-
   return (
     <section className="py-20 bg-[#fafafa]" id="compare">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -147,12 +145,12 @@ export default function PricingCompare() {
                 <th className="w-[40%] text-left p-4 border-b-2 border-black/10" />
                 <th className="w-[20%] p-4 border-b-2 border-black/10 text-center">
                   <div className="font-mono text-[11px] uppercase tracking-wide text-black/40 mb-1">Classic</div>
-                  <div className="text-2xl font-bold tracking-tight">{annual ? "240" : "300"} <span className="text-sm font-normal text-black/30">₴</span></div>
+                  <div className="text-2xl font-bold tracking-tight">400 <span className="text-sm font-normal text-black/30">₴</span></div>
                   <div className="text-[11px] text-black/30">за користувача / міс</div>
                 </th>
                 <th className="w-[20%] p-4 border-b-2 border-black bg-black text-white text-center rounded-t-xl">
                   <div className="font-mono text-[10px] uppercase tracking-wider text-white/40 mb-1">Pro AI</div>
-                  <div className="text-2xl font-bold tracking-tight">{annual ? "400" : "500"} <span className="text-sm font-normal text-white/40">₴</span></div>
+                  <div className="text-2xl font-bold tracking-tight">600 <span className="text-sm font-normal text-white/40">₴</span></div>
                   <div className="text-[11px] text-white/40">за користувача / міс</div>
                 </th>
                 <th className="w-[20%] p-4 border-b-2 border-black/10 text-center">
@@ -195,20 +193,6 @@ export default function PricingCompare() {
           </table>
         </div>
 
-        {/* Toggle */}
-        <div className="flex items-center justify-center gap-3 mt-10">
-          <span className={`text-sm font-medium transition-colors ${!annual ? "text-black" : "text-black/30"}`}>Місячно</span>
-          <button
-            onClick={() => setAnnual(!annual)}
-            className={`relative w-11 h-6 rounded-full transition-colors ${annual ? "bg-[#1c1c1c]" : "bg-black/15"}`}
-          >
-            <span className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform ${annual ? "translate-x-5" : ""}`} />
-          </button>
-          <span className={`text-sm font-medium transition-colors ${annual ? "text-black" : "text-black/30"}`}>Річно</span>
-          {annual && (
-            <span className="font-mono text-[11px] font-medium text-black/50 bg-black/5 px-2 py-0.5 rounded">−20%</span>
-          )}
-        </div>
       </div>
     </section>
   );

@@ -67,6 +67,7 @@ const sections = [
     titleLight: " без зайвих кроків",
     desc: "Фіксуйте витрачений час таймером або в календарному режимі. Формуйте рахунки в кілька кліків — передоплата, постоплата, погодинна або фіксована ставка.",
     bg: "white" as const,
+    layout: "banner-first" as const,
     cards: [
       {
         title: "Таймер або календар",
@@ -122,6 +123,7 @@ const sections = [
     titleLight: " з контролем виконання",
     desc: "Створюйте задачі, призначайте виконавців, встановлюйте дедлайни. Кожна задача прив'язана до справи та відображається у зручному форматі.",
     bg: "black" as const,
+    layout: "centered-grid" as const,
     cards: [
       {
         title: "Чотири режими перегляду",
@@ -178,6 +180,7 @@ const sections = [
     titleLight: " від першого звернення до завершення справи",
     desc: "Впорядковуйте контактні дані клієнтів, відстежуйте історію взаємодії та ведіть воронку нових звернень — все в одній CRM для юристів.",
     bg: "white" as const,
+    layout: "banner-top-split" as const,
     cards: [
       {
         title: "Фізичні та юридичні особи",
@@ -233,6 +236,7 @@ const sections = [
     titleLight: " вбудовані у щоденну роботу",
     desc: "Генерація документів, голосове введення, покращення текстів та пошук по базі знань фірми. AI формує чернетку — юрист перевіряє та затверджує.",
     bg: "black" as const,
+    layout: "cards-before-banner" as const,
     cards: [
       {
         title: "База знань фірми",
@@ -292,6 +296,7 @@ const sections = [
     titleLight: " всередині CRM",
     desc: "Створюйте таблиці під потреби Вашої практики — з полями, фільтрами та зв'язками. Без переходу в Notion або Google Sheets.",
     bg: "white" as const,
+    layout: "underlined-cols" as const,
     cards: [
       {
         title: "Довільна структура",
@@ -350,6 +355,7 @@ const sections = [
     titleLight: " в єдиному просторі",
     desc: "Завантажуйте файли, створюйте документи з шаблонів, надавайте доступ команді. Кожен документ прив'язаний до справи або клієнта.",
     bg: "black" as const,
+    layout: "centered-list" as const,
     cards: [
       {
         title: "Файли в контексті справи",
@@ -401,7 +407,7 @@ const sections = [
 
 function AppWindow({ dark, label }: { dark: boolean; label: string }) {
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className="w-full mx-auto">
       <div
         className={`rounded-xl overflow-hidden ${
           dark
@@ -430,7 +436,7 @@ function AppWindow({ dark, label }: { dark: boolean; label: string }) {
           <div className="w-[52px]" />
         </div>
         {/* Content area */}
-        <div className={`aspect-[16/10] flex items-center justify-center ${
+        <div className={`aspect-[16/9] flex items-center justify-center ${
           dark ? "bg-[#141414]" : "bg-[#fafafa]"
         }`}>
           <span className={`text-sm font-medium ${
@@ -478,68 +484,190 @@ export default function Features() {
             ref={(el: HTMLElement | null) => { sectionRefs.current[i] = el as HTMLDivElement | null; }}
             className={`${dark ? "bg-black text-white" : "bg-white text-black"} min-h-screen flex items-center overflow-hidden`}
           >
-            <div className="max-w-[1100px] mx-auto px-8 lg:px-12 w-full py-24">
+            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full py-24">
 
-              <p
-                className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                } ${dark ? "text-white/60" : "text-black/50"}`}
-              >
-                {s.tag}
-              </p>
-
-              <h2
-                className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                {s.title}
-                <span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>
-                  {s.titleLight}
-                </span>
-              </h2>
-
-              <p
-                className={`text-base leading-relaxed max-w-2xl mb-10 transition-all duration-700 delay-200 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                } ${dark ? "text-white/50" : "text-black/45"}`}
-              >
-                {s.desc}
-              </p>
-
-              <div
-                className={`mb-8 transition-all duration-1000 delay-300 ${
-                  isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"
-                }`}
-              >
-                <AppWindow dark={dark} label={s.nav} />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {s.cards.map((card, ci) => (
-                  <div
-                    key={ci}
-                    className={`transition-all duration-600 ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                    }`}
-                    style={{ transitionDelay: isVisible ? `${400 + ci * 100}ms` : "0ms" }}
-                  >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
-                      dark ? "bg-white/[0.05]" : "bg-black/[0.04]"
-                    }`}>
-                      <div className="w-6 h-6">
-                        {card.icon(dark ? "#ffffff" : "#000000")}
+              {/* === DEFAULT LAYOUT: tag → title → desc → banner → cards === */}
+              {(!("layout" in s) || !s.layout) && (<>
+                <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                  {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                </h2>
+                <p className={`text-base leading-relaxed max-w-2xl mb-10 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                <div className={`mb-8 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {s.cards.map((card, ci) => (
+                    <div key={ci} className={`transition-all duration-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: isVisible ? `${400 + ci * 100}ms` : "0ms" }}>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${dark ? "bg-white/[0.05]" : "bg-black/[0.04]"}`}>
+                        <div className="w-6 h-6">{card.icon(dark ? "#ffffff" : "#000000")}</div>
                       </div>
+                      <h3 className={`text-[14px] font-semibold mb-2 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                      <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
                     </div>
-                    <h3 className={`text-[14px] font-semibold mb-2 ${dark ? "text-white" : "text-black"}`}>
-                      {card.title}
-                    </h3>
-                    <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>
-                      {card.desc}
-                    </p>
+                  ))}
+                </div>
+              </>)}
+
+              {/* === CENTERED-LIST: centered text → banner → vertical list rows === */}
+              {s.layout === "centered-list" && (<>
+                <div className="text-center max-w-3xl mx-auto mb-10">
+                  <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                  <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                    {s.title}<span className={`font-normal ${dark ? "text-white/40" : "text-black/30"}`}>{s.titleLight}</span>
+                  </h2>
+                  <p className={`text-base leading-relaxed mx-auto transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                </div>
+                <div className={`mb-10 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <div className={`border-t ${dark ? "border-white/8" : "border-black/8"} transition-all duration-700 delay-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+                  {s.cards.map((card, ci) => (
+                    <div
+                      key={ci}
+                      className={`flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-10 py-5 border-b ${dark ? "border-white/8" : "border-black/8"} transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                      style={{ transitionDelay: isVisible ? `${600 + ci * 80}ms` : "0ms" }}
+                    >
+                      <h3 className={`text-[15px] font-semibold shrink-0 sm:w-72 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                      <p className={`text-[14px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </>)}
+
+              {/* === UNDERLINED-COLS: tag → title → desc → banner → 4 cols with underlined titles === */}
+              {s.layout === "underlined-cols" && (<>
+                <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                  {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                </h2>
+                <p className={`text-base leading-relaxed max-w-2xl mb-10 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                <div className={`mb-10 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {s.cards.map((card, ci) => (
+                    <div
+                      key={ci}
+                      className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                      style={{ transitionDelay: isVisible ? `${500 + ci * 80}ms` : "0ms" }}
+                    >
+                      <h3 className={`text-[15px] font-semibold pb-3 mb-3 border-b-2 ${dark ? "text-white border-white/15" : "text-black border-black/15"}`}>{card.title}</h3>
+                      <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </>)}
+
+              {/* === CARDS-BEFORE-BANNER: tag → title → desc → 2×2 cards → banner === */}
+              {s.layout === "cards-before-banner" && (<>
+                <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                  {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                </h2>
+                <p className={`text-base leading-relaxed max-w-2xl mb-10 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-12">
+                  {s.cards.map((card, ci) => (
+                    <div
+                      key={ci}
+                      className={`p-6 rounded-xl border transition-all duration-500 ${dark ? "border-white/8 bg-white/[0.02]" : "border-black/6 bg-black/[0.015]"} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                      style={{ transitionDelay: isVisible ? `${300 + ci * 100}ms` : "0ms" }}
+                    >
+                      <h3 className={`text-[16px] font-semibold mb-2 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                      <p className={`text-[14px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className={`transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+              </>)}
+
+              {/* === BANNER-TOP-SPLIT: tag → banner → title+desc left, numbered list right === */}
+              {s.layout === "banner-top-split" && (<>
+                <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                <div className={`mb-12 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20">
+                  <div className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                    <h2 className={`text-3xl lg:text-[38px] font-bold leading-[1.12] tracking-tight mb-4`}>
+                      {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                    </h2>
+                    <p className={`text-base leading-relaxed ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
                   </div>
-                ))}
-              </div>
+                  <div className={`space-y-0 transition-all duration-700 delay-400 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+                    {s.cards.map((card, ci) => (
+                      <div
+                        key={ci}
+                        className={`flex gap-5 py-5 border-b ${dark ? "border-white/8" : "border-black/8"} transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                        style={{ transitionDelay: isVisible ? `${500 + ci * 80}ms` : "0ms" }}
+                      >
+                        <span className={`font-mono text-[13px] font-medium mt-0.5 shrink-0 w-6 ${dark ? "text-white/20" : "text-black/20"}`}>
+                          {String(ci + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h3 className={`text-[15px] font-semibold mb-1 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                          <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>)}
+
+              {/* === CENTERED-GRID: centered text → banner → 2×2 grid with lines === */}
+              {s.layout === "centered-grid" && (<>
+                <div className="text-center max-w-3xl mx-auto mb-10">
+                  <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                  <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                    {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                  </h2>
+                  <p className={`text-base leading-relaxed mx-auto mb-0 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                </div>
+                <div className={`mb-10 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <div className={`grid grid-cols-1 sm:grid-cols-2 border-t ${dark ? "border-white/8" : "border-black/8"} transition-all duration-700 delay-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+                  {s.cards.map((card, ci) => (
+                    <div
+                      key={ci}
+                      className={`py-6 px-6 transition-all duration-500 border-b ${dark ? "border-white/8" : "border-black/8"} ${ci % 2 === 1 ? `sm:border-l ${dark ? "border-white/8" : "border-black/8"}` : ""} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                      style={{ transitionDelay: isVisible ? `${600 + ci * 80}ms` : "0ms" }}
+                    >
+                      <h3 className={`text-[15px] font-semibold mb-2 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                      <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </>)}
+
+              {/* === BANNER-FIRST: tag → banner → title → desc → cards with dividers === */}
+              {s.layout === "banner-first" && (<>
+                <p className={`font-mono text-[13px] font-semibold uppercase tracking-[0.1em] mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/60" : "text-black/50"}`}>{s.tag}</p>
+                <div className={`mb-12 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.97]"}`}>
+                  <AppWindow dark={dark} label={s.nav} />
+                </div>
+                <h2 className={`text-3xl lg:text-[42px] font-bold leading-[1.12] tracking-tight mb-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+                  {s.title}<span className={`font-normal ${dark ? "text-white/45" : "text-black/35"}`}>{s.titleLight}</span>
+                </h2>
+                <p className={`text-base leading-relaxed max-w-2xl mb-10 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${dark ? "text-white/50" : "text-black/45"}`}>{s.desc}</p>
+                <div className={`border-t ${dark ? "border-white/8" : "border-black/8"} transition-all duration-700 delay-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                    {s.cards.map((card, ci) => (
+                      <div
+                        key={ci}
+                        className={`py-6 px-5 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${ci > 0 ? `lg:border-l ${dark ? "border-white/8" : "border-black/8"}` : ""}`}
+                        style={{ transitionDelay: isVisible ? `${600 + ci * 80}ms` : "0ms" }}
+                      >
+                        <h3 className={`text-[15px] font-semibold mb-2 ${dark ? "text-white" : "text-black"}`}>{card.title}</h3>
+                        <p className={`text-[13px] leading-relaxed ${dark ? "text-white/45" : "text-black/40"}`}>{card.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>)}
+
             </div>
           </section>
         );

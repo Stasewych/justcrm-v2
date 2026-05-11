@@ -20,29 +20,46 @@ const darkSections = new Set(["feat-cases", "feat-tasks", "feat-ai", "feat-docs"
 
 export default function PageNav() {
   const [activeId, setActiveId] = useState("");
-  const [pastHero, setPastHero] = useState(false);
-  const [inFooter, setInFooter] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const features = document.getElementById("features");
+    const footer = document.querySelector("footer");
     if (!features) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setPastHero(entry.isIntersecting),
+
+    const featsObs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setShow(true);
+      },
       { threshold: 0.01 }
     );
-    obs.observe(features);
-    return () => obs.disconnect();
-  }, []);
+    featsObs.observe(features);
 
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setInFooter(entry.isIntersecting),
-      { threshold: 0.05 }
+    let footerObs: IntersectionObserver | null = null;
+    if (footer) {
+      footerObs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setShow(false);
+        },
+        { threshold: 0.05 }
+      );
+      footerObs.observe(footer);
+    }
+
+    const heroObs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setShow(false);
+      },
+      { threshold: 0.3 }
     );
-    obs.observe(footer);
-    return () => obs.disconnect();
+    const hero = document.getElementById("hero");
+    if (hero) heroObs.observe(hero);
+
+    return () => {
+      featsObs.disconnect();
+      footerObs?.disconnect();
+      heroObs.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -65,35 +82,46 @@ export default function PageNav() {
   const dark = darkSections.has(activeId);
 
   return (
-    <nav
-      className={`hidden lg:flex flex-col gap-1 fixed left-[max(2rem,calc((100vw-1440px)/2+1rem))] top-1/2 -translate-y-1/2 z-40 transition-all duration-500 ${
-        pastHero && !inFooter ? "opacity-100" : "opacity-0 pointer-events-none"
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        show
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full pointer-events-none"
       }`}
     >
-      {items.map((item) => {
-        const isActive = activeId === item.id;
-        const isFirstNonFeat = item.id === "security";
+      <nav
+        className={`flex items-center justify-center gap-1 px-4 h-11 transition-colors duration-500 ${
+          dark
+            ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
+            : "bg-white/90 backdrop-blur-xl border-b border-black/5"
+        }`}
+      >
+        {items.map((item) => {
+          const isActive = activeId === item.id;
 
-        return (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className={`text-[14px] pl-4 py-1.5 border-l-[3px] transition-all duration-300 ${
-              isFirstNonFeat ? "mt-4" : ""
-            } ${
-              isActive
-                ? `font-semibold border-current ${dark ? "text-white" : "text-black"}`
-                : `border-transparent ${dark ? "text-white/40 hover:text-white/70" : "text-black/30 hover:text-black/60"}`
-            }`}
-          >
-            {item.label}
-          </a>
-        );
-      })}
-    </nav>
+          return (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={`text-[12px] font-medium px-3 py-1.5 rounded-full transition-all duration-300 ${
+                isActive
+                  ? dark
+                    ? "bg-white/10 text-white"
+                    : "bg-black/8 text-black"
+                  : dark
+                    ? "text-white/40 hover:text-white/70"
+                    : "text-black/35 hover:text-black/60"
+              }`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+    </div>
   );
 }

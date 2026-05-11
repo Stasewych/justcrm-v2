@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
 
@@ -8,8 +5,7 @@ const plans = [
   {
     name: "Classic",
     desc: "Для фірм, що переходять з Excel і хочуть навести порядок",
-    monthly: 300,
-    annual: 240,
+    price: 400,
     period: "за користувача / місяць",
     cta: "Почати безкоштовно",
     ctaVariant: "outline" as const,
@@ -26,8 +22,7 @@ const plans = [
   {
     name: "Pro AI",
     desc: "Повний набір інструментів + AI для юридичної практики",
-    monthly: 500,
-    annual: 400,
+    price: 600,
     period: "за користувача / місяць",
     badge: "Найпопулярніший",
     cta: "Почати безкоштовно",
@@ -73,8 +68,6 @@ function Check() {
 }
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(false);
-
   return (
     <section className="py-20 bg-white" id="pricing">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16 lg:pl-48">
@@ -89,29 +82,6 @@ export default function Pricing() {
           <p className="mt-4 text-black/40 text-sm">
             14 днів безкоштовно. Повний функціонал Pro AI без обмежень.
           </p>
-
-          {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3">
-            <span className={`text-sm font-medium transition-colors ${!annual ? "text-black" : "text-black/30"}`}>
-              Місячно
-            </span>
-            <button
-              onClick={() => setAnnual(!annual)}
-              className={`relative w-11 h-6 rounded-full transition-colors ${annual ? "bg-[#1c1c1c]" : "bg-black/15"}`}
-            >
-              <span
-                className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform ${annual ? "translate-x-5" : ""}`}
-              />
-            </button>
-            <span className={`text-sm font-medium transition-colors ${annual ? "text-black" : "text-black/30"}`}>
-              Річно
-            </span>
-            {annual && (
-              <span className="font-mono text-[11px] font-medium text-black/50 bg-black/5 px-2 py-0.5 rounded">
-                −20%
-              </span>
-            )}
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 items-start">
@@ -147,7 +117,7 @@ export default function Pricing() {
               ) : (
                 <div className="mb-1">
                   <span className="text-4xl font-light tracking-tight">
-                    {annual ? plan.annual : plan.monthly}
+                    {plan.price}
                   </span>
                   <span className={`text-lg ml-1 ${plan.featured ? "text-white/50" : "text-black/40"}`}>
                     ₴

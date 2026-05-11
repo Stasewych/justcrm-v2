@@ -119,7 +119,7 @@ export default function TermsPage() {
         <strong>3.4.</strong> Ви відповідаєте за збереження конфіденційності
         пароля та за всі дії, виконані під вашим обліковим записом. Якщо ви
         виявили несанкціонований доступ — негайно повідомте нам на{" "}
-        <a href="mailto:support@justsolution.org">support@justsolution.org</a>.
+        <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>.
       </p>
       <p>
         <strong>3.5.</strong> Ви не маєте права передавати свої облікові дані
@@ -471,7 +471,7 @@ export default function TermsPage() {
       <p>
         <strong>14.2.</strong> Вирішення спорів. Усі суперечки спочатку
         вирішуються шляхом переговорів через звернення на{" "}
-        <a href="mailto:support@justsolution.org">support@justsolution.org</a>.
+        <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>.
         Якщо протягом 30 днів з моменту звернення спір не вирішено — він
         передається до компетентного суду України за місцезнаходженням
         Провайдера. Споживачі мають право звернутися до суду за місцем свого
@@ -497,7 +497,7 @@ export default function TermsPage() {
         <strong>14.6.</strong> Контакти Провайдера. Товариство з обмеженою
         відповідальністю &laquo;Just Solution&raquo;, ЄДРПОУ: __________,
         юридична адреса: __________, Email:{" "}
-        <a href="mailto:support@justsolution.org">support@justsolution.org</a>,
+        <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>,
         сайт:{" "}
         <a href="https://crm.justsolution.org">https://crm.justsolution.org</a>.
       </p>

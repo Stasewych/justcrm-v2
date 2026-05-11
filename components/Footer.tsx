@@ -82,10 +82,10 @@ export default function Footer() {
               <ul className="space-y-2.5 mb-8">
                 <li>
                   <a
-                    href="mailto:info@justsolution.org"
+                    href="mailto:stanislav.marynovych@justsolution.org"
                     className="text-[15px] text-black/45 hover:text-black transition-colors"
                   >
-                    info@justsolution.org
+                    stanislav.marynovych@justsolution.org
                   </a>
                 </li>
                 <li>

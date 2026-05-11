@@ -229,7 +229,7 @@ export default function OfferPage() {
       </ul>
       <p>
         <strong>5.9.</strong> Запит на повернення коштів подається на{" "}
-        <a href="mailto:support@justsolution.org">support@justsolution.org</a> з
+        <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a> з
         зазначенням деталей платежу. Розглядається протягом 14 робочих днів.
         Повернення здійснюється тим же способом, яким здійснювалась оплата, з
         утриманням комісії платіжних систем (якщо така була).
@@ -325,7 +325,7 @@ export default function OfferPage() {
         </li>
         <li>
           звертатися за технічною підтримкою на{" "}
-          <a href="mailto:support@justsolution.org">support@justsolution.org</a>;
+          <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>;
         </li>
         <li>
           у будь-який момент припинити користування Сервісом шляхом видалення
@@ -592,7 +592,7 @@ export default function OfferPage() {
       </p>
       <p>
         Email:{" "}
-        <a href="mailto:support@justsolution.org">support@justsolution.org</a>
+        <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>
       </p>
       <p>
         Email з питань конфіденційності:{" "}

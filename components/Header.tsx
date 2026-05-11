@@ -29,8 +29,8 @@ export default function Header() {
   const [productOpen, setProductOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 flex justify-center px-4 pt-2" style={{ background: "transparent" }}>
-      <nav className="max-w-[1080px] w-full mx-auto px-6 h-11 flex items-center justify-between rounded-full bg-white/60 backdrop-blur-xl backdrop-saturate-150 border border-white/40 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.04)]">
+    <header className="relative z-50 bg-[#f4f4f4]">
+      <nav className="max-w-[1440px] w-full mx-auto px-8 lg:px-16 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <img src={`${bp}/images/logo.png`} alt="JustCRM" className="h-8" />
@@ -52,7 +52,7 @@ export default function Header() {
             </button>
             {productOpen && (
               <div className="absolute top-full left-0 pt-1">
-                <div className="bg-white/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl shadow-xl border border-white/40 py-2 min-w-64">
+                <div className="bg-white rounded-lg shadow-xl border border-black/5 py-2 min-w-64">
                   {productLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -101,19 +101,19 @@ export default function Header() {
 
           <Divider />
 
-          <Link href="/contacts" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
-            Контакти
-          </Link>
-
-          <Divider />
-
           <Link href="/blog" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
             Блог
           </Link>
         </div>
 
         {/* Right side — CTA */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-2">
+          <Link
+            href="/sales"
+            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 border border-black/15 rounded hover:border-black/30 transition-all"
+          >
+            Відділ продажів
+          </Link>
           <a
             href="https://crm.justsolution.org/login"
             target="_blank"
@@ -126,7 +126,7 @@ export default function Header() {
             href="https://crm.justsolution.org/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] font-medium uppercase tracking-wide bg-[#1c1c1c] text-white px-4 py-1.5 rounded-full transition-colors hover:bg-[#333]"
+            className="font-mono text-[11px] font-medium uppercase tracking-wide bg-[#1c1c1c] text-white px-4 py-1.5 rounded transition-colors hover:bg-[#333]"
           >
             Почати безкоштовно
           </a>
@@ -150,7 +150,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden mx-4 mt-2 rounded-2xl bg-white/80 backdrop-blur-xl backdrop-saturate-150 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.08)] px-6 py-5 space-y-4">
+        <div className="lg:hidden bg-white border-t border-black/5 px-8 py-5 space-y-4">
           <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest">
             Продукт
           </p>
@@ -173,8 +173,8 @@ export default function Header() {
           </Link>
           <Link href="/enterprise" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Enterprise</Link>
           <Link href="/team" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Про нас</Link>
-          <Link href="/contacts" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Контакти</Link>
           <Link href="/blog" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Блог</Link>
+          <Link href="/sales" className="block text-sm py-0.5 font-medium" onClick={() => setMobileOpen(false)}>Відділ продажів</Link>
           <hr className="border-black/5" />
           <div className="flex gap-3 pt-1">
             <a href="https://crm.justsolution.org/login" target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] font-medium uppercase text-black/50">
