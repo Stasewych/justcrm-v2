@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 const items = [
-  { id: "problem", label: "Проблема" },
   { id: "feat-cases", label: "Справи" },
   { id: "feat-billing", label: "Білінг" },
   { id: "feat-tasks", label: "Задачі" },
@@ -25,13 +24,13 @@ export default function PageNav() {
   const [inFooter, setInFooter] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById("hero");
-    if (!hero) return;
+    const features = document.getElementById("features");
+    if (!features) return;
     const obs = new IntersectionObserver(
-      ([entry]) => setPastHero(!entry.isIntersecting),
-      { threshold: 0.3 }
+      ([entry]) => setPastHero(entry.isIntersecting),
+      { threshold: 0.01 }
     );
-    obs.observe(hero);
+    obs.observe(features);
     return () => obs.disconnect();
   }, []);
 
