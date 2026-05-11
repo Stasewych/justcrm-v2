@@ -16,7 +16,7 @@ const items = [
   { id: "faq", label: "FAQ" },
 ];
 
-const darkSections = new Set(["feat-cases", "feat-tasks", "feat-ai", "feat-docs"]);
+const darkSections = new Set<string>();
 
 export default function PageNav() {
   const [activeId, setActiveId] = useState("");

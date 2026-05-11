@@ -12,6 +12,7 @@ import Pricing from "@/components/Pricing";
 import Features from "@/components/Features";
 import MoreTools from "@/components/MoreTools";
 import PageNav from "@/components/PageNav";
+import ScrollButtons from "@/components/ScrollButtons";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -20,6 +21,7 @@ export default function Home() {
     <>
       <Header />
       <PageNav />
+      <ScrollButtons />
       <main className="flex-1">
         {/* Hero */}
         <section id="hero" className="relative bg-[#f4f4f4] overflow-hidden">
@@ -58,7 +60,7 @@ export default function Home() {
             </div>
 
             {/* Browser frame */}
-            <div className="mt-2 mx-auto max-w-5xl translate-y-16 lg:translate-y-20">
+            <div className="mt-2 mx-auto max-w-[1400px] translate-y-16 lg:translate-y-20">
               <BrowserFrame />
             </div>
           </div>
@@ -123,7 +125,7 @@ export default function Home() {
 
         {/* Problem section — Twenty-style */}
         <section id="problem" className="py-24 lg:py-32 bg-white">
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 lg:pl-48">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
             <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center">
               {/* Left — halftone image */}
               <div>
@@ -183,7 +185,7 @@ export default function Home() {
 
         {/* Final CTA */}
         <section className="py-24">
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 lg:pl-48 text-center">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 text-center">
             <h2 className="text-3xl lg:text-5xl font-light tracking-tight">
               Спробуйте JustCRM вже сьогодні
             </h2>
