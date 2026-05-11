@@ -77,14 +77,14 @@ export default function Pricing() {
 
   return (
     <section className="py-20 bg-white" id="pricing">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-16 lg:pl-48">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
             Тарифи
           </p>
           <h2 className="text-3xl lg:text-[40px] font-light tracking-tight">
-            Простий прайсинг{" "}
-            <strong className="font-medium">без сюрпризів</strong>
+            Прозорі{" "}
+            <strong className="font-medium">тарифні плани</strong>
           </h2>
           <p className="mt-4 text-black/40 text-sm">
             14 днів безкоштовно. Повний функціонал Pro AI без обмежень.
@@ -160,17 +160,19 @@ export default function Pricing() {
 
               <div className="mb-8">
                 {plan.featured ? (
-                  <Link
-                    href="/trial"
+                  <a
+                    href="https://crm.justsolution.org/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block text-center font-mono text-[12px] font-medium uppercase tracking-wide bg-white text-[#1c1c1c] px-6 py-2.5 transition-colors hover:bg-white/90"
                     style={{
                       clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
                     }}
                   >
                     {plan.cta}
-                  </Link>
+                  </a>
                 ) : (
-                  <Button href={plan.name === "Enterprise" ? "/contacts" : "/trial"} variant={plan.ctaVariant}>
+                  <Button href={plan.name === "Enterprise" ? "/contacts" : "https://crm.justsolution.org/register"} variant={plan.ctaVariant}>
                     {plan.cta}
                   </Button>
                 )}

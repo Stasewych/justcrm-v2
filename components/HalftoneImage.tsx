@@ -16,7 +16,7 @@ export default function HalftoneImage({ src }: { src?: string }) {
 
     const dpr = window.devicePixelRatio || 1;
     const W = 600;
-    const H = 500;
+    const H = 800;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -118,7 +118,7 @@ export default function HalftoneImage({ src }: { src?: string }) {
     <canvas
       ref={canvasRef}
       className="w-full h-auto rounded-lg cursor-default"
-      style={{ aspectRatio: "6/5" }}
+      style={{ aspectRatio: "3/4" }}
     />
   );
 }

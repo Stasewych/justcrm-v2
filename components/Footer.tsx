@@ -100,8 +100,8 @@ export default function Footer() {
                 </li>
               </ul>
               <div className="flex flex-col gap-2.5">
-                <Button href="/demo">Замовити демо</Button>
-                <Button href="/trial" variant="outline">
+                <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min">Замовити демо</Button>
+                <Button href="https://crm.justsolution.org/register" variant="outline">
                   Почати безкоштовно
                 </Button>
               </div>

@@ -75,7 +75,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQ() {
   return (
     <section className="py-20 bg-surface" id="faq">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-16 lg:pl-48">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
             Питання
