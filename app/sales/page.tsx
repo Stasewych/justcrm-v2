@@ -107,6 +107,7 @@ export default function SalesPage() {
                     frameBorder="0"
                     className="rounded-lg"
                     title="Заплануйте демо JustCRM"
+                    loading="eager"
                   />
                 </div>
 

@@ -30,6 +30,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {children}
