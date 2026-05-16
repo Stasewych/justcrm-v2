@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "./Button";
+import FloatingDots from "./FloatingDots";
 
 const plans = [
   {
@@ -69,7 +70,8 @@ function Check() {
 
 export default function Pricing() {
   return (
-    <section className="py-20 bg-white" id="pricing">
+    <section className="py-14 lg:py-20 bg-white relative overflow-hidden" id="pricing">
+      <FloatingDots count={50} />
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
@@ -85,89 +87,90 @@ export default function Pricing() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 items-start">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative border p-8 ${
-                plan.featured
-                  ? "border-[#1c1c1c] bg-[#1c1c1c] text-white"
-                  : "border-black/8 hover:border-black/15"
-              } transition-colors`}
-              style={{
-                clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)",
-              }}
-            >
-              {plan.badge && (
-                <span className="absolute top-4 right-6 font-mono text-[10px] uppercase tracking-wider text-white/50">
-                  {plan.badge}
-                </span>
-              )}
+          {plans.map((plan) => {
+            const clip = "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)";
+            const btnClip = "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)";
+            return (
+              <div
+                key={plan.name}
+                className={`p-px transition-colors ${plan.featured ? "bg-[#1c1c1c]" : "bg-black/10 hover:bg-black/20"}`}
+                style={{ clipPath: clip }}
+              >
+                <div
+                  className={`relative p-8 ${plan.featured ? "bg-[#1c1c1c] text-white" : "bg-white"}`}
+                  style={{ clipPath: clip }}
+                >
+                  {plan.badge && (
+                    <span className="absolute top-4 right-6 font-mono text-[10px] uppercase tracking-wider text-white/50">
+                      {plan.badge}
+                    </span>
+                  )}
 
-              <div className="font-mono text-[11px] font-medium uppercase tracking-wide opacity-50 mb-1">
-                {plan.name}
-              </div>
-              <p className={`text-sm mb-6 ${plan.featured ? "text-white/50" : "text-black/40"}`}>
-                {plan.desc}
-              </p>
+                  <div className="font-mono text-[11px] font-medium uppercase tracking-wide opacity-50 mb-1">
+                    {plan.name}
+                  </div>
+                  <p className={`text-sm mb-6 ${plan.featured ? "text-white/50" : "text-black/40"}`}>
+                    {plan.desc}
+                  </p>
 
-              {plan.custom ? (
-                <div className="mb-1">
-                  <span className="text-2xl font-light">Обговоримо</span>
+                  {plan.custom ? (
+                    <div className="mb-1">
+                      <span className="text-2xl font-light">Обговоримо</span>
+                    </div>
+                  ) : (
+                    <div className="mb-1">
+                      <span className="text-4xl font-light tracking-tight">
+                        {plan.price}
+                      </span>
+                      <span className={`text-lg ml-1 ${plan.featured ? "text-white/50" : "text-black/40"}`}>
+                        ₴
+                      </span>
+                    </div>
+                  )}
+                  <p className={`text-xs mb-8 ${plan.featured ? "text-white/40" : "text-black/30"}`}>
+                    {plan.period}
+                  </p>
+
+                  <div className="mb-8">
+                    {plan.featured ? (
+                      <a
+                        href="https://crm.justsolution.org/register"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-center font-mono text-[12px] font-medium uppercase tracking-wide bg-white text-[#1c1c1c] px-6 py-2.5 transition-colors hover:bg-white/90"
+                        style={{ clipPath: btnClip }}
+                      >
+                        {plan.cta}
+                      </a>
+                    ) : (
+                      <Button href={plan.name === "Enterprise" ? "/contacts" : "https://crm.justsolution.org/register"} variant={plan.ctaVariant}>
+                        {plan.cta}
+                      </Button>
+                    )}
+                  </div>
+
+                  <div className={`border-t pt-6 ${plan.featured ? "border-white/10" : "border-black/8"}`}>
+                    <p className={`font-mono text-[10px] uppercase tracking-wider mb-4 ${plan.featured ? "text-white/30" : "text-black/25"}`}>
+                      {plan.featuresTitle}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {plan.features.map((f) => (
+                        <li
+                          key={f}
+                          className={`flex items-start gap-2.5 text-sm ${plan.featured ? "text-white/70" : "text-black/50"}`}
+                        >
+                          <Check />
+                          <span dangerouslySetInnerHTML={{
+                            __html: f.replace(/\*\*(.*?)\*\*/g, `<strong class="${plan.featured ? "text-white" : "text-black/80"}">$1</strong>`)
+                          }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              ) : (
-                <div className="mb-1">
-                  <span className="text-4xl font-light tracking-tight">
-                    {plan.price}
-                  </span>
-                  <span className={`text-lg ml-1 ${plan.featured ? "text-white/50" : "text-black/40"}`}>
-                    ₴
-                  </span>
-                </div>
-              )}
-              <p className={`text-xs mb-8 ${plan.featured ? "text-white/40" : "text-black/30"}`}>
-                {plan.period}
-              </p>
-
-              <div className="mb-8">
-                {plan.featured ? (
-                  <a
-                    href="https://crm.justsolution.org/register"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center font-mono text-[12px] font-medium uppercase tracking-wide bg-white text-[#1c1c1c] px-6 py-2.5 transition-colors hover:bg-white/90"
-                    style={{
-                      clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
-                    }}
-                  >
-                    {plan.cta}
-                  </a>
-                ) : (
-                  <Button href={plan.name === "Enterprise" ? "/contacts" : "https://crm.justsolution.org/register"} variant={plan.ctaVariant}>
-                    {plan.cta}
-                  </Button>
-                )}
               </div>
-
-              <div className={`border-t pt-6 ${plan.featured ? "border-white/10" : "border-black/8"}`}>
-                <p className={`font-mono text-[10px] uppercase tracking-wider mb-4 ${plan.featured ? "text-white/30" : "text-black/25"}`}>
-                  {plan.featuresTitle}
-                </p>
-                <ul className="space-y-2.5">
-                  {plan.features.map((f) => (
-                    <li
-                      key={f}
-                      className={`flex items-start gap-2.5 text-sm ${plan.featured ? "text-white/70" : "text-black/50"}`}
-                    >
-                      <Check />
-                      <span dangerouslySetInnerHTML={{
-                        __html: f.replace(/\*\*(.*?)\*\*/g, `<strong class="${plan.featured ? "text-white" : "text-black/80"}">$1</strong>`)
-                      }} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-8">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./Button";
 
 const faqs = [
   {
@@ -74,7 +75,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section className="py-20 bg-surface" id="faq">
+    <section className="py-14 lg:py-20 bg-surface bg-dot-grid" id="faq">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
@@ -93,6 +94,21 @@ export default function FAQ() {
           {faqs.map((faq) => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-20 pt-16 border-t border-black/8">
+          <h2 className="text-3xl lg:text-5xl font-light tracking-tight">
+            Спробуйте JustCRM вже сьогодні
+          </h2>
+          <p className="mt-5 text-black/50 max-w-lg mx-auto text-lg">
+            Виведіть управління вашою юридичною практикою на новий рівень.
+            Розпочніть із безкоштовної 14-денної версії.
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-3">
+            <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
+            <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
+          </div>
         </div>
       </div>
     </section>

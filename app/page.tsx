@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BrowserFrame from "@/components/BrowserFrame";
 import HeroDots from "@/components/HeroDots";
+import GuideLines from "@/components/GuideLines";
+import FloatingDots from "@/components/FloatingDots";
 import Button from "@/components/Button";
 import Marquee from "@/components/Marquee";
 import HalftoneImage from "@/components/HalftoneImage";
@@ -11,7 +13,6 @@ import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
 import Features from "@/components/Features";
 import MoreTools from "@/components/MoreTools";
-import PageNav from "@/components/PageNav";
 import ScrollButtons from "@/components/ScrollButtons";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -20,9 +21,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <PageNav />
-      <ScrollButtons />
-      <main className="flex-1">
+      <GuideLines />
+      <main className="flex-1 relative z-[1]">
         {/* Hero */}
         <section id="hero" className="relative bg-[#f4f4f4] overflow-hidden">
           <HeroDots />
@@ -70,7 +70,8 @@ export default function Home() {
         <div className="h-16 lg:h-20 bg-white" />
 
         {/* Clients */}
-        <section className="py-10 bg-white border-t border-black/5">
+        <section className="py-10 bg-white border-t border-black/5 relative overflow-hidden">
+          <FloatingDots count={20} />
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
             <p className="text-center font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
               Компанії, які вже працюють з нами
@@ -90,7 +91,8 @@ export default function Home() {
         </section>
 
         {/* Awards */}
-        <section className="py-10 bg-white border-t border-black/5">
+        <section className="py-10 bg-white border-t border-black/5 relative overflow-hidden">
+          <FloatingDots count={20} />
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
             <p className="text-center font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
               Нагороди та визнання
@@ -124,7 +126,8 @@ export default function Home() {
         </section>
 
         {/* Problem section — Twenty-style */}
-        <section id="problem" className="py-24 lg:py-32 bg-white">
+        <section id="problem" className="py-16 lg:py-20 bg-white relative overflow-hidden">
+          <FloatingDots count={25} />
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
             <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center">
               {/* Left — halftone image */}
@@ -182,23 +185,6 @@ export default function Home() {
         <Pricing />
 
         <FAQ />
-
-        {/* Final CTA */}
-        <section className="py-24">
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 text-center">
-            <h2 className="text-3xl lg:text-5xl font-light tracking-tight">
-              Спробуйте JustCRM вже сьогодні
-            </h2>
-            <p className="mt-5 text-black/50 max-w-lg mx-auto text-lg">
-              Виведіть управління вашою юридичною практикою на новий рівень.
-              Розпочніть із безкоштовної 14-денної версії.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-3">
-              <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
-              <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
