@@ -7,27 +7,29 @@ const columns = [
   {
     title: "Продукт",
     links: [
-      { href: "/product/cases", label: "Справи" },
-      { href: "/product/billing", label: "Білінг" },
-      { href: "/product/tasks", label: "Задачі" },
-      { href: "/product/contacts", label: "Контакти" },
-      { href: "/product/documents", label: "Документи" },
+      { href: "/#features", label: "Справи" },
+      { href: "/#features", label: "Білінг & час" },
+      { href: "/#features", label: "Задачі" },
+      { href: "/#features", label: "Клієнти" },
+      { href: "/#features", label: "AI" },
+      { href: "/#features", label: "Конструктор таблиць" },
+      { href: "/#features", label: "Документи" },
     ],
   },
   {
     title: "Ресурси",
     links: [
       { href: "/pricing", label: "Тарифи" },
-      { href: "/security", label: "Безпека" },
+      { href: "/#security", label: "Безпека" },
       { href: "/blog", label: "Блог" },
-      { href: "/changelog", label: "Release Notes" },
     ],
   },
   {
     title: "Правове",
     links: [
-      { href: "/legal/privacy", label: "Конфіденційність" },
-      { href: "/legal/terms", label: "Умови використання" },
+      { href: "/privacy", label: "Конфіденційність" },
+      { href: "/terms", label: "Правила користування" },
+      { href: "/offer", label: "Публічна оферта" },
     ],
   },
 ];
@@ -60,7 +62,7 @@ export default function Footer() {
                 </div>
                 <ul className="space-y-2.5">
                   {col.links.map((link) => (
-                    <li key={link.href}>
+                    <li key={link.label}>
                       <Link
                         href={link.href}
                         className="text-[15px] text-black/45 hover:text-black transition-colors"

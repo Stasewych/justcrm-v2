@@ -4,11 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 
 const productLinks = [
-  { href: "/product/cases", label: "Управління справами", hint: "Kanban, етапи, клієнти" },
-  { href: "/product/billing", label: "Білінг і час", hint: "Таймер, інвойси, звіти" },
-  { href: "/product/tasks", label: "Задачі", hint: "Kanban, список, календар" },
-  { href: "/product/contacts", label: "Контакти", hint: "Клієнти, email-інтеграція" },
-  { href: "/product/documents", label: "Документи", hint: "Шаблони, mail-merge" },
+  { href: "/#features", label: "Справи", hint: "Картка справи об'єднує документи, задачі, контакти та фінанси. Kanban, список або таблиця — на вибір команди.", icon: "M3 7h18M3 12h18M3 17h18" },
+  { href: "/#features", label: "Білінг & час", hint: "Таймер або календар для обліку часу. Рахунки в гривнях, євро чи доларах з індивідуальною ставкою.", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+  { href: "/#features", label: "Задачі", hint: "Kanban-дошка, список, таблиця або календар. Дедлайни з автоматичними сповіщеннями.", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { href: "/#features", label: "Клієнти", hint: "Досьє фізичних та юридичних осіб. Воронка лідів від звернення до підписання договору.", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+  { href: "/#features", label: "AI-помічник", hint: "База знань фірми, майстер шаблонів, голосове введення та покращення тексту.", icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" },
+  { href: "/#features", label: "Конструктор таблиць", hint: "Власні реєстри, журнали та трекери з довільною структурою полів.", icon: "M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" },
+  { href: "/#features", label: "Документи", hint: "Файли в контексті справи, шаблони з AI та захищене хмарне сховище з шифруванням.", icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" },
 ];
 
 const companyLinks = [
@@ -51,22 +53,89 @@ export default function Header() {
               </svg>
             </button>
             {productOpen && (
-              <div className="absolute top-full left-0 pt-1">
-                <div className="bg-white rounded-lg shadow-xl border border-black/5 py-2 min-w-64">
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2.5 hover:bg-black/[0.03] transition-colors"
-                    >
-                      <span className="text-sm font-medium text-black/80">
-                        {link.label}
-                      </span>
-                      <span className="block text-xs text-black/35 mt-0.5">
-                        {link.hint}
-                      </span>
-                    </Link>
-                  ))}
+              <div className="fixed left-0 right-0 top-14 z-50">
+                <div className="bg-white border-b border-black/8 shadow-lg shadow-black/5">
+                  <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-8 grid grid-cols-[1fr_1fr_280px] gap-x-10">
+                    {/* Left — features col 1 */}
+                    <div>
+                      <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-5">
+                        Основні можливості
+                      </p>
+                      <div className="space-y-1">
+                        {productLinks.slice(0, 4).map((link) => (
+                          <Link
+                            key={link.label}
+                            href={link.href}
+                            className="flex gap-3.5 p-2.5 -mx-2.5 rounded-lg hover:bg-black/[0.03] transition-colors group"
+                          >
+                            <svg className="w-5 h-5 text-black/30 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d={link.icon} />
+                            </svg>
+                            <div>
+                              <span className="text-[14px] font-semibold text-black/80 block">{link.label}</span>
+                              <span className="text-[12px] text-black/35 leading-relaxed block mt-0.5">{link.hint}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Center — features col 2 */}
+                    <div>
+                      <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-5">
+                        &nbsp;
+                      </p>
+                      <div className="space-y-1">
+                        {productLinks.slice(4).map((link) => (
+                          <Link
+                            key={link.label}
+                            href={link.href}
+                            className="flex gap-3.5 p-2.5 -mx-2.5 rounded-lg hover:bg-black/[0.03] transition-colors group"
+                          >
+                            <svg className="w-5 h-5 text-black/30 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d={link.icon} />
+                            </svg>
+                            <div>
+                              <span className="text-[14px] font-semibold text-black/80 block">{link.label}</span>
+                              <span className="text-[12px] text-black/35 leading-relaxed block mt-0.5">{link.hint}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Right — plans */}
+                    <div className="border-l border-black/6 pl-8">
+                      <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-5">
+                        Тарифні плани
+                      </p>
+                      <div className="space-y-4">
+                        <Link href="/pricing" className="block group">
+                          <span className="text-[14px] font-semibold text-black/80 group-hover:text-black transition-colors">Classic</span>
+                          <span className="block text-[12px] text-black/35 mt-0.5">Для фірм, що переходять з Excel</span>
+                        </Link>
+                        <Link href="/pricing" className="block group">
+                          <span className="text-[14px] font-semibold text-black/80 group-hover:text-black transition-colors">Pro AI</span>
+                          <span className="block text-[12px] text-black/35 mt-0.5">Повний набір інструментів + AI</span>
+                        </Link>
+                        <Link href="/pricing" className="block group">
+                          <span className="text-[14px] font-semibold text-black/80 group-hover:text-black transition-colors">Enterprise</span>
+                          <span className="block text-[12px] text-black/35 mt-0.5">Self-hosted, кастомізація, SLA</span>
+                        </Link>
+                      </div>
+                      <div className="mt-6 pt-5 border-t border-black/6">
+                        <Link
+                          href="/sales"
+                          className="text-[13px] font-medium text-black/50 hover:text-black transition-colors inline-flex items-center gap-1.5"
+                        >
+                          Зв&apos;язатися з відділом продажів
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -85,12 +154,6 @@ export default function Header() {
 
           <Link href="/#security" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
             Безпека
-          </Link>
-
-          <Divider />
-
-          <Link href="/enterprise" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
-            Enterprise
           </Link>
 
           <Divider />
@@ -171,7 +234,6 @@ export default function Header() {
           <Link href="/#security" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>
             Безпека
           </Link>
-          <Link href="/enterprise" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Enterprise</Link>
           <Link href="/team" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Про нас</Link>
           <Link href="/blog" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Блог</Link>
           <Link href="/sales" className="block text-sm py-0.5 font-medium" onClick={() => setMobileOpen(false)}>Відділ продажів</Link>

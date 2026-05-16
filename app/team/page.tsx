@@ -1,0 +1,143 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import GuideLines from "@/components/GuideLines";
+import FloatingDots from "@/components/FloatingDots";
+
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+const team = [
+  {
+    name: "Тарас Зубачик",
+    role: "Chief of Business Development & Product, Co-founder",
+    photo: "/images/team-taras.jpg",
+    linkedin: "https://www.linkedin.com/in/taras-zubachyk/",
+    email: "taras.zubachyk@justsolution.org",
+    bio: "Юрист за освітою, спеціалізується на міжнародному бізнес-розвитку. Відповідає за роботу з юридичними компаніями, партнерства та комерційну стратегію JustCRM. Паралельно — Head of New Markets Development у PRANA, де протягом трьох років пройшов шлях до керівника напрямку міжнародних продажів. Має практичний досвід у провідних юридичних фірмах України — Everlegal та AEQUO. Поєднує юридичне мислення з розумінням технологічного бізнесу.",
+  },
+  {
+    name: "Станіслав Маринович",
+    role: "Chief of Marketing & Project, Co-founder",
+    photo: "/images/team-stanislav.jpg",
+    linkedin: "https://www.linkedin.com/in/stanislav-marynovych/",
+    email: "stanislav.marynovych@justsolution.org",
+    bio: "Побудував JustCRM від першого customer discovery до робочого продукту з AI-функціями. Відповідає за продуктову стратегію, розвиток бізнесу та роботу з юридичними фірмами. До Just Solution керував клієнтськими проєктами в Norml Studio (US-based digital agency; клієнти — AstraZeneca, Nasdaq), займався операційним управлінням та бізнес-розвитком у Flintec (дистриб’юція промислового обладнання з Німеччини), консультував 50+ виробників з експортної стратегії в Smart Export. Запустив кілька продуктів від нуля до перших користувачів — у сферах нетворкінгу, IoT, e-commerce та нерухомості.",
+  },
+  {
+    name: "Мар’ян Петлований",
+    role: "AI/ML Engineer & Co-founder",
+    photo: "/images/team-marian.jpg",
+    linkedin: "https://www.linkedin.com/in/marian-petlovanyi/",
+    email: "marian.petlovanyi@justsolution.org",
+    bio: "Відповідає за AI-інфраструктуру JustCRM — RAG-пошук по базі знань фірми, голосове введення через Whisper, генерацію документів та AI-помічника. Data Scientist із досвідом у LLM serving, синтетичних даних, навчанні та fine-tuning моделей. Працює з Python, TensorFlow, PyTorch. Спроєктував архітектуру векторного пошуку по внутрішніх документах юридичної фірми — від розбиття тексту на фрагменти до семантичного пошуку через Qdrant. Реалізував систему AI-інструментів, яка дозволяє помічнику звертатися до CRM-даних у реальному часі — контакти, справи, документи. Випускник UCU та Львівської Політехніки з фокусом на машинному навчанні та аналізі даних.",
+  },
+  {
+    name: "Микола Ковалик",
+    role: "CTO & Co-founder",
+    photo: "/images/team-mykola.jpg",
+    linkedin: "https://www.linkedin.com/in/mykola-kovalyk/",
+    email: "mykola.kovalyk@justsolution.org",
+    bio: "Проєктує серверну архітектуру, API та інфраструктуру JustCRM — від бази даних PostgreSQL і файлового сховища MinIO до OAuth-інтеграцій з Google Workspace та Microsoft 365. Інженер із 7 роками досвіду в системному програмуванні — C, Python, Linux. Працює в Ajax Systems, де поглибив експертизу в POSIX-системах, мережевій ізоляції, потоковій безпеці та production-grade інженерії. Відповідає за multi-tenant ізоляцію даних, rate-limiting, JWT-автентифікацію та шифрування у JustCRM. Досвід у full-stack розробці (React, Spring, Flask), machine learning та IoT. Засновник GenLint — платформи для автоматичного аудиту технічної документації. Випускник Львівської Політехніки за спеціальністю Computer Engineering — IoT.",
+  },
+];
+
+function LinkedInIcon() {
+  return (
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
+
+export default function TeamPage() {
+  return (
+    <>
+      <Header />
+      <GuideLines />
+      <main className="flex-1 relative z-[1]">
+        {/* Hero */}
+        <section className="pt-28 pb-14 bg-white relative overflow-hidden">
+          <FloatingDots count={25} />
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10">
+            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
+              Команда
+            </p>
+            <h1 className="text-4xl lg:text-[52px] font-bold leading-[1.1] tracking-tight mb-5 max-w-3xl">
+              Команда JustCRM
+            </h1>
+            <p className="text-lg text-black/45 max-w-4xl leading-relaxed">
+              Ми розуміємо юридичну практику зсередини — і будуємо інструменти,
+              яких їй не вистачає.
+            </p>
+          </div>
+        </section>
+
+        {/* Team — full-width horizontal cards */}
+        <section className="pb-20 bg-white">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+            {team.map((member, i) => (
+              <div
+                key={member.name}
+                className={`grid lg:grid-cols-[320px_1fr] gap-10 lg:gap-16 py-14 ${
+                  i > 0 ? "border-t border-black/6" : ""
+                }`}
+              >
+                {/* Photo */}
+                <div>
+                  <div className="w-full aspect-[4/5] rounded-xl bg-[#f0f0ee] overflow-hidden">
+                    <img
+                      src={`${bp}${member.photo}`}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="flex flex-col justify-center">
+                  <h2 className="text-2xl lg:text-[32px] font-bold tracking-tight mb-2">
+                    {member.name}
+                  </h2>
+                  <p className="text-[15px] text-black/35 mb-6">
+                    {member.role}
+                  </p>
+                  <p className="text-[16px] leading-[1.8] text-black/50 mb-8 max-w-4xl">
+                    {member.bio}
+                  </p>
+                  <div className="flex items-center gap-5">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[13px] text-black/30 hover:text-black/60 transition-colors"
+                    >
+                      <LinkedInIcon />
+                      LinkedIn
+                    </a>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="inline-flex items-center gap-2 text-[13px] text-black/30 hover:text-black/60 transition-colors"
+                    >
+                      <MailIcon />
+                      {member.email}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>
+  );
+}

@@ -8,8 +8,8 @@ export default function SalesPage() {
       <Header />
       <main className="flex-1">
         <section className="pt-28 pb-20 bg-white">
-          <div className="max-w-[1200px] mx-auto px-8 lg:px-16">
-            <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+            <div className="grid lg:grid-cols-[2fr_3fr] gap-16 lg:gap-20">
 
               {/* Left — info */}
               <div>
@@ -98,7 +98,7 @@ export default function SalesPage() {
                 <div className="bg-[#fafafa] border border-black/5 rounded-xl p-8 mb-8">
                   <h2 className="text-lg font-semibold mb-2">Заплануйте зустріч</h2>
                   <p className="text-sm text-black/40 mb-6">
-                    30-хвилинна індивідуальна демонстрація. Без зобов'язань.
+                    Годинна індивідуальна демонстрація.
                   </p>
                   <iframe
                     src="https://calendly.com/stanislav-marynovych-justsolution/30min?hide_gdpr_banner=1&background_color=fafafa&text_color=1c1c1c&primary_color=1c1c1c"

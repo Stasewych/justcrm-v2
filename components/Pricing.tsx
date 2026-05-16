@@ -68,10 +68,10 @@ function Check() {
   );
 }
 
-export default function Pricing() {
+export default function Pricing({ transparent }: { transparent?: boolean }) {
   return (
-    <section className="py-14 lg:py-20 bg-white relative overflow-hidden" id="pricing">
-      <FloatingDots count={50} />
+    <section className={`py-14 lg:py-20 relative overflow-hidden ${transparent ? "" : "bg-white"}`} id="pricing">
+      {!transparent && <FloatingDots count={50} />}
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
@@ -82,7 +82,7 @@ export default function Pricing() {
             <strong className="font-medium">тарифні плани</strong>
           </h2>
           <p className="mt-4 text-black/40 text-sm">
-            14 днів безкоштовно. Повний функціонал Pro AI без обмежень.
+            14 днів безкоштовно з повним функціоналом Pro AI.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ export default function Pricing() {
 
         <div className="text-center mt-8">
           <Link
-            href="/compare"
+            href="/pricing"
             className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/35 hover:text-black/60 transition-colors inline-flex items-center gap-1.5"
           >
             Порівняти всі тарифи детально

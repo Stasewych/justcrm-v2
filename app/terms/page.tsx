@@ -11,7 +11,7 @@ export default function TermsPage() {
         використання вами хмарного сервісу JustCRM (далі —
         &laquo;Сервіс&raquo;), розміщеного за адресою{" "}
         <a href="https://crm.justsolution.org">https://crm.justsolution.org</a>,
-        власником якого є ТОВ &laquo;Just Solution&raquo; (далі —
+        власником якого є ФОП Маринович Станіслав Степанович (далі —
         &laquo;Провайдер&raquo;, &laquo;ми&raquo;).
       </p>
       <p>
@@ -31,8 +31,8 @@ export default function TermsPage() {
         AI-помічник, інтеграції).
       </p>
       <p>
-        <strong>Провайдер</strong> — Товариство з обмеженою відповідальністю
-        &laquo;Just Solution&raquo;, власник та оператор Сервісу.
+        <strong>Провайдер</strong> — Фізична особа — підприємець Маринович
+        Станіслав Степанович, власник та оператор Сервісу.
       </p>
       <p>
         <strong>Користувач</strong> — фізична особа, що зареєструвалася у
@@ -494,9 +494,9 @@ export default function TermsPage() {
         українська версія.
       </p>
       <p>
-        <strong>14.6.</strong> Контакти Провайдера. Товариство з обмеженою
-        відповідальністю &laquo;Just Solution&raquo;, ЄДРПОУ: __________,
-        юридична адреса: __________, Email:{" "}
+        <strong>14.6.</strong> Контакти Провайдера. Фізична особа — підприємець
+        Маринович Станіслав Степанович, ІПН: 3804905572, адреса: 79053,
+        Львівська обл., м. Львів, вул. Перфецького, буд. 5, кв. 11. Email:{" "}
         <a href="mailto:stanislav.marynovych@justsolution.org">stanislav.marynovych@justsolution.org</a>,
         сайт:{" "}
         <a href="https://crm.justsolution.org">https://crm.justsolution.org</a>.

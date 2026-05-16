@@ -73,9 +73,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-export default function FAQ() {
+export default function FAQ({ transparent }: { transparent?: boolean }) {
   return (
-    <section className="py-14 lg:py-20 bg-surface bg-dot-grid" id="faq">
+    <section className={`py-14 lg:py-20 ${transparent ? "" : "bg-surface bg-dot-grid"}`} id="faq">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
         <div className="text-center mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
@@ -97,7 +97,7 @@ export default function FAQ() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-20 pt-16 border-t border-black/8">
+        <div className="text-center mt-20 pt-16">
           <h2 className="text-3xl lg:text-5xl font-light tracking-tight">
             Спробуйте JustCRM вже сьогодні
           </h2>

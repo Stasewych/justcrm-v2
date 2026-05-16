@@ -124,9 +124,9 @@ function CellValue({ value, featured }: { value: Cell; featured?: boolean }) {
   return <span className={`block text-center text-[13px] ${featured ? "font-medium text-black/70" : "text-black/45"}`}>{value}</span>;
 }
 
-export default function PricingCompare() {
+export default function PricingCompare({ transparent }: { transparent?: boolean }) {
   return (
-    <section className="py-20 bg-[#fafafa]" id="compare">
+    <section className={`py-20 ${transparent ? "" : "bg-[#fafafa] bg-cross-grid"}`} id="compare">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-14">
           <h2 className="text-2xl lg:text-3xl font-bold tracking-tight mb-3">
