@@ -14,6 +14,7 @@ import Pricing from "@/components/Pricing";
 import Features from "@/components/Features";
 import MoreTools from "@/components/MoreTools";
 import ScrollButtons from "@/components/ScrollButtons";
+import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -182,6 +183,8 @@ export default function Home() {
         <Features />
 
         <MoreTools />
+
+        <Integrations />
 
         <SecurityCards />
 
