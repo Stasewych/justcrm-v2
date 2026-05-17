@@ -7,13 +7,13 @@ const columns = [
   {
     title: "Продукт",
     links: [
-      { href: "/#features", label: "Справи" },
-      { href: "/#features", label: "Білінг & час" },
-      { href: "/#features", label: "Задачі" },
-      { href: "/#features", label: "Клієнти" },
-      { href: "/#features", label: "AI" },
-      { href: "/#features", label: "Конструктор таблиць" },
-      { href: "/#features", label: "Документи" },
+      { href: "/product/cases", label: "Справи" },
+      { href: "/product/billing", label: "Білінг & час" },
+      { href: "/product/tasks", label: "Задачі" },
+      { href: "/product/clients", label: "Клієнти" },
+      { href: "/product/ai", label: "AI" },
+      { href: "/product/tables", label: "Конструктор таблиць" },
+      { href: "/product/documents", label: "Документи" },
     ],
   },
   {
