@@ -182,9 +182,9 @@ export default function Home() {
 
         <Features />
 
-        <MoreTools />
-
         <Integrations />
+
+        <MoreTools />
 
         <SecurityCards />
 

@@ -10,22 +10,44 @@ interface SubFeature {
   tag: string;
   title: string;
   desc: string;
-  image: string;
-  points: { title: string; desc: string }[];
+  image?: string;
+  points: { title: string; desc: string; icon: string }[];
 }
 
 interface FeaturePageProps {
   tag: string;
   title: string;
   subtitle: string;
-  heroImage: string;
-  overviewTitle: string;
-  overviewDesc: string;
-  cards: { title: string; desc: string }[];
+  heroImage?: string;
   sections: SubFeature[];
 }
 
-function AppWindow({ image, label }: { image: string; label: string }) {
+function MacBookMockup({ image, label }: { image?: string; label: string }) {
+  return (
+    <div className="relative w-full" style={{ aspectRatio: "4096 / 2731" }}>
+      <img
+        src={`${bp}/images/macbook-mockup.png`}
+        alt=""
+        className="absolute inset-0 w-full h-full pointer-events-none select-none"
+      />
+      {image && (
+        <img
+          src={`${bp}${image}`}
+          alt={label}
+          className="absolute object-cover"
+          style={{
+            left: "25.29%",
+            top: "23.76%",
+            width: "50.46%",
+            height: "47.57%",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+function MacPlaceholder({ label }: { label: string }) {
   return (
     <div className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-2xl shadow-black/10">
       <div className="flex items-center h-9 px-4 bg-[#f6f6f6] border-b border-black/5">
@@ -39,74 +61,49 @@ function AppWindow({ image, label }: { image: string; label: string }) {
         </div>
         <div className="w-[52px]" />
       </div>
-      <img src={`${bp}${image}`} alt={label} className="w-full h-auto" />
+      <div className="bg-[#ededed] aspect-[16/11]" />
     </div>
   );
 }
 
-export default function FeaturePage({ tag, title, subtitle, heroImage, overviewTitle, overviewDesc, cards, sections }: FeaturePageProps) {
+export default function FeaturePage({ tag, title, subtitle, heroImage, sections }: FeaturePageProps) {
   return (
     <>
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">
         {/* Hero */}
-        <section className="pt-28 pb-20 bg-[#f4f4f4] relative overflow-hidden">
+        <section className="pt-10 lg:pt-12 pb-20 bg-[#f4f4f4] relative overflow-hidden">
           <FloatingDots count={30} />
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10 text-center">
+            <div className="max-w-[1000px] mx-auto mb-10 lg:mb-14">
+              <MacBookMockup image={heroImage} label={tag} />
+            </div>
             <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
               {tag}
             </p>
-            <h1 className="text-4xl lg:text-[52px] font-bold leading-[1.08] tracking-tight mb-5 max-w-3xl mx-auto">
+            <h1 className="text-2xl lg:text-[34px] font-bold leading-[1.2] tracking-tight mb-4 max-w-2xl mx-auto">
               {title}
             </h1>
-            <p className="text-lg text-black/50 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-base lg:text-[15px] text-black/50 max-w-xl mx-auto leading-relaxed mb-8">
               {subtitle}
             </p>
-            <div className="flex items-center justify-center gap-3 mb-14">
+            <div className="flex items-center justify-center gap-3">
               <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
               <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
             </div>
-            <div className="max-w-[1100px] mx-auto">
-              <AppWindow image={heroImage} label={tag} />
-            </div>
           </div>
         </section>
 
-        {/* Overview cards */}
-        <section className="py-16 lg:py-20 bg-white">
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
-              Головні інструменти
-            </p>
-            <h2 className="text-2xl lg:text-[36px] font-bold leading-[1.15] tracking-tight mb-3 max-w-3xl">
-              {overviewTitle}
-            </h2>
-            <p className="text-[15px] text-black/45 leading-relaxed max-w-3xl mb-12">
-              {overviewDesc}
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {cards.map((card, i) => (
-                <div
-                  key={i}
-                  className="border border-black/6 rounded-xl p-6 hover:border-black/12 transition-colors"
-                >
-                  <h3 className="text-[15px] font-semibold mb-2">{card.title}</h3>
-                  <p className="text-[13px] text-black/40 leading-relaxed">{card.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Detail sections — alternating */}
+        {/* Subfeature sections — alternating */}
         {sections.map((sec, i) => (
           <section
             key={i}
-            className={`py-16 lg:py-24 ${i % 2 === 0 ? "bg-white" : "bg-[#fafafa] bg-dot-grid"}`}
+            className={`py-16 lg:py-24 relative overflow-hidden ${i % 2 === 0 ? "bg-white" : "bg-[#fafafa] bg-dot-grid"}`}
           >
-            <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-              <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
+            <FloatingDots count={25} />
+            <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10">
+              <div className={`grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-center ${
                 i % 2 === 1 ? "lg:[direction:rtl] lg:[&>*]:[direction:ltr]" : ""
               }`}>
                 {/* Text */}
@@ -120,9 +117,22 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, overviewT
                   <p className="text-[15px] text-black/45 leading-relaxed mb-8">
                     {sec.desc}
                   </p>
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
                     {sec.points.map((pt, j) => (
                       <div key={j}>
+                        <div className="w-10 h-10 rounded-lg bg-black/[0.04] flex items-center justify-center mb-3 text-black/55">
+                          <svg
+                            className="w-5 h-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d={pt.icon} />
+                          </svg>
+                        </div>
                         <h4 className="text-[14px] font-semibold mb-1.5">{pt.title}</h4>
                         <p className="text-[13px] text-black/40 leading-relaxed">{pt.desc}</p>
                       </div>
@@ -130,9 +140,9 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, overviewT
                   </div>
                 </div>
 
-                {/* Screenshot */}
+                {/* Banner */}
                 <div>
-                  <AppWindow image={sec.image} label={sec.title} />
+                  <MacPlaceholder label={sec.tag} />
                 </div>
               </div>
             </div>
