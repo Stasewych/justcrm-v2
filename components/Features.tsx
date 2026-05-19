@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import FloatingDots from "./FloatingDots";
+import Button from "./Button";
 
 const bp = typeof process !== "undefined" ? (process.env.NEXT_PUBLIC_BASE_PATH || "") : "";
 
@@ -74,8 +74,11 @@ const sections = [
 
 function AppWindow({ label, image }: { label: string; image: string }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-2xl shadow-black/10">
-      <div className="flex items-center h-9 px-4 bg-[#f6f6f6] border-b border-black/5">
+    <div
+      className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-2xl shadow-black/10 flex flex-col"
+      style={{ aspectRatio: "16 / 9" }}
+    >
+      <div className="flex items-center h-9 px-4 bg-[#f6f6f6] border-b border-black/5 shrink-0">
         <div className="flex items-center gap-[6px]">
           <div className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]" />
           <div className="w-[10px] h-[10px] rounded-full bg-[#febc2e]" />
@@ -86,7 +89,11 @@ function AppWindow({ label, image }: { label: string; image: string }) {
         </div>
         <div className="w-[52px]" />
       </div>
-      <img src={`${bp}${image}`} alt={`JustCRM — ${label}`} className="w-full h-auto" />
+      <div className="flex-1 w-full bg-[#ededed] overflow-hidden">
+        {image ? (
+          <img src={`${bp}${image}`} alt={`JustCRM — ${label}`} className="w-full h-full object-cover" />
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -100,36 +107,52 @@ export default function Features() {
       <FloatingDots count={30} />
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16 relative z-10">
 
-        <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
-          {s.nav}
-        </p>
-        <h2 className="text-2xl lg:text-[36px] font-bold leading-[1.15] tracking-tight mb-3">
-          {s.title}
-        </h2>
-        <p className="text-[15px] text-black/45 leading-relaxed mb-10">
-          {s.desc}
-        </p>
+        {/* Headline group: keyed by active id so fadeIn re-plays on switch */}
+        <div key={`head-${s.id}`} className="animate-[fadeIn_0.35s_ease-out]">
+          <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
+            {s.nav}
+          </p>
+          <h2 className="text-2xl lg:text-[36px] font-bold leading-[1.15] tracking-tight mb-3">
+            {s.title}
+          </h2>
+          <p className="text-[15px] text-black/45 leading-relaxed mb-6">
+            {s.desc}
+          </p>
 
-        {/* Two-column: accordion left, screenshot right */}
-        <div className="grid lg:grid-cols-[340px_1fr] gap-8 lg:gap-12 items-start">
+          <div className="mb-10">
+            <Button href={s.href}>
+              Детальніше про {s.nav.toLowerCase()} →
+            </Button>
+          </div>
+        </div>
 
-          {/* Left — accordion */}
-          <div>
+        {/* Two-column: accordion left, banner right */}
+        <div className="grid lg:grid-cols-[340px_1fr] gap-8 lg:gap-12 lg:items-stretch">
+
+          {/* Left — accordion. h-full so it stretches to banner height; flex-col + flex-1 buttons spread items evenly across that height */}
+          <div className="lg:h-full lg:flex lg:flex-col">
             <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-4">
               Переваги продукту
             </p>
-            <div className="border-t border-black/8">
+            <div className="border-t border-black/8 lg:flex-1 lg:flex lg:flex-col">
               {sections.map((sec, i) => (
                 <button
                   key={sec.id}
                   onClick={() => setActive(i)}
-                  className={`w-full text-left py-4 border-b border-black/8 transition-all ${
-                    active === i ? "" : "hover:bg-black/[0.02]"
+                  className={`relative w-full text-left py-5 lg:py-0 lg:flex-1 px-3 border-b border-black/8 transition-colors duration-300 ease-out ${
+                    active === i ? "bg-black/[0.03]" : "hover:bg-black/[0.02]"
                   }`}
                 >
+                  {/* Active indicator: vertical bar, animates in on activation */}
+                  <span
+                    aria-hidden
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] bg-black transition-all duration-300 ease-out ${
+                      active === i ? "h-[70%] opacity-100" : "h-0 opacity-0"
+                    }`}
+                  />
                   <div className="flex items-center gap-3">
                     <svg
-                      className={`w-5 h-5 shrink-0 transition-colors ${
+                      className={`w-5 h-5 shrink-0 transition-colors duration-300 ease-out ${
                         active === i ? "text-black/70" : "text-black/25"
                       }`}
                       viewBox="0 0 24 24"
@@ -142,7 +165,7 @@ export default function Features() {
                       <path d={sec.icon} />
                     </svg>
                     <span
-                      className={`text-[15px] font-medium transition-colors ${
+                      className={`text-[15px] font-medium transition-colors duration-300 ease-out ${
                         active === i ? "text-black" : "text-black/40"
                       }`}
                     >
@@ -155,8 +178,8 @@ export default function Features() {
             </div>
           </div>
 
-          {/* Right — screenshot */}
-          <div key={s.id} className="animate-[fadeIn_0.3s_ease-out]">
+          {/* Right — banner. Always 16:9 of available column width → identical size on every tab */}
+          <div key={s.id} className="animate-[featureSwap_0.4s_ease-out] w-full">
             <AppWindow label={s.nav} image={s.image} />
           </div>
         </div>
