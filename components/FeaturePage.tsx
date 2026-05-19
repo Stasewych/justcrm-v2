@@ -47,10 +47,13 @@ function MacBookMockup({ image, label }: { image?: string; label: string }) {
   );
 }
 
-function MacPlaceholder({ label }: { label: string }) {
+function MacPlaceholder({ label, image }: { label: string; image?: string }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-2xl shadow-black/10">
-      <div className="flex items-center h-9 px-4 bg-[#f6f6f6] border-b border-black/5">
+    <div
+      className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-2xl shadow-black/10 flex flex-col w-full"
+      style={{ aspectRatio: "16 / 9" }}
+    >
+      <div className="flex items-center h-9 px-4 bg-[#f6f6f6] border-b border-black/5 shrink-0">
         <div className="flex items-center gap-[6px]">
           <div className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]" />
           <div className="w-[10px] h-[10px] rounded-full bg-[#febc2e]" />
@@ -61,7 +64,11 @@ function MacPlaceholder({ label }: { label: string }) {
         </div>
         <div className="w-[52px]" />
       </div>
-      <div className="bg-[#ededed] aspect-[16/9]" />
+      <div className="flex-1 w-full bg-[#ededed] overflow-hidden">
+        {image ? (
+          <img src={`${bp}${image}`} alt={`JustCRM — ${label}`} className="w-full h-full object-cover" />
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -133,8 +140,8 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
             </div>
           );
           const BannerBlock = (
-            <div>
-              <MacPlaceholder label={sec.tag} />
+            <div className="w-full">
+              <MacPlaceholder label={sec.tag} image={sec.image} />
             </div>
           );
           return (
