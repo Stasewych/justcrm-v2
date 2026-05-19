@@ -73,24 +73,24 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
       <GuideLines />
       <main className="flex-1 relative z-[1]">
         {/* Hero */}
-        <section className="pt-10 lg:pt-12 pb-20 bg-[#f4f4f4] relative overflow-hidden">
+        <section className="pt-4 lg:pt-5 pb-10 lg:pb-12 bg-[#f4f4f4] relative overflow-hidden">
           <FloatingDots count={30} />
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10 text-center">
-            <div className="max-w-[1000px] mx-auto mb-10 lg:mb-14">
-              <MacBookMockup image={heroImage} label={tag} />
-            </div>
-            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
+            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-3">
               {tag}
             </p>
-            <h1 className="text-2xl lg:text-[34px] font-bold leading-[1.2] tracking-tight mb-4 max-w-2xl mx-auto">
+            <h1 className="text-2xl lg:text-[30px] font-bold leading-[1.2] tracking-tight mb-3 max-w-2xl mx-auto">
               {title}
             </h1>
-            <p className="text-base lg:text-[15px] text-black/50 max-w-xl mx-auto leading-relaxed mb-8">
+            <p className="text-sm lg:text-[14px] text-black/50 max-w-xl mx-auto leading-relaxed mb-5">
               {subtitle}
             </p>
             <div className="flex items-center justify-center gap-3">
               <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
               <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
+            </div>
+            <div className="max-w-[1100px] mx-auto -mt-24 lg:-mt-32 -mb-12 lg:-mb-24">
+              <MacBookMockup image={heroImage} label={tag} />
             </div>
           </div>
         </section>
