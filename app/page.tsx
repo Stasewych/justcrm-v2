@@ -134,7 +134,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center">
               {/* Left — halftone image */}
               <div>
-                <HalftoneImage src={`${bp}/images/problem-columns.png`} />
+                <HalftoneImage src={`${bp}/images/problem-columns.webp`} />
               </div>
 
               {/* Right — text */}
