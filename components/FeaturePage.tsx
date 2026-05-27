@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import GuideLines from "./GuideLines";
 import FloatingDots from "./FloatingDots";
 import Button from "./Button";
+import ScreenshotCarousel, { CarouselScreen } from "./ScreenshotCarousel";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -10,7 +11,10 @@ interface SubFeature {
   tag: string;
   title: string;
   desc: string;
+  /** Single static screenshot (legacy / fallback). */
   image?: string;
+  /** Multiple screenshots → auto-advancing Stories-style carousel. */
+  screens?: CarouselScreen[];
   points: { title: string; desc: string; icon: string }[];
 }
 
@@ -141,7 +145,11 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
           );
           const BannerBlock = (
             <div className="w-full">
-              <MacPlaceholder label={sec.tag} image={sec.image} />
+              {sec.screens && sec.screens.length > 0 ? (
+                <ScreenshotCarousel label={sec.tag} screens={sec.screens} indicator="segments" />
+              ) : (
+                <MacPlaceholder label={sec.tag} image={sec.image} />
+              )}
             </div>
           );
           return (
