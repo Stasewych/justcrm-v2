@@ -11,6 +11,12 @@ export default function TasksPage() {
           tag: "Режими перегляду",
           title: "Чотири способи дивитись на роботу команди",
           desc: "Kanban-дошка, список, табличний режим або календар — переключайтесь у один клік, залежно від того, як зручніше Вашій команді планувати тиждень.",
+          screens: [
+            { src: "/images/tasks-views-1.webp" },
+            { src: "/images/tasks-views-2.webp" },
+            { src: "/images/tasks-views-3.webp" },
+            { src: "/images/tasks-views-4.webp" },
+          ],
           points: [
             {
               title: "Kanban-дошка",
@@ -38,6 +44,11 @@ export default function TasksPage() {
           tag: "Контекст справи",
           title: "Задачі живуть у проєкті, а не окремо",
           desc: "Створіть задачу прямо з картки справи — вона збереже зв'язок з клієнтом, документами та фінансами. Жодних дублюючих списків у Trello чи Notion.",
+          screens: [
+            { src: "/images/tasks-context-1.webp" },
+            { src: "/images/tasks-context-2.webp" },
+            { src: "/images/tasks-context-3.webp" },
+          ],
           points: [
             {
               title: "Прив'язка до справи",
@@ -65,6 +76,10 @@ export default function TasksPage() {
           tag: "Виконавці та статуси",
           title: "Хто, що і коли — без зайвих питань у чатах",
           desc: "Призначайте відповідального юриста, додавайте спостерігачів, фіксуйте статус і пріоритет. Кожна зміна — у журналі дій без втрат.",
+          screens: [
+            { src: "/images/tasks-assignees-1.webp" },
+            { src: "/images/tasks-assignees-2.webp" },
+          ],
           points: [
             {
               title: "Призначення",
@@ -76,22 +91,17 @@ export default function TasksPage() {
               desc: "Низький, нормальний, високий, терміновий — сортування і фільтри одразу.",
               icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
             },
-            {
-              title: "Коментарі та згадки",
-              desc: "Обговорюйте задачу у тред-обговореннях — без переходу у Slack чи Telegram.",
-              icon: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
-            },
-            {
-              title: "Журнал дій",
-              desc: "Хто змінив статус, переніс дедлайн чи прикріпив документ — фіксується автоматично.",
-              icon: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5M12 7v5l4 2",
-            },
           ],
         },
         {
           tag: "Дедлайни",
           title: "Жоден строк не зникне у вирі робочого тижня",
           desc: "Налаштуйте дедлайн — система нагадає за день, годину та у момент. Інтеграція з календарем повертає процесуальні строки прямо у Google Calendar.",
+          screens: [
+            { src: "/images/tasks-deadlines-1.webp" },
+            { src: "/images/tasks-deadlines-2.webp" },
+            { src: "/images/tasks-deadlines-3.webp" },
+          ],
           points: [
             {
               title: "Сповіщення",
