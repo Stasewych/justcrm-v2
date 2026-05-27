@@ -81,13 +81,13 @@ export default function Home() {
             <Marquee duration={80}>
               <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
               <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
               <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
               <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
               <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
               <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.png`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
             </Marquee>
           </div>
         </section>
@@ -117,7 +117,7 @@ export default function Home() {
               </div>
               <div className="w-px h-8 bg-black/10 shrink-0" />
               <div className="flex items-center gap-4 shrink-0">
-                <img src={`${bp}/images/award-aimeetups.jpg`} alt="AI Meetups" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-aimeetups.webp`} alt="AI Meetups" className="h-10 rounded grayscale opacity-60" />
                 <div>
                   <div className="text-sm font-medium">Найкраща інтеграція AI</div>
                   <div className="text-xs text-black/40">1 місце · AI Meetups × НАБУ · 2026</div>
