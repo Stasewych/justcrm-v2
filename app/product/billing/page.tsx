@@ -11,6 +11,13 @@ export default function BillingPage() {
           tag: "Трекінг часу",
           title: "Фіксуйте кожну хвилину без зусиль",
           desc: "Таймер в один клік, прив'язка до справи, автоматичний розрахунок вартості за ставкою юриста. Або заповнюйте час пізніше у календарному вигляді.",
+          screens: [
+            { src: "/images/billing-time-1.webp" },
+            { src: "/images/billing-time-2.webp" },
+            { src: "/images/billing-time-3.webp" },
+            { src: "/images/billing-time-4.webp" },
+            { src: "/images/billing-time-5.webp" },
+          ],
           points: [
             {
               title: "Таймер активності",
@@ -38,6 +45,12 @@ export default function BillingPage() {
           tag: "Інвойси",
           title: "Від тайм-ентрі до рахунку за хвилину",
           desc: "Формуйте рахунки з шаблонів, додавайте кілька активностей одним кліком, контролюйте статус оплати від чернетки до закриття.",
+          screens: [
+            { src: "/images/billing-invoices-1.webp" },
+            { src: "/images/billing-invoices-2.webp" },
+            { src: "/images/billing-invoices-3.webp" },
+            { src: "/images/billing-invoices-4.webp" },
+          ],
           points: [
             {
               title: "Шаблони інвойсів",
@@ -65,6 +78,11 @@ export default function BillingPage() {
           tag: "Ставки та бюджети",
           title: "Контроль рентабельності кожної справи",
           desc: "Індивідуальні ставки для кожного юриста, бюджети справ з автоматичним відстеженням витрат, різні моделі білінгу в одному проєкті.",
+          screens: [
+            { src: "/images/billing-rates-1.webp" },
+            { src: "/images/billing-rates-2.webp" },
+            { src: "/images/billing-rates-3.webp" },
+          ],
           points: [
             {
               title: "Ставки по юристах",
@@ -92,6 +110,11 @@ export default function BillingPage() {
           tag: "Банківські рахунки",
           title: "Контроль надходжень і залишків фірми",
           desc: "Ведіть облік рахунків компанії, прив'язуйте оплати до інвойсів і бачте дебіторську заборгованість у розрізі клієнта чи справи.",
+          screens: [
+            { src: "/images/billing-bank-1.webp" },
+            { src: "/images/billing-bank-2.webp" },
+            { src: "/images/billing-bank-3.webp" },
+          ],
           points: [
             {
               title: "Рахунки фірми",
