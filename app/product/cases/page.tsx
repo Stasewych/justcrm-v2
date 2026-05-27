@@ -6,12 +6,16 @@ export default function CasesPage() {
       tag="Управління справами"
       title="Вся інформація по справі — в одному місці"
       subtitle="Документи, задачі, оплати, контакти та листування зібрані в картці справи. Три режими перегляду — Kanban, список або таблиця."
-      heroImage="/images/crm-hero.png"
       sections={[
         {
           tag: "Огляд справ",
           title: "Оберіть зручний формат роботи зі справами для Вашої команди",
           desc: "Kanban-дошка для візуального контролю етапів, список для швидкого перегляду, таблиця для аналітики, календар для дедлайнів — переключайтесь між режимами в один клік.",
+          screens: [
+            { src: "/images/cases-overview-1.webp" },
+            { src: "/images/cases-overview-2.webp" },
+            { src: "/images/cases-overview-3.webp" },
+          ],
           points: [
             {
               title: "Kanban-дошка",
@@ -39,6 +43,10 @@ export default function CasesPage() {
           tag: "Контроль доступу",
           title: "Визначте, хто з юристів бачить конфіденційну інформацію по справі",
           desc: "Кожна справа може мати обмежений доступ. Призначте відповідальних юристів та визначте, хто бачить фінансову інформацію, документи та контакти.",
+          screens: [
+            { src: "/images/cases-access-1.webp" },
+            { src: "/images/cases-access-2.webp" },
+          ],
           points: [
             {
               title: "Приватний доступ",
@@ -61,6 +69,11 @@ export default function CasesPage() {
           tag: "Фінанси по справі",
           title: "Бюджет, виставлені рахунки та оплати — в межах кожного проєкту",
           desc: "Відстежуйте фінансову картину справи: скільки годин витрачено, які рахунки виставлені, що оплачено, а що — в дебіторській заборгованості.",
+          screens: [
+            { src: "/images/cases-finance-1.webp" },
+            { src: "/images/cases-finance-2.webp" },
+            { src: "/images/cases-finance-3.webp" },
+          ],
           points: [
             {
               title: "Бюджет справи",
@@ -88,6 +101,11 @@ export default function CasesPage() {
           tag: "Документи в контексті",
           title: "Файли та листування прив'язані до справи, а не розкидані по папках",
           desc: "Кожен документ зберігається в картці справи та доступний учасникам із відповідними правами. Більше жодних пошуків по Gmail, Google Drive чи локальних папках.",
+          screens: [
+            { src: "/images/cases-docs-1.webp" },
+            { src: "/images/cases-docs-2.webp" },
+            { src: "/images/cases-docs-3.webp" },
+          ],
           points: [
             {
               title: "Файли у справі",
