@@ -16,6 +16,7 @@ import MoreTools from "@/components/MoreTools";
 import ScrollButtons from "@/components/ScrollButtons";
 import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
+import InteractiveDemo from "@/components/InteractiveDemo";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -61,9 +62,14 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Browser frame */}
-            <div className="mt-2 mx-auto max-w-[1400px] translate-y-16 lg:translate-y-20">
-              <BrowserFrame />
+            {/* Browser frame — click the play overlay to swap the screenshot
+                for the live in-browser demo (iframe). The translate-y the
+                static screenshot originally used pulled the iframe below
+                its natural box, cropping the live CRM bottom; removed. */}
+            <div className="my-8 mx-auto max-w-[1400px]">
+              <BrowserFrame>
+                <InteractiveDemo />
+              </BrowserFrame>
             </div>
           </div>
         </section>
