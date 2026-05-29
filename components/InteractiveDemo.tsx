@@ -10,7 +10,7 @@
 import { useState } from "react";
 
 const DEMO_URL =
-    process.env.NEXT_PUBLIC_DEMO_URL ?? "https://crm.justsolution.org/demo";
+    process.env.NEXT_PUBLIC_DEMO_URL ?? "https://dev.crm.justsolution.org/demo";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
