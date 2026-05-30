@@ -70,21 +70,26 @@ function Check() {
 
 export default function Pricing({ transparent }: { transparent?: boolean }) {
   return (
-    <section className={`py-14 lg:py-20 relative overflow-hidden ${transparent ? "" : "bg-white"}`} id="pricing">
+    <section className={`py-10 sm:py-14 lg:py-20 relative overflow-hidden ${transparent ? "" : "bg-white"}`} id="pricing">
       {!transparent && <FloatingDots count={50} />}
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-        <div className="text-center mb-12">
-          <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
-            Тарифи
-          </p>
-          <h2 className="text-3xl lg:text-[40px] font-light tracking-tight">
-            Прозорі{" "}
-            <strong className="font-medium">тарифні плани</strong>
-          </h2>
-          <p className="mt-4 text-black/40 text-sm">
-            14 днів безкоштовно з повним функціоналом Pro AI.
-          </p>
-        </div>
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
+        {/* When transparent (i.e. embedded on /pricing under its own hero) the
+            internal "Тарифи / Прозорі тарифні плани" header would duplicate the
+            page hero — hide it. Standalone use (homepage) keeps the header. */}
+        {!transparent && (
+          <div className="text-center mb-12">
+            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
+              Тарифи
+            </p>
+            <h2 className="text-3xl lg:text-[40px] font-light tracking-tight">
+              Прозорі{" "}
+              <strong className="font-medium">тарифні плани</strong>
+            </h2>
+            <p className="mt-4 text-black/40 text-sm">
+              14 днів безкоштовно з повним функціоналом Pro AI.
+            </p>
+          </div>
+        )}
 
         <div className="grid lg:grid-cols-3 gap-6 items-start">
           {plans.map((plan) => {

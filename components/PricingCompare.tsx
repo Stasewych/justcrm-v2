@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 type Cell = "check" | "cross" | string;
 
@@ -124,11 +124,70 @@ function CellValue({ value, featured }: { value: Cell; featured?: boolean }) {
   return <span className={`block text-center text-[13px] ${featured ? "font-medium text-black/70" : "text-black/45"}`}>{value}</span>;
 }
 
+type PlanKey = "classic" | "pro" | "enterprise";
+
+const PLANS: { key: PlanKey; label: string; price: string; sub: string; featured?: boolean }[] = [
+  { key: "classic", label: "Classic", price: "400 ₴", sub: "за користувача / міс" },
+  { key: "pro", label: "Pro AI", price: "600 ₴", sub: "за користувача / міс", featured: true },
+  { key: "enterprise", label: "Enterprise", price: "Індивідуально", sub: "" },
+];
+
+function MobileCompare() {
+  const [plan, setPlan] = useState<PlanKey>("pro");
+  const current = PLANS.find((p) => p.key === plan)!;
+  return (
+    <div>
+      {/* Plan selector chips */}
+      <div className="flex gap-2 mb-3">
+        {PLANS.map((p) => (
+          <button
+            key={p.key}
+            onClick={() => setPlan(p.key)}
+            className={`flex-1 px-2 py-2.5 rounded-lg border text-[12px] font-medium transition-colors ${
+              plan === p.key
+                ? "bg-[#1c1c1c] text-white border-[#1c1c1c]"
+                : "bg-white text-black/60 border-black/15"
+            }`}
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+      <div className="mb-6 px-3 py-3 rounded-lg bg-white border border-black/8">
+        <div className="font-mono text-[10px] uppercase tracking-wide text-black/40">{current.label}</div>
+        <div className="text-xl font-bold tracking-tight mt-0.5">{current.price}</div>
+        {current.sub && <div className="text-[11px] text-black/40">{current.sub}</div>}
+      </div>
+
+      {/* Category list */}
+      <div className="space-y-6">
+        {data.map((cat) => (
+          <div key={cat.name}>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-black/35 mb-2">
+              {cat.name}
+            </p>
+            <ul className="divide-y divide-black/[0.06] border-y border-black/[0.06]">
+              {cat.rows.map((row) => (
+                <li key={row.label} className="flex items-center justify-between gap-3 py-3">
+                  <span className="text-[13.5px] text-black/70 leading-tight">{row.label}</span>
+                  <span className="shrink-0">
+                    <CellValue value={row[plan]} featured={plan === "pro"} />
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function PricingCompare({ transparent }: { transparent?: boolean }) {
   return (
-    <section className={`py-20 ${transparent ? "" : "bg-[#fafafa] bg-cross-grid"}`} id="compare">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
+    <section className={`py-12 sm:py-16 lg:py-20 ${transparent ? "" : "bg-[#fafafa] bg-cross-grid"}`} id="compare">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="text-center mb-8 lg:mb-14">
           <h2 className="text-2xl lg:text-3xl font-bold tracking-tight mb-3">
             Порівняння тарифів
           </h2>
@@ -137,7 +196,13 @@ export default function PricingCompare({ transparent }: { transparent?: boolean 
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile — per-plan view */}
+        <div className="lg:hidden">
+          <MobileCompare />
+        </div>
+
+        {/* Desktop — side-by-side comparison table */}
+        <div className="hidden lg:block overflow-x-auto">
           <table className="w-full min-w-[700px] border-collapse">
             {/* Plan headers — sticky */}
             <thead>

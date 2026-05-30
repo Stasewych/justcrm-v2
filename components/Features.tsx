@@ -88,7 +88,7 @@ function AppWindow({ label, image }: { label: string; image: string }) {
       </div>
       <div className="relative w-full bg-[#ededed] overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
         {image ? (
-          <img src={`${bp}${image}`} alt={`JustCRM — ${label}`} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={`${bp}${image}`} alt={`JustCRM — ${label}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
         ) : null}
       </div>
     </div>
@@ -100,7 +100,7 @@ export default function Features() {
   const s = sections[active];
 
   return (
-    <section className="bg-white py-14 lg:py-20 relative overflow-hidden" id="features">
+    <section className="bg-white py-10 sm:py-14 lg:py-20 relative overflow-hidden" id="features">
       <FloatingDots count={30} />
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16 relative z-10">
 
@@ -123,11 +123,36 @@ export default function Features() {
           </div>
         </div>
 
-        {/* Two-column: accordion left, banner right */}
+        {/* Mobile — horizontal scrollable tab chips (replaces the vertical accordion on small screens) */}
+        <div
+          className="lg:hidden mb-6 -mx-5 sm:-mx-8 overflow-x-auto [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none" }}
+        >
+          <div className="inline-flex gap-2 px-5 sm:px-8 pb-1">
+            {sections.map((sec, i) => (
+              <button
+                key={sec.id}
+                onClick={() => setActive(i)}
+                className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-2 rounded-full border whitespace-nowrap transition-colors ${
+                  active === i
+                    ? "bg-[#1c1c1c] text-white border-[#1c1c1c]"
+                    : "bg-white text-black/60 border-black/15"
+                }`}
+              >
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={sec.icon} />
+                </svg>
+                <span className="text-[13px] font-medium">{sec.nav}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Two-column: accordion left, banner right (desktop). On mobile only the banner shows. */}
         <div className="grid lg:grid-cols-[340px_1fr] gap-8 lg:gap-12 lg:items-stretch">
 
-          {/* Left — accordion. h-full so it stretches to banner height; flex-col + flex-1 buttons spread items evenly across that height */}
-          <div className="lg:h-full lg:flex lg:flex-col">
+          {/* Desktop accordion. Hidden on mobile — replaced by tab chips above. */}
+          <div className="hidden lg:flex lg:h-full lg:flex-col">
             <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-4">
               Переваги продукту
             </p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import FloatingDots from "./FloatingDots";
 
 const words = [
@@ -16,8 +16,26 @@ export default function ScrollRevealQuote() {
   const outerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const wordEls = useRef<(HTMLSpanElement | null)[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Track viewport — under lg (<1024px) we switch to a static, fully-revealed
+  // layout. Pinning + scroll-driven reveals are janky on iOS (URL bar collapse
+  // shifts vh) and add scroll overhead on weak phones for no benefit.
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
+    if (isMobile) {
+      // Mobile: just paint every word fully opaque, no scroll machinery.
+      wordEls.current.forEach((el) => {
+        if (el) el.style.color = "rgba(28,28,28,1)";
+      });
+      return;
+    }
     const outer = outerRef.current;
     const inner = innerRef.current;
     if (!outer || !inner) return;
@@ -67,28 +85,28 @@ export default function ScrollRevealQuote() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div
       ref={outerRef}
       className="relative bg-white bg-dot-grid"
-      style={{ height: "250vh" }}
+      style={{ height: isMobile ? "auto" : "250vh" }}
     >
-      <FloatingDots count={40} />
+      <FloatingDots count={isMobile ? 18 : 40} />
       <div
         ref={innerRef}
-        className="h-screen flex items-center justify-center"
-        style={{ position: "absolute", top: 0, left: 0, right: 0 }}
+        className={isMobile ? "py-14 sm:py-20 flex items-center justify-center" : "h-screen flex items-center justify-center"}
+        style={isMobile ? undefined : { position: "absolute", top: 0, left: 0, right: 0 }}
       >
-        <div className="max-w-[1000px] mx-auto px-8 lg:px-16 text-center relative z-10">
-          <p className="text-3xl sm:text-4xl lg:text-[52px] font-light leading-[1.35] tracking-tight">
+        <div className="max-w-[1000px] mx-auto px-5 sm:px-8 lg:px-16 text-center relative z-10">
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-light leading-[1.35] tracking-tight">
             {words.map((word, i) => (
               <span
                 key={i}
                 ref={(el) => { wordEls.current[i] = el; }}
                 className="inline-block mr-[0.3em]"
-                style={{ color: "rgba(28,28,28,0.1)" }}
+                style={{ color: isMobile ? "rgba(28,28,28,1)" : "rgba(28,28,28,0.1)" }}
               >
                 {word}
               </span>

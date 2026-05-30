@@ -86,7 +86,7 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
         {/* Hero */}
         <section className="pt-4 lg:pt-5 pb-10 lg:pb-12 bg-[#f4f4f4] relative overflow-hidden">
           <FloatingDots count={30} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10 text-center">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10 text-center">
             <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-3">
               {tag}
             </p>
@@ -100,7 +100,7 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
               <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
               <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
             </div>
-            <div className="max-w-[1100px] mx-auto -mt-24 lg:-mt-32 -mb-12 lg:-mb-24">
+            <div className="max-w-[1100px] mx-auto mt-8 lg:-mt-32 lg:-mb-24">
               <MacBookMockup image={heroImage} label={tag} />
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
           return (
             <section
               key={i}
-              className={`py-24 lg:py-32 lg:min-h-screen flex items-center relative overflow-hidden ${i % 2 === 0 ? "bg-white" : "bg-[#fafafa] bg-dot-grid"}`}
+              className={`py-14 sm:py-20 lg:py-32 lg:min-h-screen flex items-center relative overflow-hidden ${i % 2 === 0 ? "bg-white" : "bg-[#fafafa] bg-dot-grid"}`}
             >
               <FloatingDots count={25} />
               <div className="relative z-10 w-full">
@@ -176,9 +176,9 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
         })}
 
         {/* CTA */}
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
           <FloatingDots count={35} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 text-center relative z-10">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 text-center relative z-10">
             <h2 className="text-3xl lg:text-[40px] font-bold tracking-tight mb-5">
               Юридична CRM, у якій зручно працювати
             </h2>
