@@ -97,12 +97,24 @@ export default function HeroDots() {
     resize();
     render();
 
+    // The hero grows AFTER this canvas mounts: the big crm-hero.png is
+    // `w-full h-auto` with no reserved height, so the section jumps taller once
+    // it decodes, and the demo later swaps that <img> for an <iframe>. A plain
+    // window-resize listener never fires for those, so the canvas bitmap stayed
+    // sized to the initial (short) layout and got CSS-stretched over the taller
+    // section — the distorted/misplaced dots the user saw after navigating away
+    // and back. Observe the canvas box itself so every size change re-syncs the
+    // bitmap, regardless of what caused it.
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
     window.addEventListener("resize", resize);
     section.addEventListener("mousemove", onMouseMove);
     section.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
       window.removeEventListener("resize", resize);
       section.removeEventListener("mousemove", onMouseMove);
       section.removeEventListener("mouseleave", onMouseLeave);
