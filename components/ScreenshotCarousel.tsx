@@ -128,6 +128,33 @@ export default function ScreenshotCarousel({
 
   const hasImage = !!screens[active]?.src;
 
+  // Touch/pointer swipe — applies to both the inline content area and the
+  // lightbox. Horizontal drag past SWIPE_THRESHOLD advances/rewinds.
+  const swipe = useRef<{ x: number; y: number; moved: boolean } | null>(null);
+  const SWIPE_THRESHOLD = 50;
+  const onSwipeStart = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse") return; // mouse uses click, not swipe
+    swipe.current = { x: e.clientX, y: e.clientY, moved: false };
+  };
+  const onSwipeMove = (e: React.PointerEvent) => {
+    if (!swipe.current) return;
+    if (Math.abs(e.clientX - swipe.current.x) > 8 || Math.abs(e.clientY - swipe.current.y) > 8) {
+      swipe.current.moved = true;
+    }
+  };
+  const onSwipeEnd = (e: React.PointerEvent) => {
+    const s = swipe.current;
+    swipe.current = null;
+    if (!s) return;
+    const dx = e.clientX - s.x;
+    const dy = e.clientY - s.y;
+    if (count > 1 && Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) goto((active + 1) % count);
+      else goto((active - 1 + count) % count);
+    }
+  };
+  const wasDragged = () => !!swipe.current?.moved;
+
   return (
     <>
     <div
@@ -178,11 +205,16 @@ export default function ScreenshotCarousel({
         </div>
       )}
 
-      {/* Content area — crossfade between screens; click opens the lightbox */}
+      {/* Content area — crossfade between screens; click opens the lightbox,
+          swipe-left/right navigates on touch devices */}
       <div
-        className={`relative w-full bg-[#ededed] overflow-hidden ${hasImage ? "cursor-zoom-in" : ""}`}
-        style={{ aspectRatio: "16 / 9" }}
-        onClick={() => hasImage && setZoom(true)}
+        className={`relative w-full bg-[#ededed] overflow-hidden select-none ${hasImage ? "cursor-zoom-in" : ""}`}
+        style={{ aspectRatio: "16 / 9", touchAction: "pan-y" }}
+        onClick={() => hasImage && !wasDragged() && setZoom(true)}
+        onPointerDown={onSwipeStart}
+        onPointerMove={onSwipeMove}
+        onPointerUp={onSwipeEnd}
+        onPointerCancel={onSwipeEnd}
       >
         {screens.map((s, i) => (
           <div
@@ -196,6 +228,8 @@ export default function ScreenshotCarousel({
                 src={`${bp}${s.src}`}
                 alt={s.caption || `JustCRM — ${label} (${i + 1})`}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             ) : (
               <div
@@ -286,7 +320,13 @@ export default function ScreenshotCarousel({
             src={`${bp}${screens[active].src}`}
             alt={screens[active].caption || `JustCRM — ${label}`}
             onClick={(e) => e.stopPropagation()}
-            className="max-w-[92vw] max-h-[86vh] object-contain rounded-lg shadow-2xl"
+            onPointerDown={(e) => { e.stopPropagation(); onSwipeStart(e); }}
+            onPointerMove={onSwipeMove}
+            onPointerUp={(e) => { e.stopPropagation(); onSwipeEnd(e); }}
+            onPointerCancel={onSwipeEnd}
+            className="max-w-[92vw] max-h-[86vh] object-contain rounded-lg shadow-2xl select-none"
+            style={{ touchAction: "pan-y" }}
+            draggable={false}
           />
 
           {count > 1 && (
