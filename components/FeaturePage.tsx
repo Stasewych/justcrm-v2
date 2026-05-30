@@ -159,17 +159,20 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
             >
               <FloatingDots count={25} />
               <div className="relative z-10 w-full">
-                {reversed ? (
-                  <div className="grid lg:grid-cols-[1fr_minmax(380px,560px)] gap-12 lg:gap-12 items-center px-8 lg:pl-6 lg:pr-8">
-                    {BannerBlock}
-                    {TextBlock}
-                  </div>
-                ) : (
-                  <div className="grid lg:grid-cols-[minmax(380px,560px)_1fr] gap-12 lg:gap-12 items-center px-8 lg:pl-8 lg:pr-6">
-                    {TextBlock}
-                    {BannerBlock}
-                  </div>
-                )}
+                {/* DOM order is ALWAYS text → screenshot, so on mobile (single
+                    column) the reader always gets the copy before the visual.
+                    On desktop the odd ("reversed") sections swap their columns
+                    via order utilities, preserving the left/right alternation. */}
+                <div
+                  className={`grid gap-12 lg:gap-12 items-center px-8 ${
+                    reversed
+                      ? "lg:grid-cols-[1fr_minmax(380px,560px)] lg:pl-6 lg:pr-8"
+                      : "lg:grid-cols-[minmax(380px,560px)_1fr] lg:pl-8 lg:pr-6"
+                  }`}
+                >
+                  <div className={reversed ? "lg:order-2" : ""}>{TextBlock}</div>
+                  <div className={reversed ? "lg:order-1" : ""}>{BannerBlock}</div>
+                </div>
               </div>
             </section>
           );
