@@ -6,6 +6,10 @@ export default function ClientsPage() {
       tag="Клієнти"
       title="Повне досьє клієнта — від першого звернення до завершення справи"
       subtitle="Фізичні та юридичні особи, воронка лідів, email-листування у контексті справи та миттєвий пошук по будь-якому реквізиту."
+      heroImage="/images/hero-clients.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "Профіль клієнта",

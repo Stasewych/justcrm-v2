@@ -6,6 +6,10 @@ export default function AiPage() {
       tag="AI-помічник"
       title="Інструменти штучного інтелекту, вбудовані у щоденну роботу юриста"
       subtitle="База знань фірми, голосова диктовка, генерація документів за шаблонами і enhance тексту у юридичному стилі. AI готує чернетку — рішення завжди за юристом."
+      heroImage="/images/hero-ai.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "База знань фірми",

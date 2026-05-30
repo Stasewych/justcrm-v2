@@ -6,6 +6,10 @@ export default function BillingPage() {
       tag="Білінг та час"
       title="Облік часу та виставлення рахунків без зайвих кроків"
       subtitle="Таймер на задачу або календарний планер, мультивалютні інвойси, індивідуальні ставки та контроль бюджету — усе в одному вікні."
+      heroImage="/images/hero-billing.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "Трекінг часу",

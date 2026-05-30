@@ -6,6 +6,10 @@ export default function DocumentsPage() {
       tag="Документи"
       title="Зберігання та генерація документів в єдиному просторі"
       subtitle="Файли у контексті справи, AI-шаблони з авто-підстановкою даних, спільний доступ із контролем прав і повна історія версій."
+      heroImage="/images/hero-documents.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "Файли у справі",

@@ -6,6 +6,10 @@ export default function TasksPage() {
       tag="Задачі"
       title="Планування роботи з контролем виконання"
       subtitle="Задачі живуть у контексті справи: дедлайни, виконавці, пріоритети. Чотири режими перегляду — від Kanban до календаря."
+      heroImage="/images/hero-tasks.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "Режими перегляду",

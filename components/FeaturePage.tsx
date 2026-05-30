@@ -23,6 +23,13 @@ interface FeaturePageProps {
   title: string;
   subtitle: string;
   heroImage?: string;
+  /** Optional larger hero treatment: when heroImageMaxWidth is set, the mockup
+      renders at that container width with its true ratio (heroImageWidth/Height)
+      and without the default upward overlap — for a trimmed, frame-filling
+      mockup that should read big. Left unset → original 1100px overlapped look. */
+  heroImageWidth?: number;
+  heroImageHeight?: number;
+  heroImageMaxWidth?: number;
   sections: SubFeature[];
 }
 
@@ -77,7 +84,8 @@ function MacPlaceholder({ label, image }: { label: string; image?: string }) {
   );
 }
 
-export default function FeaturePage({ tag, title, subtitle, heroImage, sections }: FeaturePageProps) {
+export default function FeaturePage({ tag, title, subtitle, heroImage, heroImageWidth, heroImageHeight, heroImageMaxWidth, sections }: FeaturePageProps) {
+  const heroLarge = heroImageMaxWidth != null;
   return (
     <>
       <Header />
@@ -100,8 +108,21 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, sections 
               <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
               <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
             </div>
-            <div className="max-w-[1100px] mx-auto mt-8 lg:-mt-32 lg:-mb-24">
-              <MacBookMockup image={heroImage} label={tag} />
+            <div
+              className={`mx-auto ${heroLarge ? "mt-8 lg:mt-10" : "max-w-[1100px] mt-8 lg:-mt-24 lg:-mb-20"}`}
+              style={heroLarge ? { maxWidth: heroImageMaxWidth } : undefined}
+            >
+              {heroImage ? (
+                <img
+                  src={`${bp}${heroImage}`}
+                  alt={tag}
+                  width={heroImageWidth ?? 2200}
+                  height={heroImageHeight ?? 1467}
+                  className="w-full h-auto select-none pointer-events-none"
+                />
+              ) : (
+                <MacBookMockup label={tag} />
+              )}
             </div>
           </div>
         </section>

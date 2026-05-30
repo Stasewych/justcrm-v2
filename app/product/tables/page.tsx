@@ -6,6 +6,10 @@ export default function TablesPage() {
       tag="Конструктор таблиць"
       title="Власні реєстри та довідники всередині CRM"
       subtitle="Коли стандартних модулів недостатньо — створіть власну таблицю з потрібними полями. Реєстр довіреностей, журнал кореспонденції, трекер засідань — формат визначаєте Ви."
+      heroImage="/images/hero-tables.webp"
+      heroImageWidth={2600}
+      heroImageHeight={1092}
+      heroImageMaxWidth={1320}
       sections={[
         {
           tag: "Власні поля",
