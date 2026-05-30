@@ -19,7 +19,7 @@ export default function PricingPage() {
           <div className="relative z-10">
             {/* Hero */}
             <div className="pt-28 pb-12">
-              <div className="max-w-[1440px] mx-auto px-8 lg:px-16 text-center">
+              <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 text-center">
                 <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
                   Тарифи
                 </p>

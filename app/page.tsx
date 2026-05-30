@@ -30,7 +30,7 @@ export default function Home() {
         <section id="hero" className="relative bg-[#f4f4f4] overflow-hidden">
           <HeroDots />
 
-          <div className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-16 pt-20 lg:pt-24 pb-0">
+          <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 pt-12 sm:pt-16 lg:pt-24 pb-0">
             <div className="text-center max-w-4xl mx-auto">
               <h1
                 className="text-5xl sm:text-6xl lg:text-[72px] font-light leading-[1.08] tracking-tight text-foreground"
@@ -80,20 +80,20 @@ export default function Home() {
         {/* Clients */}
         <section className="py-10 bg-white border-t border-black/5 relative overflow-hidden">
           <FloatingDots count={20} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
             <p className="text-center font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
               Компанії, які вже працюють з нами
             </p>
             <Marquee duration={80}>
-              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
-              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/Auxilium-dark.svg`} alt="Auxilium" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/everlegal.svg`} alt="Everlegal" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
+              <img src={`${bp}/images/NABU.webp`} alt="НАБУ" className="w-32 shrink-0 object-contain opacity-50 grayscale hover:opacity-80 transition-opacity" loading="lazy" decoding="async" />
             </Marquee>
           </div>
         </section>
@@ -101,13 +101,13 @@ export default function Home() {
         {/* Awards */}
         <section className="py-10 bg-white border-t border-black/5 relative overflow-hidden">
           <FloatingDots count={20} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
             <p className="text-center font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
               Нагороди та визнання
             </p>
             <Marquee duration={70} reverse>
               <div className="flex items-center gap-4 shrink-0">
-                <img src={`${bp}/images/award-ucu.png`} alt="UCU Law" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-ucu.png`} alt="UCU Law" className="h-10 rounded grayscale opacity-60" loading="lazy" decoding="async" />
                 <div>
                   <div className="text-sm font-medium">Найкраща програма юридичної автоматизації</div>
                   <div className="text-xs text-black/40">1 місце · Хакатон УКУ · 2025</div>
@@ -115,7 +115,7 @@ export default function Home() {
               </div>
               <div className="w-px h-8 bg-black/10 shrink-0" />
               <div className="flex items-center gap-4 shrink-0">
-                <img src={`${bp}/images/award-ideaslab.png`} alt="Ideas Lab" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-ideaslab.png`} alt="Ideas Lab" className="h-10 rounded grayscale opacity-60" loading="lazy" decoding="async" />
                 <div>
                   <div className="text-sm font-medium">Найкращий юридичний стартап</div>
                   <div className="text-xs text-black/40">1 місце · Ideas Lab · 2025</div>
@@ -123,7 +123,7 @@ export default function Home() {
               </div>
               <div className="w-px h-8 bg-black/10 shrink-0" />
               <div className="flex items-center gap-4 shrink-0">
-                <img src={`${bp}/images/award-aimeetups.webp`} alt="AI Meetups" className="h-10 rounded grayscale opacity-60" />
+                <img src={`${bp}/images/award-aimeetups.webp`} alt="AI Meetups" className="h-10 rounded grayscale opacity-60" loading="lazy" decoding="async" />
                 <div>
                   <div className="text-sm font-medium">Найкраща інтеграція AI</div>
                   <div className="text-xs text-black/40">1 місце · AI Meetups × НАБУ · 2026</div>
@@ -134,9 +134,9 @@ export default function Home() {
         </section>
 
         {/* Problem section — Twenty-style */}
-        <section id="problem" className="py-16 lg:py-20 bg-white relative overflow-hidden">
+        <section id="problem" className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
           <FloatingDots count={25} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
             <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center">
               {/* Left — halftone image */}
               <div>

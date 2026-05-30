@@ -22,8 +22,8 @@ const integrations = [
 
 export default function Integrations() {
   return (
-    <section className="py-16 lg:py-24 bg-[#f7f7f5] bg-dot-grid" id="integrations">
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+    <section className="py-12 sm:py-16 lg:py-24 bg-[#f7f7f5] bg-dot-grid" id="integrations">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
           {/* Left — headline */}

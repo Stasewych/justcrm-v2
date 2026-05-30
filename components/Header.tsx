@@ -215,42 +215,60 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-black/5 px-8 py-5 space-y-4">
-          <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest">
+        <div className="lg:hidden bg-white border-t border-black/5 px-6 py-4 max-h-[calc(100vh-3.5rem)] overflow-y-auto">
+          <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest mt-2 mb-1">
             Продукт
           </p>
-          {productLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="block text-sm py-0.5"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
+          <nav>
+            {productLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest mt-6 mb-1">
+            Компанія
+          </p>
+          <nav>
+            <Link href="/pricing" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              Тарифи
             </Link>
-          ))}
-          <hr className="border-black/5" />
-          <Link href="/pricing" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>
-            Тарифи
-          </Link>
-          <Link href="/#security" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>
-            Безпека
-          </Link>
-          <Link href="/team" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Про нас</Link>
-          <Link href="/blog" className="block text-sm py-0.5" onClick={() => setMobileOpen(false)}>Блог</Link>
-          <Link href="/sales" className="block text-sm py-0.5 font-medium" onClick={() => setMobileOpen(false)}>Відділ продажів</Link>
-          <hr className="border-black/5" />
-          <div className="flex gap-3 pt-1">
-            <a href="https://crm.justsolution.org/login" target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] font-medium uppercase text-black/50">
-              Увійти
-            </a>
+            <Link href="/#security" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              Безпека
+            </Link>
+            <Link href="/team" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              Про нас
+            </Link>
+            <Link href="/blog" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              Блог
+            </Link>
+            <Link href="/sales" className="block py-3 text-[15px] text-black/80" onClick={() => setMobileOpen(false)}>
+              Відділ продажів
+            </Link>
+          </nav>
+
+          <div className="mt-6 pt-4 border-t border-black/5 space-y-2.5">
             <a
               href="https://crm.justsolution.org/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[11px] font-medium uppercase bg-[#1c1c1c] text-white px-4 py-1.5 rounded"
+              className="block w-full text-center py-3 bg-[#1c1c1c] text-white font-mono text-[11px] font-medium uppercase tracking-wide rounded hover:bg-[#333] transition-colors"
             >
               Почати безкоштовно
+            </a>
+            <a
+              href="https://crm.justsolution.org/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center py-3 font-mono text-[11px] font-medium uppercase tracking-wide text-black/60 border border-black/15 rounded"
+            >
+              Увійти
             </a>
           </div>
         </div>

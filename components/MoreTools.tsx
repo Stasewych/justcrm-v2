@@ -106,8 +106,8 @@ export default function MoreTools() {
   }, []);
 
   return (
-    <section className="py-16 lg:py-20 bg-[#fafafa] bg-dot-grid" id="more-tools">
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+    <section className="py-12 sm:py-16 lg:py-20 bg-[#fafafa] bg-dot-grid" id="more-tools">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16">
         <div className="mb-12">
           <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-4">
             Інструменти

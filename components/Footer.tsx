@@ -44,8 +44,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#1c1c1c] mt-auto pt-16">
       {/* Notched white card */}
-      <div className="relative mx-6 lg:mx-12">
-        <div className="bg-white rounded-t-lg pt-14 pb-8 px-8 lg:px-14">
+      <div className="relative mx-4 sm:mx-6 lg:mx-12">
+        <div className="bg-white rounded-t-lg pt-12 sm:pt-14 pb-8 px-5 sm:px-8 lg:px-14">
           {/* Logo */}
           <div className="flex items-center gap-2.5 mb-14">
             <img src={`${bp}/images/logo.png`} alt="JustCRM" className="h-7" />
@@ -75,8 +75,8 @@ export default function Footer() {
               </div>
             ))}
 
-            {/* Connect column */}
-            <div>
+            {/* Connect column — full width on mobile so email + buttons breathe */}
+            <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <Cross />
                 <h3 className="text-sm font-medium">Контакти</h3>
@@ -85,7 +85,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:stanislav.marynovych@justsolution.org"
-                    className="text-[15px] text-black/45 hover:text-black transition-colors"
+                    className="text-[14px] sm:text-[15px] text-black/45 hover:text-black transition-colors break-all"
                   >
                     stanislav.marynovych@justsolution.org
                   </a>
@@ -121,7 +121,7 @@ export default function Footer() {
       </div>
 
       {/* Dark copyright bar */}
-      <div className="mx-6 lg:mx-12 px-8 lg:px-14 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-4 sm:mx-6 lg:mx-12 px-5 sm:px-8 lg:px-14 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <span className="font-mono text-[12px] text-white/35 uppercase tracking-wide">
           © {new Date().getFullYear()} — Just Solution
         </span>
