@@ -105,7 +105,7 @@ const data: Category[] = [
     rows: [
       { label: "Кастомні модифікації CRM", classic: "cross", pro: "cross", enterprise: "check" },
       { label: "Розробка нових інструментів", classic: "cross", pro: "cross", enterprise: "check" },
-      { label: "Знижки на об'єм (10+ юристів)", classic: "cross", pro: "cross", enterprise: "check" },
+      { label: "Знижки на об'єм (20+ юристів)", classic: "cross", pro: "cross", enterprise: "check" },
     ],
   },
 ];

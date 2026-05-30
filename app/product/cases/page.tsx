@@ -4,7 +4,7 @@ export default function CasesPage() {
   return (
     <FeaturePage
       tag="Управління справами"
-      title="Вся інформація по справі — в одному місці"
+      title="Уся інформація щодо справи в одному місці"
       subtitle="Документи, задачі, оплати, контакти та листування зібрані в картці справи. Три режими перегляду — Kanban, список або таблиця."
       heroImage="/images/hero-cases.webp"
       heroImageWidth={2600}
