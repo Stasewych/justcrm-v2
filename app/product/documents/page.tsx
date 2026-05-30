@@ -11,6 +11,11 @@ export default function DocumentsPage() {
           tag: "Файли у справі",
           title: "Документ живе там, де він використовується",
           desc: "Завантажте файл у картку справи — він доступний усім учасникам з відповідними правами. Більше жодних пошуків по Gmail, локальних папках чи флешках.",
+          screens: [
+            { src: "/images/docs-files-1.webp" },
+            { src: "/images/docs-files-2.webp" },
+            { src: "/images/docs-files-3.webp" },
+          ],
           points: [
             {
               title: "Швидке завантаження",
@@ -38,6 +43,11 @@ export default function DocumentsPage() {
           tag: "AI-шаблони",
           title: "Договори та позови за хвилину — з Вашого шаблону",
           desc: "Завантажте Ваш Word-шаблон — AI розмітить поля для підстановки. Далі один клік, і документ заповнений даними клієнта, справи та реквізитами фірми.",
+          screens: [
+            { src: "/images/docs-templates-1.webp" },
+            { src: "/images/docs-templates-2.webp" },
+            { src: "/images/docs-templates-3.webp" },
+          ],
           points: [
             {
               title: "Авто-розмітка",
@@ -65,6 +75,11 @@ export default function DocumentsPage() {
           tag: "Спільний доступ",
           title: "Документ бачить тільки той, хто має право",
           desc: "Розмежування доступу по ролях, гранулярний контроль прав на рівні файлу та зовнішні посилання для клієнта без створення йому облікового запису.",
+          screens: [
+            { src: "/images/docs-share-1.webp" },
+            { src: "/images/docs-share-2.webp" },
+            { src: "/images/docs-share-3.webp" },
+          ],
           points: [
             {
               title: "Конфіденційність",
