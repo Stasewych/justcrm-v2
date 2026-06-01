@@ -38,7 +38,7 @@ export default function Integrations() {
               </span>
             </h2>
             <p className="text-base text-black/45 leading-relaxed mb-10">
-              Ми не замінюємо Gmail чи Outlook. Не переносимо файли з Drive. Не дублюємо календар. Ви підключаєте те, що вже використовуєте — через OAuth за хвилину — і CRM починає бачити Ваші дані в контексті справ і клієнтів.
+              Ми не замінюємо Gmail чи Outlook. Не переносимо файли з Drive. Не дублюємо календар. Ви підключаєте те, що вже використовуєте, і CRM починає бачити Ваші дані в контексті справ і клієнтів.
             </p>
             <div className="flex items-center gap-6">
               {["gmail.svg", "google-calendar.svg", "google-drive.svg", "outlook.svg", "onedrive.svg"].map((file) => (

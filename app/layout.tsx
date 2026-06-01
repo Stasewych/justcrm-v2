@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | JustCRM",
   },
   description:
-    "Від голосу — до рахунку за 30 секунд. CRM для юридичних фірм з AI-диктовкою, трекінгом часу та білінгом.",
+    "Від голосу — до рахунку за 30 секунд. CRM для юридичних фірм з AI-диктуванням, трекінгом часу та білінгом.",
 };
 
 export default function RootLayout({

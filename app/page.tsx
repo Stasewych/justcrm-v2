@@ -49,7 +49,7 @@ export default function Home() {
               >
                 Централізуйте управління справами, клієнтами, документами
                 та фінансами вашої юридичної фірми. Від першого контакту
-                з клієнтом до виставлення рахунку — в одній системі.
+                з клієнтом до виставлення рахунку — усе в одній системі.
               </p>
 
               <div className="mt-8 flex items-center justify-center gap-3">
@@ -153,7 +153,7 @@ export default function Home() {
                 <h2 className="text-3xl lg:text-[38px] font-light leading-[1.2] tracking-tight mb-12">
                   Юридична практика потребує системності,{" "}
                   <strong className="font-semibold">
-                    але побудувати її — складно
+                    але побудувати її складно
                   </strong>
                 </h2>
 
