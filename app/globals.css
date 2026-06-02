@@ -20,14 +20,32 @@
   --spacing-section-sm: 4rem;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   background: #f4f4f4;
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+/* Honour reduced-motion globally: stop the perpetual marquee + entrance/view
+   transitions. Canvas backgrounds (HeroDots / HalftoneImage / FloatingDots)
+   self-suppress via matchMedia in their own effects. */
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none !important;
+  }
+  [style*="animation"][style*="marquee"] {
+    animation: none !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }
 
 @keyframes marquee {

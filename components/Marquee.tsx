@@ -21,6 +21,7 @@ export default function Marquee({
         className="flex gap-16 w-max group-hover:[animation-play-state:paused]"
         style={{
           animation: `marquee ${duration}s linear infinite ${dir}`,
+          willChange: "transform",
         }}
       >
         {children}
