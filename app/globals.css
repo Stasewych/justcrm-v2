@@ -32,6 +32,15 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Kill page-level horizontal scroll on mobile (e.g. the wide comparison table
+   on /why scrolls inside its own overflow-x-auto container, never the page).
+   `clip` (not `hidden`) clips without creating a scroll container, so it does
+   not break position: sticky and does not force overflow-y to auto. */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Honour reduced-motion globally: stop the perpetual marquee + entrance/view
    transitions. Canvas backgrounds (HeroDots / HalftoneImage / FloatingDots)
    self-suppress via matchMedia in their own effects. */
