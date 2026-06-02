@@ -26,7 +26,7 @@ export default function BrowserFrame({
       <div className="relative">
         {children || (
           <img
-            src={`${bp}/images/crm-hero.png`}
+            src={`${bp}/images/crm-hero.webp`}
             alt="JustCRM — контакти, справи, білінг"
             className="w-full h-auto"
           />

@@ -97,7 +97,7 @@ export default function HeroDots() {
     resize();
     render();
 
-    // The hero grows AFTER this canvas mounts: the big crm-hero.png is
+    // The hero grows AFTER this canvas mounts: the big crm-hero.webp is
     // `w-full h-auto` with no reserved height, so the section jumps taller once
     // it decodes, and the demo later swaps that <img> for an <iframe>. A plain
     // window-resize listener never fires for those, so the canvas bitmap stayed

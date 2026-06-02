@@ -1,6 +1,6 @@
 "use client";
 
-// Hero "try the product live" widget. Shows the static crm-hero.png as a
+// Hero "try the product live" widget. Shows the static crm-hero.webp as a
 // teaser and only mounts the live iframe after the visitor clicks — so we
 // don't auto-create a demo session for every page load (which would write
 // to sessionStorage on app.justcrm.com on first visit and look spammy in
@@ -30,7 +30,7 @@ export default function InteractiveDemo() {
             <iframe
                 src={DEMO_URL}
                 title="JustCRM — live demo"
-                // Match the static crm-hero.png aspect (2876×1588 ≈ 1.81).
+                // Match the static crm-hero.webp aspect (2600×1436 ≈ 1.81).
                 // Inline `aspectRatio` instead of Tailwind's arbitrary
                 // `aspect-[2876/1588]` — the arbitrary-class JIT misses
                 // unusual ratios in some Tailwind v4 setups, leaving the
@@ -51,7 +51,7 @@ export default function InteractiveDemo() {
             className="relative group block w-full p-0 border-0 bg-transparent cursor-pointer"
         >
             <img
-                src={`${bp}/images/crm-hero.png`}
+                src={`${bp}/images/crm-hero.webp`}
                 alt="JustCRM — контакти, справи, білінг"
                 className="block w-full h-auto"
             />
