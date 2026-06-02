@@ -21,6 +21,7 @@ export default function DocumentsPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      relatedPosts={["ai-document-generation", "data-security-law-firms", "data-protection-legal-crm"]}
       sections={[
         {
           tag: "Файли у справі",

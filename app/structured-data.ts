@@ -1,5 +1,6 @@
 import { SITE } from "./seo";
-import { faqs } from "@/components/faqData";
+import { faqs, type Faq } from "@/components/faqData";
+import { productFaqs } from "@/components/productFaqs";
 import { BLOG_POSTS_BY_SLUG } from "./blog/posts";
 
 /**
@@ -120,14 +121,14 @@ export function breadcrumbNode(items: { name: string; path: string }[]): Node {
   };
 }
 
-export function faqNode(pagePath: string): Node {
+export function faqNode(pagePath: string, items: Faq[] = faqs): Node {
   const url = pagePath === "/" ? SITE.url : `${SITE.url}${pagePath}`;
   return {
     "@type": "FAQPage",
     "@id": `${url}#faq`,
     url,
     inLanguage: "uk-UA",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: items.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -180,14 +181,17 @@ export function pricingGraph(): Node {
   );
 }
 
-/** Product feature pages: product entity + breadcrumb. */
+/** Product feature pages: product entity + breadcrumb (+ FAQPage if the page
+    has a per-product FAQ block in productFaqs). */
 export function productGraph(name: string, path: string): Node {
+  const pageFaqs = productFaqs[path];
   return graph(
     softwareApplicationNode(),
     breadcrumbNode([
       { name: "Головна", path: "/" },
       { name, path },
     ]),
+    ...(pageFaqs ? [faqNode(path, pageFaqs)] : []),
   );
 }
 

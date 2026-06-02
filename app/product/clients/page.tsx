@@ -21,6 +21,7 @@ export default function ClientsPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      relatedPosts={["client-intake-funnel", "email-integration-legal-crm"]}
       sections={[
         {
           tag: "Профіль клієнта",

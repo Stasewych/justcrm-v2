@@ -1,6 +1,9 @@
 import { pageMeta } from "@/app/seo";
 import JsonLd from "@/components/JsonLd";
 import { blogPostGraph } from "@/app/structured-data";
+import TldrBox from "@/components/TldrBox";
+import { BLOG_TLDR } from "@/components/blogTldr";
+import RelatedPosts from "@/components/RelatedPosts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
@@ -71,6 +74,8 @@ export default function BlogPost() {
         {/* Article body */}
         <article className="py-12 bg-white">
           <div className="max-w-3xl mx-auto px-8 legal-prose prose prose-neutral prose-headings:font-semibold prose-headings:tracking-tight prose-p:text-[16px] prose-p:leading-[1.8] prose-p:text-black/60 prose-li:text-[16px] prose-li:text-black/60 prose-strong:text-black/80 prose-blockquote:border-l-2 prose-blockquote:border-black/15 prose-blockquote:pl-5 prose-blockquote:text-black/50 prose-blockquote:italic">
+
+            <TldrBox points={BLOG_TLDR["billing-eats-lawyer-time"]} />
 
             <h2>Скільки коштує ручний білінг: цифри, які лякають</h2>
 
@@ -206,6 +211,8 @@ export default function BlogPost() {
             </p>
           </div>
         </article>
+
+        <RelatedPosts currentSlug="billing-eats-lawyer-time" />
 
         {/* CTA */}
         <section className="py-16 bg-[#fafafa] bg-dot-grid">

@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "AI-асистент для юристів",
@@ -22,6 +23,8 @@ export default function AiPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      faqs={productFaqs["/product/ai"]}
+      relatedPosts={["ai-transforms-legal-practice", "ai-document-generation", "rag-knowledge-base"]}
       sections={[
         {
           tag: "База знань фірми",

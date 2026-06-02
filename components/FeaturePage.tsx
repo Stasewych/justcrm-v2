@@ -4,6 +4,10 @@ import GuideLines from "./GuideLines";
 import FloatingDots from "./FloatingDots";
 import Button from "./Button";
 import ScreenshotCarousel, { CarouselScreen } from "./ScreenshotCarousel";
+import FaqAccordion from "./FaqAccordion";
+import type { Faq } from "./faqData";
+import BlogCard from "./BlogCard";
+import { BLOG_POSTS } from "@/app/blog/posts";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -31,6 +35,10 @@ interface FeaturePageProps {
   heroImageHeight?: number;
   heroImageMaxWidth?: number;
   sections: SubFeature[];
+  /** Optional page-specific FAQ block, rendered before the closing CTA. */
+  faqs?: Faq[];
+  /** Optional blog slugs to surface as "matching reading" (product → blog links). */
+  relatedPosts?: string[];
 }
 
 function MacBookMockup({ image, label }: { image?: string; label: string }) {
@@ -84,8 +92,11 @@ function MacPlaceholder({ label, image }: { label: string; image?: string }) {
   );
 }
 
-export default function FeaturePage({ tag, title, subtitle, heroImage, heroImageWidth, heroImageHeight, heroImageMaxWidth, sections }: FeaturePageProps) {
+export default function FeaturePage({ tag, title, subtitle, heroImage, heroImageWidth, heroImageHeight, heroImageMaxWidth, sections, faqs, relatedPosts }: FeaturePageProps) {
   const heroLarge = heroImageMaxWidth != null;
+  const related = (relatedPosts ?? [])
+    .map((slug) => BLOG_POSTS.find((p) => p.slug === slug))
+    .filter((p): p is (typeof BLOG_POSTS)[number] => Boolean(p));
   return (
     <>
       <Header />
@@ -198,6 +209,36 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, heroImage
             </section>
           );
         })}
+
+        {/* Matching reading — product → blog, as an image card gallery */}
+        {related.length > 0 && (
+          <section className="py-14 lg:py-20 bg-white border-t border-black/8 relative overflow-hidden">
+            <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10">
+              <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
+                Матеріали по темі
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                {related.map((p) => (
+                  <BlogCard
+                    key={p.slug}
+                    post={{
+                      slug: p.slug,
+                      title: p.title,
+                      excerpt: p.excerpt,
+                      image: p.image,
+                      date: p.displayDate,
+                      tag: p.tag,
+                      readTime: p.readTime,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Page-specific FAQ — extractable Q&A for the page's intent cluster */}
+        {faqs && faqs.length > 0 && <FaqAccordion faqs={faqs} />}
 
         {/* CTA */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">

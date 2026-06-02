@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "Управління справами юриста",
@@ -21,6 +22,8 @@ export default function CasesPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      faqs={productFaqs["/product/cases"]}
+      relatedPosts={["kanban-case-management", "excel-to-crm-migration", "crm-vs-excel-legal"]}
       sections={[
         {
           tag: "Огляд справ",

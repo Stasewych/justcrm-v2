@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "Білінг і тайм-трекінг для юристів",
@@ -21,6 +22,8 @@ export default function BillingPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      faqs={productFaqs["/product/billing"]}
+      relatedPosts={["billing-eats-lawyer-time", "multicurrency-invoicing", "voice-dictation-legal"]}
       sections={[
         {
           tag: "Трекінг часу",
