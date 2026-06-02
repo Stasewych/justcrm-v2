@@ -14,47 +14,60 @@ type V = "yes" | "no" | string;
 
 type Group = { group: string; rows: { c: string; v: V[] }[] };
 
-// Column order: JustCRM, JuristCRM, JusNote, Clio, "Notion · ClickUp · Excel"
+// Column order: JustCRM, Clio, Notion, ClickUp, Excel.
+// Honest both ways — competitors keep the rows where they are genuinely stronger
+// (maturity, integrations, mobile, free tiers, flexibility), JustCRM owns
+// localisation, legal-specific work and Ukrainian AI.
 const TABLE: Group[] = [
   {
     group: "Локалізація під Україну",
     rows: [
-      { c: "Українська мова інтерфейсу", v: ["yes", "yes", "yes", "no", "no"] },
-      { c: "Ціни у гривнях", v: ["yes", "yes", "no", "no", "no"] },
-      { c: "ФОП-рахунки і закриваючі документи", v: ["yes", "yes", "no", "no", "no"] },
-      { c: "Локальна підтримка українською", v: ["yes", "yes", "yes", "no", "no"] },
+      { c: "Українська мова інтерфейсу", v: ["yes", "no", "no", "no", "yes"] },
+      { c: "Ціни у гривнях", v: ["yes", "no", "no", "no", "yes"] },
+      { c: "ФОП-рахунки і закриваючі документи", v: ["yes", "no", "no", "no", "no"] },
+      { c: "Локальна підтримка українською", v: ["yes", "no", "no", "no", "no"] },
     ],
   },
   {
     group: "Юридична практика",
     rows: [
-      { c: "Створено під юридичну практику", v: ["yes", "yes", "yes", "yes", "no"] },
+      { c: "Створено під юридичну практику", v: ["yes", "yes", "no", "no", "no"] },
+      { c: "Облік справ зі строками", v: ["yes", "yes", "no", "no", "no"] },
       { c: "Картка справи: Kanban, таблиця, календар", v: ["yes", "yes", "yes", "yes", "no"] },
-      { c: "Контроль процесуальних строків", v: ["yes", "yes", "yes", "yes", "no"] },
       { c: "Документи у контексті справи", v: ["yes", "yes", "yes", "yes", "no"] },
-      { c: "Білінг і тайм-трекінг", v: ["yes", "yes", "yes", "yes", "no"] },
-      { c: "Інвойси та контроль оплат", v: ["yes", "yes", "yes", "yes", "no"] },
-      { c: "Клієнтська база: фіз- та юрособи", v: ["yes", "yes", "yes", "yes", "no"] },
+      { c: "Тайм-трекінг", v: ["yes", "yes", "no", "yes", "no"] },
+      { c: "Інвойси та контроль оплат", v: ["yes", "yes", "no", "no", "no"] },
+      { c: "Клієнтська база: фіз- та юрособи", v: ["yes", "yes", "yes", "yes", "yes"] },
     ],
   },
   {
     group: "AI",
     rows: [
-      { c: "Вбудований AI-асистент", v: ["yes", "yes", "no", "yes", "yes"] },
-      { c: "AI працює українською", v: ["yes", "yes", "no", "no", "no"] },
+      { c: "Вбудований AI-асистент", v: ["yes", "yes", "yes", "yes", "no"] },
+      { c: "AI працює українською", v: ["yes", "no", "no", "no", "no"] },
       { c: "Голосове введення українською", v: ["yes", "no", "no", "no", "no"] },
-      { c: "RAG-пошук по базі знань фірми", v: ["yes", "no", "no", "no", "no"] },
+      { c: "RAG-пошук по базі знань", v: ["yes", "no", "yes", "yes", "no"] },
+    ],
+  },
+  {
+    group: "Гнучкість і зрілість",
+    rows: [
+      { c: "Вільне no-code налаштування простору", v: ["no", "no", "yes", "yes", "yes"] },
+      { c: "Велика екосистема інтеграцій", v: ["no", "yes", "yes", "yes", "no"] },
+      { c: "Мобільний застосунок", v: ["no", "yes", "yes", "yes", "yes"] },
+      { c: "Клієнтський портал", v: ["no", "yes", "no", "no", "no"] },
+      { c: "Безкоштовний тариф", v: ["no", "no", "yes", "yes", "yes"] },
     ],
   },
   {
     group: "Ціна",
     rows: [
-      { c: "Орієнтовна ціна за користувача", v: ["від 400 ₴", "≈200–300 ₴", "від €29", "$39–139", "$0–15"] },
+      { c: "Орієнтовна ціна за користувача", v: ["від 400 ₴", "$39–139", "$0–10", "$0–7", "у складі MS 365"] },
     ],
   },
 ];
 
-const COLS = ["JustCRM", "JuristCRM", "JusNote", "Clio", "Notion · ClickUp · Excel"];
+const COLS = ["JustCRM", "Clio", "Notion", "ClickUp", "Excel"];
 
 function Mark({ v, dark }: { v: V; dark?: boolean }) {
   if (v === "yes") {
@@ -108,8 +121,8 @@ export default function WhyCompare() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[760px] border-collapse">
             <caption className="sr-only">
-              Порівняння JustCRM з JuristCRM, JusNote, Clio та універсальними інструментами
-              (Notion, ClickUp, Excel) за можливостями, локалізацією під Україну, AI та ціною.
+              Порівняння JustCRM з Clio, Notion, ClickUp та Excel за можливостями,
+              локалізацією під Україну, AI, гнучкістю та ціною.
             </caption>
             <thead>
               <tr>
@@ -139,8 +152,8 @@ export default function WhyCompare() {
 
         <p className="text-[12px] text-black/30 mt-5 leading-relaxed max-w-2xl">
           Ціни конкурентів — за їхніми публічними тарифами станом на 2026 рік, можуть
-          змінюватися. Clio — $39–139 за користувача (у доларах), JusNote — від €29
-          за користувача (у євро).
+          змінюватися. Clio — $39–139 за користувача (у доларах); Notion і ClickUp мають
+          безкоштовний тариф; Excel — у складі підписки Microsoft 365.
         </p>
       </div>
     </section>
