@@ -13,8 +13,8 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
 
-  --font-sans: "Roboto", sans-serif;
-  --font-mono: "Roboto Mono", monospace;
+  --font-sans: var(--font-roboto), "Roboto", sans-serif;
+  --font-mono: var(--font-roboto-mono), "Roboto Mono", monospace;
 
   --spacing-section: 6rem;
   --spacing-section-sm: 4rem;

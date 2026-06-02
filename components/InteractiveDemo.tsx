@@ -84,6 +84,8 @@ export default function InteractiveDemo() {
                         alt="JustCRM — контакти, справи, білінг"
                         width={2600}
                         height={1436}
+                        fetchPriority="high"
+                        decoding="async"
                         className="block w-full h-full object-cover"
                     />
                     {/* Launch affordance — desktop only. Mobile gets a static

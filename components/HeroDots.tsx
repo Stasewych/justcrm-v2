@@ -16,7 +16,9 @@ export default function HeroDots() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    // Cap DPR at 2: the static arc layer is built at device px, so a 3x phone
+    // would pay ~2.25x the fill cost of retina for a purely decorative texture.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let w = 0;
     let h = 0;
 

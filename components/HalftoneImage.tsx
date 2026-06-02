@@ -12,7 +12,7 @@ export default function HalftoneImage({ src }: { src?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const W = 600;
     const H = 800;
     canvas.width = W * dpr;

@@ -1,8 +1,24 @@
 import type { Metadata, Viewport } from "next";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 import { siteGraph } from "@/app/structured-data";
 import "./globals.css";
+
+// Self-hosted via next/font — no browser request to Google, no layout shift.
+// cyrillic subset is mandatory: the whole site is Ukrainian. Roboto is a
+// variable font, so we omit `weight` and get every weight from one file.
+const roboto = Roboto({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-roboto",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://justsolution.org"),
@@ -66,16 +82,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html lang="uk" className={`${roboto.variable} ${robotoMono.variable}`}>
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
       </head>
