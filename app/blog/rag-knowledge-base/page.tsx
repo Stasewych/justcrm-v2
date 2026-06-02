@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "RAG-база знань для юрфірми",
+  description: "AI аналізує внутрішні документи, шаблони та матеріали справ і знаходить відповіді на запити юриста.",
+  path: "/blog/rag-knowledge-base",
+  type: "article",
+  publishedTime: "2026-03-28",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

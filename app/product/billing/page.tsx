@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Білінг і тайм-трекінг для юристів",
+  description: "Таймер на справу, мультивалютні рахунки та індивідуальні ставки — від хвилини роботи до оплаченого рахунку. Жодна оплачувана година не губиться.",
+  path: "/product/billing",
+});
 
 export default function BillingPage() {
   return (

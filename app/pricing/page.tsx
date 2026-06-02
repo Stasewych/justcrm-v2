@@ -1,3 +1,4 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
@@ -6,6 +7,12 @@ import Pricing from "@/components/Pricing";
 import PricingCompare from "@/components/PricingCompare";
 import FAQ from "@/components/FAQ";
 import Button from "@/components/Button";
+
+export const metadata = pageMeta({
+  title: "Ціни на CRM для юристів",
+  description: "Прозорі тарифи юридичної CRM — 14 днів безкоштовно з повним функціоналом Pro AI, без прихованих платежів. Оплата у гривні.",
+  path: "/pricing",
+});
 
 export default function PricingPage() {
   return (

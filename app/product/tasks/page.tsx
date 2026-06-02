@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Задачі та доручення для юристів",
+  description: "Розподіляйте доручення, контролюйте дедлайни справ і нагадування — без задач, що губляться в месенджерах і нотатках.",
+  path: "/product/tasks",
+});
 
 export default function TasksPage() {
   return (

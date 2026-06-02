@@ -1,6 +1,13 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
+
+export const metadata = pageMeta({
+  title: "Замовити демонстрацію",
+  description: "Персональна демонстрація JustCRM для вашої фірми — покажемо, як налаштувати справи, білінг і AI під ваші процеси.",
+  path: "/sales",
+});
 
 export default function SalesPage() {
   return (

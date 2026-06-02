@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Таблиці та реєстри для юрфірми",
+  description: "Гнучкі таблиці й реєстри для будь-яких даних фірми — сортування, фільтри та аналітика, як у звичній таблиці, але всередині CRM.",
+  path: "/product/tables",
+});
 
 export default function TablesPage() {
   return (

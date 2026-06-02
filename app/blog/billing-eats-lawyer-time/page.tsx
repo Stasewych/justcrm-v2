@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Скільки часу юрист втрачає на білінг",
+  description: "До 10 годин на місяць кожен юрист витрачає на ручний білінг. У фірмі з 15 осіб це €90 000 на рік на адміністрування.",
+  path: "/blog/billing-eats-lawyer-time",
+  type: "article",
+  publishedTime: "2026-05-10",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

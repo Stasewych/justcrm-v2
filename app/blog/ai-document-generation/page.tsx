@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "AI-генерація юридичних документів",
+  description: "Юристи витрачають до 60% робочого часу на документи. AI-генерація на основі шаблонів скорочує цей час у десятки разів — від NDA до довіреності.",
+  path: "/blog/ai-document-generation",
+  type: "article",
+  publishedTime: "2026-05-01",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

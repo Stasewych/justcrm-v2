@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Клієнтська база адвоката",
+  description: "Картка клієнта з усією історією — справи, оплати, документи й листування зібрані в одному профілі. Жоден контакт не загубиться.",
+  path: "/product/clients",
+});
 
 export default function ClientsPage() {
   return (

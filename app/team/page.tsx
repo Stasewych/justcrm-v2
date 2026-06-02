@@ -1,7 +1,14 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import FloatingDots from "@/components/FloatingDots";
+
+export const metadata = pageMeta({
+  title: "Команда",
+  description: "Команда Just Solution — інженери та юристи, що будують українську AI-CRM для юридичних фірм JustCRM.",
+  path: "/team",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Голосова диктовка для юристів",
+  description: "До 40% оплачуваних годин не потрапляють у рахунок, бо юрист фіксує час «на око» в кінці тижня. Голосове введення вирішує цю проблему.",
+  path: "/blog/voice-dictation-legal",
+  type: "article",
+  publishedTime: "2026-05-12",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Управління справами юриста",
+  description: "Усі справи в одному місці — Kanban, таблиця, список і календар дедлайнів, з контролем доступу та фінансами по кожній справі.",
+  path: "/product/cases",
+});
 
 export default function CasesPage() {
   return (

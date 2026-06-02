@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Інтеграція пошти з юридичною CRM",
+  description: "Вхідний лист автоматично потрапляє до відповідної справи — без ручного сортування по папках.",
+  path: "/blog/email-integration-legal-crm",
+  type: "article",
+  publishedTime: "2026-03-12",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

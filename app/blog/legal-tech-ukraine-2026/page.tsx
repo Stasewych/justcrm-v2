@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "LegalTech в Україні 2026: тренди",
+  description: "48 000 адвокатів, зростаючий попит на автоматизацію та нові гравці — огляд українського ринку legal tech.",
+  path: "/blog/legal-tech-ukraine-2026",
+  type: "article",
+  publishedTime: "2026-03-20",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

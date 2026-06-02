@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Як AI змінює роботу юриста",
+  description: "80% юристів вважають, що AI матиме трансформаційний вплив на їхню роботу протягом п'яти років. Розбираємо, що це означає для українських фірм.",
+  path: "/blog/ai-transforms-legal-practice",
+  type: "article",
+  publishedTime: "2026-05-16",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

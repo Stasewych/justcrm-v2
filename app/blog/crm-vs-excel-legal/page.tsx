@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "CRM проти Excel для юриста",
+  description: "Справи в таблицях, фінанси в голові партнера — як централізація даних підвищує ефективність.",
+  path: "/blog/crm-vs-excel-legal",
+  type: "article",
+  publishedTime: "2026-04-25",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

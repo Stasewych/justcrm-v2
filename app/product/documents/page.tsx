@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "Документообіг юридичної фірми",
+  description: "Документи й листування прив'язані до справи, а не розкидані по папках — зі спільним доступом, версіями та шаблонами.",
+  path: "/product/documents",
+});
 
 export default function DocumentsPage() {
   return (

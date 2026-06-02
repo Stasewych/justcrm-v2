@@ -1,3 +1,4 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BrowserFrame from "@/components/BrowserFrame";
@@ -17,6 +18,14 @@ import ScrollButtons from "@/components/ScrollButtons";
 import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
 import InteractiveDemo from "@/components/InteractiveDemo";
+
+export const metadata = pageMeta({
+  title: "CRM для юристів та адвокатів | JustCRM — юридична CRM",
+  description:
+    "Централізуйте справи, клієнтів, документи та фінанси юрфірми в одній AI-CRM. Від першого контакту з клієнтом до виставлення рахунку — українською.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

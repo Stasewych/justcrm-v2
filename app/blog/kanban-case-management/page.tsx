@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Kanban для ведення справ",
+  description: "Чотири режими перегляду справ — Kanban, список, таблиця, календар — і коли який обрати.",
+  path: "/blog/kanban-case-management",
+  type: "article",
+  publishedTime: "2026-04-12",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

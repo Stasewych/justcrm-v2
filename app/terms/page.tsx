@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import LegalPage from "@/components/LegalPage";
+
+export const metadata = pageMeta({
+  title: "Правила користування",
+  description: "Правила користування програмним сервісом JustCRM для юридичних фірм.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

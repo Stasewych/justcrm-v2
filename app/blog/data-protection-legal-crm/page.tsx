@@ -1,8 +1,17 @@
+import { pageMeta } from "@/app/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
 import Button from "@/components/Button";
 import Link from "next/link";
+
+export const metadata = pageMeta({
+  title: "Захист персональних даних у CRM",
+  description: "Як обрати CRM, що відповідає вимогам ст. 22 ЗУ «Про адвокатуру» та Регламенту GDPR.",
+  path: "/blog/data-protection-legal-crm",
+  type: "article",
+  publishedTime: "2026-04-18",
+});
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

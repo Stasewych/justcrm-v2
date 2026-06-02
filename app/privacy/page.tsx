@@ -1,4 +1,11 @@
+import { pageMeta } from "@/app/seo";
 import LegalPage from "@/components/LegalPage";
+
+export const metadata = pageMeta({
+  title: "Політика конфіденційності",
+  description: "Як JustCRM збирає, обробляє та захищає персональні дані користувачів і клієнтів юридичних фірм.",
+  path: "/privacy",
+});
 
 const toc = [
   { id: "general", text: "1. Загальні положення" },

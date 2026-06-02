@@ -1,4 +1,12 @@
+import { pageMeta } from "@/app/seo";
 import LegalPage from "@/components/LegalPage";
+
+export const metadata = pageMeta({
+  title: "Публічна оферта",
+  description:
+    "Публічна оферта про надання послуг доступу до програмного сервісу JustCRM.",
+  path: "/offer",
+});
 
 const toc = [
   { id: "terms", text: "1. Терміни та визначення" },

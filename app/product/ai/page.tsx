@@ -1,4 +1,12 @@
+import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+
+export const metadata = pageMeta({
+  title: "AI-асистент для юристів",
+  description:
+    "База знань фірми (RAG), голосове введення українською та генерація документів за шаблоном. AI готує чернетку — рішення завжди за юристом.",
+  path: "/product/ai",
+});
 
 export default function AiPage() {
   return (
