@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
