@@ -17,6 +17,15 @@ const columns = [
     ],
   },
   {
+    title: "Для кого",
+    links: [
+      { href: "/for/soloyuryst", label: "Приватний юрист" },
+      { href: "/for/advokat", label: "Адвокат" },
+      { href: "/for/buro", label: "Адвокатське бюро" },
+      { href: "/for/notarius", label: "Нотаріус" },
+    ],
+  },
+  {
     title: "Ресурси",
     links: [
       { href: "/why", label: "Чому JustCRM" },
@@ -54,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Columns */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-10 gap-x-8">
             {columns.map((col, i) => (
               <div key={col.title}>
                 <div className="flex items-center gap-2 mb-4">
@@ -112,7 +121,8 @@ export default function Footer() {
           </div>
 
           {/* Bottom crosses row */}
-          <div className="mt-10 grid grid-cols-4 gap-x-8">
+          <div className="mt-10 hidden lg:grid grid-cols-5 gap-x-8">
+            <div><Cross /></div>
             <div><Cross /></div>
             <div><Cross /></div>
             <div><Cross /></div>

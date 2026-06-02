@@ -1,6 +1,7 @@
 import { SITE } from "./seo";
 import { faqs, type Faq } from "@/components/faqData";
 import { productFaqs } from "@/components/productFaqs";
+import { SEGMENTS } from "@/components/segments";
 import { BLOG_POSTS_BY_SLUG } from "./blog/posts";
 
 /**
@@ -268,5 +269,20 @@ export function whyGraph(): Node {
       { name: "Головна", path: "/" },
       { name: "Чому JustCRM", path: "/why" },
     ]),
+  );
+}
+
+/** Segment landing page (/for/<slug>): product entity + breadcrumb + segment FAQ. */
+export function segmentGraph(slug: string): Node {
+  const seg = SEGMENTS[slug];
+  if (!seg) throw new Error(`segmentGraph: unknown segment "${slug}"`);
+  const path = `/for/${slug}`;
+  return graph(
+    softwareApplicationNode(),
+    breadcrumbNode([
+      { name: "Головна", path: "/" },
+      { name: seg.h1, path },
+    ]),
+    faqNode(path, seg.faqs),
   );
 }
