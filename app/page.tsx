@@ -17,6 +17,7 @@ import MoreTools from "@/components/MoreTools";
 import ScrollButtons from "@/components/ScrollButtons";
 import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
+import ComparisonTable from "@/components/ComparisonTable";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import JsonLd from "@/components/JsonLd";
 import { homeGraph } from "@/app/structured-data";
@@ -59,9 +60,9 @@ export default function Home() {
                 className="mt-6 text-lg lg:text-xl text-black/80 max-w-2xl mx-auto leading-relaxed"
                 style={{ textShadow: "0 0 20px rgba(244,244,244,0.95), 0 0 40px rgba(244,244,244,0.8)" }}
               >
-                Централізуйте управління справами, клієнтами, документами
-                та фінансами вашої юридичної фірми. Від першого контакту
-                з клієнтом до виставлення рахунку — усе в одній системі.
+                JustCRM — українська AI-CRM для юридичних фірм та адвокатів.
+                Справи, клієнти, документи, облік часу й рахунки — в одній
+                системі, з AI-помічником українською.
               </p>
 
               <div className="mt-8 flex items-center justify-center gap-3">
@@ -173,21 +174,21 @@ export default function Home() {
                   <div>
                     <div className="text-[15px] font-semibold mb-1">Розрізнені інструменти</div>
                     <div className="text-sm text-black/45 leading-relaxed">
-                      Справи в Excel, листування в Gmail, документи в папках, фінанси в голові партнера. П'ять місць замість одного.
+                      Справи в Excel, листування в Gmail, документи в папках, фінанси в голові партнера — кілька систем замість однієї.
                     </div>
                   </div>
 
                   <div>
                     <div className="text-[15px] font-semibold mb-1">Втрачений оплачуваний час</div>
                     <div className="text-sm text-black/45 leading-relaxed">
-                      До 40% робочих годин не потрапляють у рахунок. Час фіксується «на око» в кінці тижня.
+                      Частина оплачуваних годин просто не доходить до рахунку: час фіксують «на око» наприкінці тижня, і дрібні активності губляться.
                     </div>
                   </div>
 
                   <div>
                     <div className="text-[15px] font-semibold mb-1">Білінг з'їдає робочий час</div>
                     <div className="text-sm text-black/45 leading-relaxed">
-                      До 10 годин на місяць кожен юрист витрачає на ручне внесення часу, розрахунок ставок і підготовку рахунків. У фірмі з 15 осіб це понад 1 800 годин на рік — при середній ставці €50/год це €90 000, які йдуть на адміністрування замість роботи з клієнтами.
+                      Припустимо, юрист витрачає 10 годин на місяць на ручне внесення часу, розрахунок ставок і підготовку рахунків. У фірмі з 15 осіб це 1 800 годин на рік — близько €90 000 при ставці €50/год, які йдуть на адміністрування замість роботи з клієнтами.
                     </div>
                   </div>
                 </div>
@@ -197,6 +198,8 @@ export default function Home() {
         </section>
 
         <ScrollRevealQuote />
+
+        <ComparisonTable />
 
         <Features />
 

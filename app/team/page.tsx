@@ -1,4 +1,6 @@
 import { pageMeta } from "@/app/seo";
+import JsonLd from "@/components/JsonLd";
+import { teamGraph } from "@/app/structured-data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
@@ -54,6 +56,7 @@ function LinkedInIcon() {
 export default function TeamPage() {
   return (
     <>
+      <JsonLd data={teamGraph()} />
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">

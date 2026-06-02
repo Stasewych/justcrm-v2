@@ -41,6 +41,13 @@ const PUBLISHER: Node = {
   logo: { "@type": "ImageObject", url: LOGO_URL },
 };
 
+const TEAM: { name: string; role: string; linkedin: string }[] = [
+  { name: "Тарас Зубачик", role: "Chief of Business Development & Product, Co-founder", linkedin: "https://www.linkedin.com/in/taras-zubachyk-95077a215/" },
+  { name: "Станіслав Маринович", role: "Chief of Marketing & Project, Co-founder", linkedin: "https://www.linkedin.com/in/stanislav-marynovych/" },
+  { name: "Мар'ян Петлований", role: "AI/ML Engineer & Co-founder", linkedin: "https://www.linkedin.com/in/marian-petlovanyi/" },
+  { name: "Микола Ковалик", role: "CTO & Co-founder", linkedin: "https://www.linkedin.com/in/mykola-kovalyk/" },
+];
+
 /** Wrap one or more schema nodes into a single @graph document. */
 export function graph(...nodes: Node[]): Node {
   return { "@context": "https://schema.org", "@graph": nodes };
@@ -194,6 +201,25 @@ export function blogPostGraph(slug: string): Node {
       { name: "Головна", path: "/" },
       { name: "Блог", path: "/blog" },
       { name: p.title, path: `/blog/${slug}` },
+    ]),
+  );
+}
+
+/** Team page: a Person node per co-founder (E-E-A-T) + breadcrumb. */
+export function teamGraph(): Node {
+  const persons: Node[] = TEAM.map((m, i) => ({
+    "@type": "Person",
+    "@id": `${SITE.url}/team#person-${i + 1}`,
+    name: m.name,
+    jobTitle: m.role,
+    worksFor: { "@id": ORG_ID },
+    sameAs: [m.linkedin],
+  }));
+  return graph(
+    ...persons,
+    breadcrumbNode([
+      { name: "Головна", path: "/" },
+      { name: "Команда", path: "/team" },
     ]),
   );
 }

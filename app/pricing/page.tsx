@@ -38,7 +38,9 @@ export default function PricingPage() {
                   <span className="font-normal text-black/30"> для Вашої фірми</span>
                 </h1>
                 <p className="text-lg text-black/50 max-w-2xl mx-auto leading-relaxed">
-                  14 днів безкоштовно з повним функціоналом Pro AI.
+                  JustCRM коштує від 400 ₴ за користувача на місяць (Classic) або
+                  600 ₴ (Pro AI з усіма AI-функціями); Enterprise — за домовленістю.
+                  Перші 14 днів — безкоштовно з повним Pro AI.
                 </p>
               </div>
             </div>
