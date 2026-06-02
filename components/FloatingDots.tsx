@@ -12,9 +12,15 @@ export default function FloatingDots({ count = 40, color = "0,0,0" }: { count?: 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    // Cap DPR: retina is already 2; this guards 3x phones / 4K from paying ~9x
+    // fill cost for a decorative background.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     let w = 0;
     let h = 0;
+    let running = false; // is the rAF loop currently armed?
+    let visible = false; // is the canvas in (or near) the viewport?
 
     interface Dot {
       x: number;
@@ -45,35 +51,76 @@ export default function FloatingDots({ count = 40, color = "0,0,0" }: { count?: 
       }));
     };
 
-    const render = () => {
+    // One frame of paint; `advance` moves the dots (skipped for the static
+    // reduced-motion / first paint).
+    const paint = (advance: boolean) => {
       ctx.clearRect(0, 0, w, h);
-
       for (const d of dots) {
-        d.x += d.vx;
-        d.y += d.vy;
-
-        if (d.x < -10) d.x = w + 10;
-        if (d.x > w + 10) d.x = -10;
-        if (d.y < -10) d.y = h + 10;
-        if (d.y > h + 10) d.y = -10;
-
+        if (advance) {
+          d.x += d.vx;
+          d.y += d.vy;
+          if (d.x < -10) d.x = w + 10;
+          if (d.x > w + 10) d.x = -10;
+          if (d.y < -10) d.y = h + 10;
+          if (d.y > h + 10) d.y = -10;
+        }
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${color},${d.alpha})`;
         ctx.fill();
       }
+    };
 
-      rafRef.current = requestAnimationFrame(render);
+    const tick = () => {
+      if (!running) return; // load-bearing: a frame queued before stop() must bail
+      paint(true);
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      if (running || reduced || !visible) return; // idempotent + gated
+      running = true;
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(rafRef.current);
     };
 
     init();
-    render();
+    paint(false); // never blank, even before the observer fires
 
-    const onResize = () => init();
+    // Pause/resume on visibility. rootMargin spins the loop up just before the
+    // section scrolls into view, so the user never sees a frozen-then-jumping
+    // canvas. At any scroll position only the in-view instance animates.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) start();
+        else stop();
+      },
+      { rootMargin: "200px 0px" }
+    );
+    io.observe(canvas);
+
+    // Release the loop when the tab is hidden; resume if still in view.
+    const onTabVis = () => {
+      if (document.hidden) stop();
+      else if (visible) start();
+    };
+    document.addEventListener("visibilitychange", onTabVis);
+
+    const onResize = () => {
+      init();
+      if (!running) paint(false); // keep the canvas correct while paused
+    };
     window.addEventListener("resize", onResize);
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
+      stop();
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onTabVis);
       window.removeEventListener("resize", onResize);
     };
   }, [count, color]);
