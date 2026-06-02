@@ -11,7 +11,7 @@
 | 0 | Технічний шар (meta, sitemap, robots, manifest, OG) | ✅ Зроблено | `b712a1b` (live) |
 | 1 | Structured data (JSON-LD) | ✅ Зроблено | `88c3c86` (live) |
 | 2 | GEO on-page (extractability) | ✅ Зроблено | `1c920d3` (live) |
-| 3 | Сторінка «Чому JustCRM» (`/why`, vs/alternative) | ✅ Зібрано, ⏳ **НЕ задеплоєно** | uncommitted |
+| 3 | «Чому JustCRM» (`/why`) + segment-лендинги (`/for/*`) | ✅ `/why` live; segment-лендинги зібрані, ⏳ НЕ задеплоєні | uncommitted |
 | 4 | Core Web Vitals / швидкість | ✅ Зроблено, ⏳ **НЕ задеплоєно** | uncommitted |
 | 5 | Вимірювання (GSC/Bing/GA4/AI-моніторинг) | ❌ Не починали | — |
 | 6 | Off-site entity-білдинг (виконує власник) | ❌ Не починали (контент готовий) | — |
@@ -61,6 +61,13 @@
 
 ### Деплой і housekeeping
 - **Фаза 4 (CWV) + Фаза 2 «хвости» ще не задеплоєні** — uncommitted. Перед деплоєм: `npm run build` + окремі логічні коміти (perf CWV; feat per-product FAQ + блог TL;DR + перелінковка).
+
+### Фаза 3 — segment-лендинги — ЗРОБЛЕНО, ще НЕ задеплоєно
+- 4 сторінки `/for/{soloyuryst,advokat,buro,notarius}` — рукописна копія під кожну аудиторію (не programmatic), спільний `SegmentPage.tsx` + дані `segments.ts`.
+- Кожна: hero з entity-дефініцією під сегмент → 4 value-блоки → картки «Що входить» (перелінковка на `/product/*`) → сегментний FAQ (→ FAQPage через `segmentGraph`) → темний CTA.
+- Чесність: advokat — нема прямої інтеграції з реєстром судових рішень; notarius — нема доступу до державних нотаріальних реєстрів (це система організації практики).
+- **Збагачено (за запитом власника):** hero кожного сегмента отримав продуктовий скриншот (`SEGMENT_HERO`: solo→billing, advokat→cases, buro→tasks, notarius→clients); **куровані фіче-секції з банерами** під аудиторію (`segmentFeatures.ts` — по 3 секції з реальних скриншотів продукту, різні для різних сегментів), рендеряться спільним `FeatureSections.tsx` (винесений із `FeaturePage`, щоб не дублювати). Лишено value-блоки «Чому саме вам» + «Що входить» (перелінковка).
+- Підключено: **Header dropdown «Для кого»** (desktop mega-menu + mobile), Footer (група «Для кого»), `sitemap.ts` (4 маршрути). Копія — під `ai-writing-tells-checklist.md`.
 
 ### Hero сторінки `/why`
 - Hero має зображення терезів (`scales.png`) праворуч + хайрлайн-межу знизу. Закрито.
