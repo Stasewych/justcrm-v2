@@ -12,7 +12,7 @@
 | 1 | Structured data (JSON-LD) | ✅ Зроблено | `88c3c86` (live) |
 | 2 | GEO on-page (extractability) | ✅ Зроблено | `1c920d3` (live) |
 | 3 | Сторінка «Чому JustCRM» (`/why`, vs/alternative) | ✅ Зібрано, ⏳ **НЕ задеплоєно** | uncommitted |
-| 4 | Core Web Vitals / швидкість | ❌ Не починали | — |
+| 4 | Core Web Vitals / швидкість | ✅ Зроблено, ⏳ **НЕ задеплоєно** | uncommitted |
 | 5 | Вимірювання (GSC/Bing/GA4/AI-моніторинг) | ❌ Не починали | — |
 | 6 | Off-site entity-білдинг (виконує власник) | ❌ Не починали (контент готовий) | — |
 
@@ -49,23 +49,30 @@
 - Джерела фактів — Obsidian `obsidian-stas` (`01 Ринок`, `02 Продукт`) + публічні ціни (Clio $39–139, JusNote від €29). Тон поважний, без приниження (за стратегією власника).
 - **Видалено за вимогою:** анімація терезів у hero (`ScalesAnimation.tsx`) + блок «Excel чи CRM» (`ComparisonTable.tsx`) з головної.
 
+### Фаза 4 — Core Web Vitals — ЗРОБЛЕНО, ще НЕ задеплоєно
+- **Шрифти self-hosted:** Roboto + Roboto Mono через `next/font/google` (варіативні, субсети `latin`+`cyrillic`, `display:swap`, CSS-змінні). Прибрано `<link>` на `fonts.googleapis.com` з `layout.tsx`; `globals.css` тепер тягне `var(--font-roboto)`. Перевірено в `out/`: **0 звернень до Google**, 15 self-hosted woff2, preload.
+- **LCP:** головний герой `crm-hero.webp` (InteractiveDemo) — `fetchPriority="high"` + `decoding="async"`; width/height вже були (2600×1436).
+- **INP/головний потік:** DPR капнуто до 2 у `HeroDots`, `HalftoneImage` (у `FloatingDots` вже було). Усі три canvas-компоненти вже мали reduced-motion + IntersectionObserver-паузу офскрін + rAF-коалесинг — додаткова оптимізація не потрібна.
+- **Заміряно (production-білд, Playwright):** LCP ~120–160 мс (localhost, без тротлінгу), **CLS = 0** на `/`, `/why`, `/pricing`, `/team`, `/product/cases`, блозі (0.0005).
+
 ---
 
 ## ❌ Не зроблено / у черзі
 
 ### Деплой і housekeeping
-- **`/why` (Фаза 3) ще не задеплоєно** — uncommitted разом із doc-housekeeping (Фаза 6 rename, court-підтвердження). Перед деплоєм: `npm run build` + два логічні коміти.
+- **Фаза 4 (CWV) + Фаза 2 «хвости» ще не задеплоєні** — uncommitted. Перед деплоєм: `npm run build` + окремі логічні коміти (perf CWV; feat per-product FAQ + блог TL;DR + перелінковка).
 
 ### Hero сторінки `/why`
-- Візуал у hero відсутній (терези прибрано як невдалі). Відкрите питання: інший якісний hero-візуал або без нього.
+- Hero має зображення терезів (`scales.png`) праворуч + хайрлайн-межу знизу. Закрито.
 
-### Фаза 2 — свідомо відкладене (код)
-- Per-product FAQ-блоки (на cases/billing/ai/pricing).
-- Збагачення 14 блог-постів (answer-first лід + блок «Коротко/TL;DR»).
-- Перелінковка-кластери продукт ↔ релевантні статті.
+### Фаза 2 «хвости» — ЗРОБЛЕНО, ще НЕ задеплоєно
+- **Per-product FAQ** на `/product/cases`, `/product/billing`, `/product/ai` — по 4 питальні Q&A під інтент-кластер сторінки (`components/productFaqs.ts` + `FaqAccordion.tsx`), кожна живить FAQPage JSON-LD (`productGraph` → `faqNode(path, pageFaqs)`). Cases чесно відповідає про відсутність інтеграції з реєстром судових рішень. (pricing уже має повний FAQ із Фази 1.)
+- **Блог answer-first + TL;DR** на всіх 14 постах — `TldrBox.tsx` + `blogTldr.ts` (блок «Коротко» з 3 екстрактабельними тезами на пост). Ліди вже були answer-first. Цифри в TL;DR — лише атрибутовані (Thomson Reuters, ABA, €90k-розрахунок); без нових/невіднесених стат.
+- **Перелінковка** (P2.7): `RelatedPosts.tsx` на 14 постах — авто-добір 3 статей за тегом (блог↔блог) + лінк «Продукт по темі» (блог→продукт, мапа тег→продукт). Зворотньо — `FeaturePage relatedPosts` на cases/billing/ai/clients/documents («Матеріали по темі», продукт→блог).
+- Весь копірайт — під `ai-writing-tells-checklist.md`. Перевірено білдом: FAQPage #faq на 3 продуктових, «Коротко» на 14, «Читайте також» на 14, «Матеріали по темі» на 5.
 
-### Фаза 4 — Core Web Vitals
-- Roboto → `next/font/google` (self-host); `width/height` на всіх `<img>`; `fetchPriority` на LCP-герой; зменшити INP від canvas-анімацій.
+### Фаза 4 — оцінено й свідомо пропущено
+- **`width/height` на всіх 45 `<img>`** — заміряно CLS=0 на всіх ключових сторінках, бо дизайн уже резервує бокс через контейнери з фіксованим розміром + `object-cover/contain`. Масова правка не дала б приросту CWV. Опціонально: додати `width/height` на flow-лого (Header/Footer/marquee/awards) лише щоб закрити діагностику Lighthouse «image elements do not have explicit width and height» — не CWV-метрика.
 
 ### Фаза 5 — вимірювання
 - Засабмітити sitemap у Google Search Console; Bing + IndexNow; GA4 кастомний AI-канал; моніторинг AI-цитувань (укр.-промпти).

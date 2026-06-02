@@ -155,9 +155,9 @@ export default function JsonLd({ data }: { data: Record<string, unknown> }) {
 ## Наступні фази (стисло)
 
 - **Фаза 1:** structured data — ✅ ВИКОНАНО (статичні OG по розділах — відкладено).
-- **Фаза 2 (GEO on-page):** extractability — ✅ ВИКОНАНО (`seo-geo-phase2-audit.md`). Відкладено в коді: per-product FAQ-блоки, збагачення 14 блог-постів (answer-first + TL;DR), перелінковка-кластери продукт↔блог.
+- **Фаза 2 (GEO on-page):** extractability — ✅ ВИКОНАНО (`seo-geo-phase2-audit.md`). **«Хвости» теж ✅ ВИКОНАНО** (ще не задеплоєно): per-product FAQ на cases/billing/ai (+FAQPage schema), TL;DR-блок «Коротко» на 14 постах, перелінковка блог↔блог + блог↔продукт. Деталі — `seo-geo-status.md`.
 - **Фаза 3 (vs/alternative — стартувала):** сторінка «Чому JustCRM» (`/why`) ЗІБРАНА, ще НЕ задеплоєна — порівняльна таблиця (16 пунктів у 4 групах, семантична для AI/скрейпу, галочки/хрестики + прихований «Так/Ні») + editorial-альтернативи з кольоровими логотипами + `whyGraph` (SoftwareApplication + vs-FAQ + Breadcrumb). Терези в hero пробували й прибрали. Далі в межах Фази 3: segment-лендинги, Security-стор., кейси, власний рейтинг-листикл, автори+біо. **Повний живий статус — `seo-geo-status.md`.**
-- **Фаза 4 (CWV):** Roboto → `next/font/google` (self-host), `width/height` на всіх `<img>`, `fetchPriority` на LCP-герой, зменшити INP від canvas-анімацій.
+- **Фаза 4 (CWV):** ✅ ВИКОНАНО (ще не задеплоєно). Roboto+Roboto Mono → `next/font/google` self-host (варіативні, субсети latin+cyrillic, 0 звернень до Google), `fetchPriority="high"` на LCP-герої, DPR капнуто до 2 у canvas. Заміряно: CLS=0 на ключових сторінках → `width/height` на всіх `<img>` свідомо пропущено (бокси вже резервуються контейнерами). Деталі — `seo-geo-status.md`.
 - **Фаза 5 (вимірювання):** GSC (sitemap, Pages, branded-фільтр, CWV), Bing + IndexNow, GA4 кастомний AI-канал, моніторинг AI-цитувань (укр.-промпти).
 - **Фаза 6 (off-site entity-білдинг — виконує власник):** лістинги MIISOFT/Shelfy, Wikidata, legal-преса. Готовий контент — `seo-geo-phase6-offsite.md`. ⚠️ Court-registry інтеграції немає (підтв. власником) — конкурентна діра.
 
