@@ -154,11 +154,12 @@ export default function JsonLd({ data }: { data: Record<string, unknown> }) {
 
 ## Наступні фази (стисло)
 
-- **Фаза 1:** structured data + статичні OG по розділах.
-- **Фаза 2 (GEO):** extractability контенту (answer-first, питальні H2, стат-факти з цитуванням, таблиці, FAQ-блоки з 20 PAA-питань), entity-білдинг (офсайт: MIISOFT/Shelfy/G2, Wikidata, listicles, legal-преса).
-- **Фаза 3 (контент, поза поточним кодом):** vs/alternative, segment-лендинги, Security, кейси, власний рейтинг-листикл; автори+біо; перелінковка-кластери.
+- **Фаза 1:** structured data — ✅ ВИКОНАНО (статичні OG по розділах — відкладено).
+- **Фаза 2 (GEO on-page):** extractability — ✅ ВИКОНАНО (`seo-geo-phase2-audit.md`). Відкладено в коді: per-product FAQ-блоки, збагачення 14 блог-постів (answer-first + TL;DR), перелінковка-кластери продукт↔блог.
+- **Фаза 3 (vs/alternative — стартувала):** сторінка «Чому JustCRM» (`/why`) ЗІБРАНА, ще НЕ задеплоєна — порівняльна таблиця (16 пунктів у 4 групах, семантична для AI/скрейпу, галочки/хрестики + прихований «Так/Ні») + editorial-альтернативи з кольоровими логотипами + `whyGraph` (SoftwareApplication + vs-FAQ + Breadcrumb). Терези в hero пробували й прибрали. Далі в межах Фази 3: segment-лендинги, Security-стор., кейси, власний рейтинг-листикл, автори+біо. **Повний живий статус — `seo-geo-status.md`.**
 - **Фаза 4 (CWV):** Roboto → `next/font/google` (self-host), `width/height` на всіх `<img>`, `fetchPriority` на LCP-герой, зменшити INP від canvas-анімацій.
-- **Фаза 5 (вимірювання):** GSC (sitemap, Pages, branded-фільтр, CWV), Bing + IndexNow (вручну, ключ-файл у `/public`), GA4 кастомний AI-канал, моніторинг AI-цитувань (Otterly/Profound) з укр.-промптами.
+- **Фаза 5 (вимірювання):** GSC (sitemap, Pages, branded-фільтр, CWV), Bing + IndexNow, GA4 кастомний AI-канал, моніторинг AI-цитувань (укр.-промпти).
+- **Фаза 6 (off-site entity-білдинг — виконує власник):** лістинги MIISOFT/Shelfy, Wikidata, legal-преса. Готовий контент — `seo-geo-phase6-offsite.md`. ⚠️ Court-registry інтеграції немає (підтв. власником) — конкурентна діра.
 
 ## Чесні застереження
 - **llms.txt** — театр (Google не підтримує); опціонально/скіп.
