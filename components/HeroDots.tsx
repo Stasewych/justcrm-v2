@@ -75,6 +75,10 @@ export default function HeroDots() {
       const my = mouseRef.current.y;
       if (mx < -500) { paintStatic(); return; }
 
+      // Blit the clean arc, then ADD the hover bloom on top within the cursor
+      // window — additive over the arc (no clearRect, which would punch a visible
+      // #f4f4f4 rectangle in the texture). The arc dots come from the blit; here
+      // we only draw the extra bloom, so the two compose to ~the original look.
       paintStatic();
 
       const startX = Math.max(SPACING / 2, Math.floor((mx - HOVER_RANGE) / SPACING) * SPACING + SPACING / 2);
@@ -82,38 +86,21 @@ export default function HeroDots() {
       const startY = Math.max(0, Math.floor((my - HOVER_RANGE) / SPACING) * SPACING);
       const endY = Math.min(h, my + HOVER_RANGE);
 
-      // Erase the blitted arc inside the window so the recomputed combined dots
-      // don't double-composite over it.
-      ctx.clearRect(startX - SPACING, startY - SPACING, (endX - startX) + SPACING * 2, (endY - startY) + SPACING * 2);
-
       for (let x = startX; x < endX; x += SPACING) {
         for (let y = startY; y < endY; y += SPACING) {
-          const dx = x - cx;
-          const dy = y - cy;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const arcT = Math.max(0, 1 - Math.abs(dist - arcRadius) / arcThickness);
-
           const mdx = x - mx;
           const mdy = y - my;
           const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
           const mT = Math.max(0, 1 - mDist / HOVER_RANGE);
+          if (mT <= 0.01) continue;
           const mEase = mT * mT;
 
-          const hasArc = arcT > 0.01;
-          const hasHover = mEase > 0.01;
-          if (!hasArc && !hasHover) continue;
-
-          const arcAlpha = arcT * arcT * 0.35;
-          const arcR = 0.6 + arcT * 1.6;
           const hoverAlpha = mEase * 0.55;
           const hoverR = mEase * 3;
 
-          const finalAlpha = Math.min(arcAlpha + hoverAlpha, 0.85);
-          const dotR = Math.max(arcR, hoverR, 0.5);
-
           ctx.beginPath();
-          ctx.arc(x, y, dotR, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${R},${G},${B},${finalAlpha})`;
+          ctx.arc(x, y, Math.max(hoverR, 0.5), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${R},${G},${B},${hoverAlpha})`;
           ctx.fill();
         }
       }
