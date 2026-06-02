@@ -13,7 +13,7 @@
 | 2 | GEO on-page + «хвости» (FAQ/TL;DR/перелінковка) | ✅ Зроблено | `1c920d3`, `f606ee7` (live) |
 | 3 | «Чому JustCRM» (`/why`) + segment-лендинги (`/for/*`) | ✅ Зроблено (`/why` ребаланс + 4 сегменти, переписані під юриста) | `c5108a1`…`983bfc0` live; останній сегмент-реворк — у пуші |
 | 4 | Core Web Vitals / швидкість | ✅ Зроблено | `fb5cd1b` (live) |
-| 5 | Вимірювання (GSC/Bing/GA4/AI-моніторинг) | ❌ Не починали | — |
+| 5 | Вимірювання (GSC/Bing/GA4/AI-моніторинг) | 🟡 Частково (IndexNow зроблено в коді) | IndexNow — у пуші |
 | 6 | Off-site entity-білдинг (виконує власник) | ❌ Не починали (контент готовий) | — |
 
 ---
@@ -80,7 +80,10 @@
 - **`width/height` на всіх 45 `<img>`** — заміряно CLS=0 на всіх ключових сторінках, бо дизайн уже резервує бокс через контейнери з фіксованим розміром + `object-cover/contain`. Масова правка не дала б приросту CWV. Опціонально: додати `width/height` на flow-лого (Header/Footer/marquee/awards) лише щоб закрити діагностику Lighthouse «image elements do not have explicit width and height» — не CWV-метрика.
 
 ### Фаза 5 — вимірювання
-- Засабмітити sitemap у Google Search Console; Bing + IndexNow; GA4 кастомний AI-канал; моніторинг AI-цитувань (укр.-промпти).
+- ✅ **IndexNow (у коді):** ключ-файл `public/6f9598118335d2c728db97bf7dd69232.txt`, сабмітер `scripts/indexnow.mjs` (читає `out/sitemap.xml` → POST на `api.indexnow.org`, 34 URL), npm-скрипт `npm run indexnow`. Yandex свідомо не використовуємо (рф) — IndexNow б'є по спільному endpoint, окремих yandex-звернень нема. **Запуск:** після кожного прод-деплою `npm run build && npm run indexnow` (ключ-файл має бути вже live на проді, інакше 403). Bing-індекс живить ChatGPT Search + Copilot.
+- ⬜ Засабмітити sitemap у Google Search Console + Bing Webmaster (дії власника, доступ до акаунтів).
+- ⬜ GA4 кастомний AI-канал (Admin → Channel groups; домени chatgpt.com / perplexity.ai / gemini.google.com / copilot.microsoft.com) — відкладено за рішенням власника.
+- ⬜ Моніторинг AI-цитувань (укр.-промпти).
 
 ### Фаза 6 — off-site (виконує власник)
 - Лістинги на MIISOFT + Shelfy (каталоги, які цитує AI; готовий контент у `seo-geo-phase6-offsite.md`); Wikidata; пітч у legal-пресу (ЮРЛІГА, thepage.ua, НААУ ВША).
