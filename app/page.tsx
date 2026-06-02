@@ -18,6 +18,8 @@ import ScrollButtons from "@/components/ScrollButtons";
 import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
 import InteractiveDemo from "@/components/InteractiveDemo";
+import JsonLd from "@/components/JsonLd";
+import { homeGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "CRM для юристів та адвокатів | JustCRM — юридична CRM",
@@ -32,6 +34,7 @@ const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeGraph()} />
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">

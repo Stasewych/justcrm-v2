@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Білінг і тайм-трекінг для юристів",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function BillingPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Білінг", "/product/billing")} />
+      <FeaturePage
       tag="Білінг та час"
       title="Облік часу та виставлення рахунків без зайвих кроків"
       subtitle="Таймер на задачу або календарний планер, мультивалютні інвойси, індивідуальні ставки та контроль бюджету — усе в одному вікні."
@@ -151,5 +155,6 @@ export default function BillingPage() {
         },
       ]}
     />
+    </>
   );
 }

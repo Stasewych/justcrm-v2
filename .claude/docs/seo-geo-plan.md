@@ -102,16 +102,53 @@
 
 ---
 
-## Structured data (JSON-LD) — Фаза 1 (наступна)
+## Structured data (JSON-LD) — Фаза 1 — ✅ ВИКОНАНО (2026-06-02), перевірено на `next build`
 
-Через `<script type="application/ld+json">` у серверних компонентах (+ `schema-dts`):
-- **Organization** + **WebSite** — на весь сайт (layout). `Organization.sameAs` → соцмережі (розводить бренд від JuristCRM).
-- **SoftwareApplication** — на `/` + `/product/*` + `/pricing`. ⚠️ **БЕЗ `aggregateRating`** поки нема реальних відгуків (фейк = manual action).
-- **BlogPosting** + **Person**(автор) + **BreadcrumbList** — на 14 статтях.
-- **FAQPage** — там, де реальний FAQ (для AI; rich-result зникає 7 трав. 2026, тож не заради зірочок).
-- НЕ робимо: `SearchBox` (мертвий), `HowTo` (rich-result скасовано).
+**Реалізовано (підтверджено в `out/`):**
+- `components/JsonLd.tsx` — рендерер (нативний `<script type="application/ld+json">`, екранує `<`→`<`). Підтверджено локальною докою Next 16 `json-ld.md`: саме `<script>`, НЕ `next/script`.
+- `app/structured-data.ts` — білдери нод + `@id`-якорі + per-page графи (`siteGraph/homeGraph/pricingGraph/productGraph/blogPostGraph`).
+- **Organization + WebSite** — site-wide у `app/layout.tsx` (на всіх 31 контентних сторінках).
+- **SoftwareApplication** — `/` + 7 `/product/*` + `/pricing`. `offers`: `AggregateOffer` UAH 400–600, `offerCount 3`. **БЕЗ `aggregateRating`** (нема відгуків → захист від ручної санкції).
+- **FAQPage** — `/` та `/pricing` (8 Q&A). Лише для AI (Google вимкнув FAQ-rich-result 07.05.2026).
+- **BlogPosting + BreadcrumbList** — усі 14 статтях. `author` = **Person «Станіслав Маринович»** (дзеркалить видиму підпис-плашку в `BlogCard`, а не Organization — так вирішено за фактом), `publisher` = Organization з `logo` (ImageObject).
+- **BreadcrumbList** — product (Головна › Розділ), pricing (Головна › Ціни), blog (Головна › Блог › стаття).
 
-**Перевага:** у JuristCRM — нуль schema, у Jusnote — лише WebSite/Breadcrumb. Повна розмітка = ми єдині, кого видно як software-rich-result і чисто «зчитує» LLM.
+**Бонус — консолідація даних у єдині джерела (усував дрейф, який план двічі позначав):**
+- `components/faqData.ts` — єдине джерело FAQ; `FAQ.tsx` і `faqNode()` читають звідси.
+- `app/blog/posts.ts` — єдине джерело 14 постів (slug/title/excerpt/image/ISO-date/displayDate/tag/readTime); `blog/page.tsx`, `app/sitemap.ts` і `blogPostingNode()` читають звідси. Більше НЕ тримати окремі списки постів.
+
+**Уроки реалізації:**
+1. Усі цільові сторінки (`/`, `/pricing`, `/product/*`, блог-пости) — серверні компоненти → JSON-LD монтується прямо в JSX (НЕ в `metadata`).
+2. Кирилиця в JSON-LD ціла; 0 помилок парсингу на 13 семпльованих блоках (екранування коректне).
+3. Cross-graph `@id` працює: page-level `SoftwareApplication.publisher` → `#organization`, визначений у layout (споживачі мерджать усі ld+json-блоки сторінки). Але `BlogPosting.publisher`/`author` зроблено self-contained (інлайн), щоб не залежати від мерджу для критичного `publisher.logo`.
+4. У білд-виводі рядок `application/ld+json` зустрічається 2× на тег (сам тег + серіалізований RRSC-flight payload) — рахувати блоки регексом `<script…>…</script>`, не grep-ом по підрядку.
+
+**Лишилось у межах теми (відкладено):** per-section статичні OG-картинки (продукт/блог) — мінорне, окремий прохід. Валідація live: прогнати кілька URL через Google Rich Results Test після деплою.
+
+---
+
+### Архівна специфікація (як планувалося — лишаю для довідки)
+
+**Патерн (Next 16, статичний експорт):** рендерити `<script type="application/ld+json">` у СЕРВЕРНИХ компонентах (НЕ в metadata-експорті). Під `output:"export"` це запікається в HTML. Без `schema-dts` — звичайні об'єкти. Створити `components/JsonLd.tsx`:
+```tsx
+export default function JsonLd({ data }: { data: Record<string, unknown> }) {
+  return <script type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
+}
+```
+
+**Що і де монтувати:**
+- **Organization + WebSite** — у `app/layout.tsx` (`<body>`). `Organization`: name `JustCRM`, url `https://justsolution.org`, `logo` (абсолютний `/images/logo.png`), `sameAs` (соц-URL — взяти з `components/Footer.tsx`). `WebSite`: name + url (БЕЗ `SearchAction`/SearchBox — мертвий).
+- **SoftwareApplication** — `/` + 7 `/product/*` + `/pricing`. `applicationCategory:"BusinessApplication"`, `operatingSystem:"Web"`, `offers` (тариф/14-дн. тріал, ціни UAH — з `components/Pricing.tsx`). ⚠️ **БЕЗ `aggregateRating`** (нема реальних відгуків → фейк = manual action). На product-сторінках (через `FeaturePage`) монтувати в page.tsx: `return (<><JsonLd data={...} /><FeaturePage … /></>)`.
+- **BlogPosting + BreadcrumbList** — 14 статтях. `headline`, `datePublished` (дати в `app/sitemap.ts`), `image` (cover `/images/blog-*.jpg`), `author` (рішення: перевірити, чи є автори в постах; якщо нема — `author: { @type:"Organization", name:"JustCRM" }`).
+- **BreadcrumbList** — product/blog (Home › Розділ › Сторінка).
+- **FAQPage** — `/` та `/pricing`, де реальний FAQ (`components/FAQ.tsx`). Лише для AI (FAQ rich-result Google вимикає 07.05.2026).
+- НЕ робимо: `SearchBox`, `HowTo` (скасовані).
+
+**Зібрати під час виконання:** соц-URL (Footer) → `sameAs`; ціни/тріал (Pricing) → `offers`; чи є автори постів.
+**Валідація:** `next build` → `grep -r 'ld+json' out/ | head`; кілька URL прогнати через Google Rich Results Test.
+
+**Перевага:** у JuristCRM — нуль schema, у Jusnote — лише WebSite/Breadcrumb. Повна розмітка = ми єдині, кого Google бачить як software-rich-result і кого чисто «зчитують» LLM.
 
 ---
 

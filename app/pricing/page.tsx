@@ -7,6 +7,8 @@ import Pricing from "@/components/Pricing";
 import PricingCompare from "@/components/PricingCompare";
 import FAQ from "@/components/FAQ";
 import Button from "@/components/Button";
+import JsonLd from "@/components/JsonLd";
+import { pricingGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Ціни на CRM для юристів",
@@ -17,6 +19,7 @@ export const metadata = pageMeta({
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={pricingGraph()} />
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">

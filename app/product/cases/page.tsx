@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Управління справами юриста",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function CasesPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Справи", "/product/cases")} />
+      <FeaturePage
       tag="Управління справами"
       title="Уся інформація щодо справи в одному місці"
       subtitle="Документи, задачі, оплати, контакти та листування зібрані в картці справи. Три режими перегляду — Kanban, список або таблиця."
@@ -128,5 +132,6 @@ export default function CasesPage() {
         },
       ]}
     />
+    </>
   );
 }

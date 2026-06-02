@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Документообіг юридичної фірми",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function DocumentsPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Документи", "/product/documents")} />
+      <FeaturePage
       tag="Документи"
       title="Зберігання та генерація документів в єдиному просторі"
       subtitle="Файли у контексті справи, AI-шаблони з авто-підстановкою даних, спільний доступ із контролем прав і повна історія версій."
@@ -106,5 +110,6 @@ export default function DocumentsPage() {
         },
       ]}
     />
+    </>
   );
 }

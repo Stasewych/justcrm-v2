@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "AI-асистент для юристів",
@@ -10,7 +12,9 @@ export const metadata = pageMeta({
 
 export default function AiPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("AI", "/product/ai")} />
+      <FeaturePage
       tag="AI-помічник"
       title="Інструменти штучного інтелекту, вбудовані у щоденну роботу юриста"
       subtitle="База знань фірми, голосова диктовка, генерація документів за шаблонами і enhance тексту у юридичному стилі. AI готує чернетку — рішення завжди за юристом."
@@ -136,5 +140,6 @@ export default function AiPage() {
         },
       ]}
     />
+    </>
   );
 }

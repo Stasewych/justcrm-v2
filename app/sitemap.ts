@@ -1,28 +1,10 @@
 import type { MetadataRoute } from "next";
+import { BLOG_POSTS } from "./blog/posts";
 
 // Required so the route is emitted as a static file under `output: "export"`.
 export const dynamic = "force-static";
 
 const BASE = "https://justsolution.org";
-
-// Blog posts — slug + publish date (ISO). Mirrors the post list in
-// app/blog/page.tsx; keep in sync when posts are added.
-const BLOG_POSTS: { slug: string; date: string }[] = [
-  { slug: "ai-transforms-legal-practice", date: "2026-05-16" },
-  { slug: "voice-dictation-legal", date: "2026-05-12" },
-  { slug: "billing-eats-lawyer-time", date: "2026-05-10" },
-  { slug: "excel-to-crm-migration", date: "2026-05-08" },
-  { slug: "data-security-law-firms", date: "2026-05-03" },
-  { slug: "ai-document-generation", date: "2026-05-01" },
-  { slug: "crm-vs-excel-legal", date: "2026-04-25" },
-  { slug: "client-intake-funnel", date: "2026-04-24" },
-  { slug: "data-protection-legal-crm", date: "2026-04-18" },
-  { slug: "kanban-case-management", date: "2026-04-12" },
-  { slug: "multicurrency-invoicing", date: "2026-04-05" },
-  { slug: "rag-knowledge-base", date: "2026-03-28" },
-  { slug: "legal-tech-ukraine-2026", date: "2026-03-20" },
-  { slug: "email-integration-legal-crm", date: "2026-03-12" },
-];
 
 const STATIC_ROUTES: {
   path: string;

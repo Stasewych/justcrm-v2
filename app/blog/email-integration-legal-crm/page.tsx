@@ -1,4 +1,6 @@
 import { pageMeta } from "@/app/seo";
+import JsonLd from "@/components/JsonLd";
+import { blogPostGraph } from "@/app/structured-data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideLines from "@/components/GuideLines";
@@ -18,6 +20,7 @@ const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function BlogPost() {
   return (
     <>
+      <JsonLd data={blogPostGraph("email-integration-legal-crm")} />
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">

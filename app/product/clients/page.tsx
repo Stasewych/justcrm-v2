@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Клієнтська база адвоката",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function ClientsPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Клієнти", "/product/clients")} />
+      <FeaturePage
       tag="Клієнти"
       title="Повне досьє клієнта — від першого звернення до завершення справи"
       subtitle="Фізичні та юридичні особи, воронка лідів, email-листування у контексті справи та миттєвий пошук по будь-якому реквізиту."
@@ -97,5 +101,6 @@ export default function ClientsPage() {
         },
       ]}
     />
+    </>
   );
 }

@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Задачі та доручення для юристів",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function TasksPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Задачі", "/product/tasks")} />
+      <FeaturePage
       tag="Задачі"
       title="Планування роботи з контролем виконання"
       subtitle="Задачі живуть у контексті справи: дедлайни, виконавці, пріоритети. Чотири режими перегляду — від Kanban до календаря."
@@ -138,5 +142,6 @@ export default function TasksPage() {
         },
       ]}
     />
+    </>
   );
 }

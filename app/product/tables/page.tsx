@@ -1,5 +1,7 @@
 import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Таблиці та реєстри для юрфірми",
@@ -9,7 +11,9 @@ export const metadata = pageMeta({
 
 export default function TablesPage() {
   return (
-    <FeaturePage
+    <>
+      <JsonLd data={productGraph("Таблиці", "/product/tables")} />
+      <FeaturePage
       tag="Конструктор таблиць"
       title="Власні реєстри та довідники всередині CRM"
       subtitle="Коли стандартних модулів недостатньо — створіть власну таблицю з потрібними полями. Реєстр довіреностей, журнал кореспонденції, трекер засідань — формат визначаєте Ви."
@@ -93,5 +97,6 @@ export default function TablesPage() {
         },
       ]}
     />
+    </>
   );
 }
