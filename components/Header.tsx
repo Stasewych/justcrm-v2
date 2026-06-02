@@ -58,6 +58,12 @@ export default function Header() {
 
           <Divider />
 
+          <Link href="/why" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
+            Чому ми
+          </Link>
+
+          <Divider />
+
           <Link href="/pricing" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
             Тарифи
           </Link>
@@ -236,6 +242,9 @@ export default function Header() {
             Компанія
           </p>
           <nav>
+            <Link href="/why" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              Чому ми
+            </Link>
             <Link href="/pricing" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
               Тарифи
             </Link>

@@ -223,3 +223,46 @@ export function teamGraph(): Node {
     ]),
   );
 }
+
+// Fair, factual vs-questions for the "Чому JustCRM" page — feed FAQPage so AI
+// answer engines can extract the comparison without disparaging competitors.
+const WHY_FAQ: { q: string; a: string }[] = [
+  {
+    q: "Чим JustCRM відрізняється від Clio?",
+    a: "Clio — міжнародний лідер з найбагатшим функціоналом, але інтерфейс англійською, ціни в доларах ($39–139 за користувача) і без української специфіки. JustCRM закриває той самий клас задач для української фірми: інтерфейс українською, ціни у гривнях з ФОП-рахунками та AI українською.",
+  },
+  {
+    q: "Чим JustCRM відрізняється від JuristCRM?",
+    a: "Обидві — українські CRM для юристів. JuristCRM доступніший за ціною і має велику базу клієнтів. JustCRM робить ставку на сучасніший інтерфейс і глибший AI українською — RAG по базі знань фірми, голосове введення та генерація документів.",
+  },
+  {
+    q: "JustCRM чи JusNote — що обрати?",
+    a: "JusNote — зрілий український продукт із клієнтським порталом і мобільним застосунком, тарифи у євро за користувача. Головна відмінність JustCRM — вбудований AI українською, якого в JusNote немає, і сучасніший інтерфейс.",
+  },
+  {
+    q: "Чи підходить Notion або ClickUp для юридичної фірми?",
+    a: "Для соло-юриста на старті — цілком. Але це універсальні інструменти без юридичного білінгу, ФОП-рахунків та обліку справ зі строками. Коли команда росте, спеціалізована юридична CRM на кшталт JustCRM економить час.",
+  },
+];
+
+/** "Чому JustCRM" page: product entity + comparison FAQ + breadcrumb. */
+export function whyGraph(): Node {
+  return graph(
+    softwareApplicationNode(),
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE.url}/why#faq`,
+      url: `${SITE.url}/why`,
+      inLanguage: "uk-UA",
+      mainEntity: WHY_FAQ.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+    breadcrumbNode([
+      { name: "Головна", path: "/" },
+      { name: "Чому JustCRM", path: "/why" },
+    ]),
+  );
+}

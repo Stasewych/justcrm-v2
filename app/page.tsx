@@ -17,7 +17,6 @@ import MoreTools from "@/components/MoreTools";
 import ScrollButtons from "@/components/ScrollButtons";
 import Integrations from "@/components/Integrations";
 import ScrollRevealQuote from "@/components/ScrollRevealQuote";
-import ComparisonTable from "@/components/ComparisonTable";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import JsonLd from "@/components/JsonLd";
 import { homeGraph } from "@/app/structured-data";
@@ -198,8 +197,6 @@ export default function Home() {
         </section>
 
         <ScrollRevealQuote />
-
-        <ComparisonTable />
 
         <Features />
 

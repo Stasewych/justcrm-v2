@@ -19,6 +19,7 @@ const columns = [
   {
     title: "Ресурси",
     links: [
+      { href: "/why", label: "Чому JustCRM" },
       { href: "/pricing", label: "Тарифи" },
       { href: "/#security", label: "Безпека" },
       { href: "/blog", label: "Блог" },
