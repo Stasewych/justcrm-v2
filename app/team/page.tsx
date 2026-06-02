@@ -9,33 +9,29 @@ const team = [
   {
     name: "Тарас Зубачик",
     role: "Chief of Business Development & Product, Co-founder",
-    photo: "/images/team-taras.jpg",
-    linkedin: "https://www.linkedin.com/in/taras-zubachyk/",
-    email: "taras.zubachyk@justsolution.org",
+    photo: "/images/team-taras.webp",
+    linkedin: "https://www.linkedin.com/in/taras-zubachyk-95077a215/",
     bio: "Юрист за освітою, спеціалізується на міжнародному бізнес-розвитку. Відповідає за роботу з юридичними компаніями, партнерства та комерційну стратегію JustCRM. Має практичний досвід у провідних юридичних фірмах України. Поєднує юридичне мислення з розумінням технологічного бізнесу.",
   },
   {
     name: "Станіслав Маринович",
     role: "Chief of Marketing & Project, Co-founder",
-    photo: "/images/team-stanislav.jpg",
+    photo: "/images/team-stanislav.webp",
     linkedin: "https://www.linkedin.com/in/stanislav-marynovych/",
-    email: "stanislav.marynovych@justsolution.org",
     bio: "Побудував JustCRM від першого customer discovery до робочого продукту з AI-функціями. До Just Solution керував клієнтськими проєктами в Norml Studio (US-based digital agency; клієнти — AstraZeneca, Nasdaq), займався операційним управлінням та бізнес-розвитком у Flintec (дистриб’юція промислового обладнання з Німеччини), у Smart Export керував проєктами з виходу українських та іноземних виробників на зовнішні ринки — понад 50 клієнтів за весь час, а зараз працює в ПриватБанку на позиції Senior AI Product Manager. Запустив кілька продуктів від нуля до перших користувачів — у сферах нетворкінгу, IoT, e-commerce та нерухомості.",
   },
   {
     name: "Мар’ян Петлований",
     role: "AI/ML Engineer & Co-founder",
-    photo: "/images/team-marian.jpg",
+    photo: "/images/team-marian.webp",
     linkedin: "https://www.linkedin.com/in/marian-petlovanyi/",
-    email: "marian.petlovanyi@justsolution.org",
     bio: "Відповідає за AI-інфраструктуру JustCRM — RAG-пошук по базі знань фірми, голосове введення за допомогою AI, генерацію документів та AI-помічника. Data Scientist із досвідом у LLM serving, навчанні та fine-tuning моделей. Працює з Python та сучасним ML-стеком. Постійно постачає нові продукти у форматі PoC / MVP. Спроєктував архітектуру векторного пошуку по внутрішніх документах юридичної фірми. Реалізував систему AI-агентів, яка дозволяє помічнику звертатися до CRM-даних у реальному часі — контакти, справи, документи. Випускник UCU та Львівської Політехніки з фокусом на машинному навчанні та аналізі даних.",
   },
   {
     name: "Микола Ковалик",
     role: "CTO & Co-founder",
-    photo: "/images/team-mykola.jpg",
+    photo: "/images/team-mykola.webp",
     linkedin: "https://www.linkedin.com/in/mykola-kovalyk/",
-    email: "mykola.kovalyk@justsolution.org",
     bio: "Проєктує серверну архітектуру та інфраструктуру JustCRM. Інженер із 7 роками досвіду в різних галузях програмування, з фокусом на системному — C, Python, Linux. Має глибинну експертизу в хардварному програмуванні, POSIX-системах, комп’ютерних мережах, потоковій безпеці та production-grade інженерії. Відповідає за ізоляцію даних, JWT-автентифікацію та шифрування у JustCRM, а також оптимізацію ресурсів та перевірку якості системи. Досвід у full-stack розробці (React, Flask), machine learning та IoT. Засновник GenLint — платформи для автоматичного аудиту технічної документації. Випускник Львівської Політехніки за спеціальністю Computer Engineering — IoT.",
   },
 ];
@@ -44,15 +40,6 @@ function LinkedInIcon() {
   return (
     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
-    </svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M3 7l9 6 9-6" />
     </svg>
   );
 }
@@ -121,13 +108,6 @@ export default function TeamPage() {
                     >
                       <LinkedInIcon />
                       LinkedIn
-                    </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="inline-flex items-center gap-2 text-[13px] text-black/30 hover:text-black/60 transition-colors"
-                    >
-                      <MailIcon />
-                      {member.email}
                     </a>
                   </div>
                 </div>
