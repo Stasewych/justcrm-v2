@@ -13,9 +13,9 @@ const STATIC_ROUTES: {
 }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/why", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/for/soloyuryst", changeFrequency: "monthly", priority: 0.7 },
   { path: "/for/advokat", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/for/buro", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/for/firma", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/for/yuryst", changeFrequency: "monthly", priority: 0.7 },
   { path: "/for/notarius", changeFrequency: "monthly", priority: 0.7 },
   { path: "/pricing", changeFrequency: "monthly", priority: 0.9 },
   { path: "/product/cases", changeFrequency: "monthly", priority: 0.8 },

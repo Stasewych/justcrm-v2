@@ -30,15 +30,15 @@ const I = {
 };
 
 export const SEGMENT_HERO: Record<string, { image: string; width: number; height: number }> = {
-  soloyuryst: { image: "/images/hero-billing.webp", width: 2600, height: 1092 },
+  yuryst: { image: "/images/hero-billing.webp", width: 2600, height: 1092 },
   advokat: { image: "/images/hero-cases.webp", width: 2600, height: 1092 },
-  buro: { image: "/images/hero-tasks.webp", width: 2600, height: 1092 },
+  firma: { image: "/images/hero-tasks.webp", width: 2600, height: 1092 },
   notarius: { image: "/images/hero-clients.webp", width: 2600, height: 1092 },
 };
 
 export const SEGMENT_FEATURES: Record<string, SubFeature[]> = {
-  // Соло-юрист: усе в одному вікні, час → рахунок, картка клієнта.
-  soloyuryst: [
+  // Приватний юрист: ведення доручень, гонорар, картка клієнта.
+  yuryst: [
     {
       tag: "Справи",
       title: "Усі справи в одному вікні",
@@ -94,9 +94,9 @@ export const SEGMENT_FEATURES: Record<string, SubFeature[]> = {
   // Адвокат: справи + строки, контроль доступу (таємниця), документи зі шаблонами.
   advokat: [
     {
-      tag: "Справи та строки",
-      title: "Справа з усім контекстом і контролем строків",
-      desc: "Документи, засідання, листування й фінанси зібрані в картці справи. Дати засідань і дедлайни — у календарі з нагадуваннями.",
+      tag: "Провадження",
+      title: "Провадження з усім контекстом і строками",
+      desc: "Документи, засідання, листування й фінанси зібрані в досьє провадження. Дати засідань і процесуальні строки — у календарі з нагадуваннями.",
       screens: [
         { src: "/images/cases-overview-1.webp" },
         { src: "/images/cases-overview-2.webp" },
@@ -105,7 +105,7 @@ export const SEGMENT_FEATURES: Record<string, SubFeature[]> = {
       ],
       points: [
         { title: "Картка справи", desc: "Усе по справі в одному місці, а не в Gmail і папках.", icon: I.doc },
-        { title: "Календар строків", desc: "Засідання й дедлайни з нагадуваннями.", icon: I.calendar },
+        { title: "Календар строків", desc: "Засідання й процесуальні строки з нагадуваннями.", icon: I.calendar },
         { title: "Kanban за стадіями", desc: "Візуальний контроль етапів провадження.", icon: I.rows },
         { title: "Фінанси по справі", desc: "Бюджет, рахунки й оплати в межах справи.", icon: I.currency },
       ],
@@ -143,8 +143,8 @@ export const SEGMENT_FEATURES: Record<string, SubFeature[]> = {
     },
   ],
 
-  // Бюро/фірма: команда й задачі, ролі/доступ, ставки й бюджети.
-  buro: [
+  // Юридична фірма / адвокатське об'єднання: команда й доручення, ролі/доступ, гонорарна політика.
+  firma: [
     {
       tag: "Команда й задачі",
       title: "Видно, хто над чим працює",

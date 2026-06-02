@@ -4,18 +4,18 @@ import { segmentGraph } from "@/app/structured-data";
 import SegmentPage from "@/components/SegmentPage";
 import { SEGMENTS } from "@/components/segments";
 
-const segment = SEGMENTS["buro"];
+const segment = SEGMENTS["yuryst"];
 
 export const metadata = pageMeta({
   title: segment.metaTitle,
   description: segment.metaDescription,
-  path: "/for/buro",
+  path: "/for/yuryst",
 });
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={segmentGraph("buro")} />
+      <JsonLd data={segmentGraph("yuryst")} />
       <SegmentPage segment={segment} />
     </>
   );

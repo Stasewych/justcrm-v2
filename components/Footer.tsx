@@ -19,9 +19,9 @@ const columns = [
   {
     title: "Для кого",
     links: [
-      { href: "/for/soloyuryst", label: "Приватний юрист" },
       { href: "/for/advokat", label: "Адвокат" },
-      { href: "/for/buro", label: "Адвокатське бюро" },
+      { href: "/for/firma", label: "Юридична фірма" },
+      { href: "/for/yuryst", label: "Приватний юрист" },
       { href: "/for/notarius", label: "Нотаріус" },
     ],
   },

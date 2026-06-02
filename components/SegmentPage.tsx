@@ -23,26 +23,26 @@ export default function SegmentPage({ segment }: { segment: Segment }) {
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">
-        {/* Hero — text + product screenshot */}
-        <section className="pt-28 lg:pt-32 pb-14 lg:pb-16 bg-[#f4f4f4] border-b border-black/10 relative overflow-hidden">
-          <FloatingDots count={20} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10 text-center">
-            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-6">
+        {/* Hero — compact text + large product screenshot (matches product feature pages) */}
+        <section className="pt-4 lg:pt-5 pb-10 lg:pb-12 bg-[#f4f4f4] relative overflow-hidden">
+          <FloatingDots count={30} />
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10 text-center">
+            <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-3">
               {segment.eyebrow}
             </p>
-            <h1 className="text-[38px] sm:text-6xl lg:text-[68px] font-light leading-[1.05] tracking-[-0.02em] max-w-4xl mx-auto">
+            <h1 className="text-2xl lg:text-[30px] font-bold leading-[1.2] tracking-tight mb-3 max-w-2xl mx-auto">
               {segment.h1}
             </h1>
-            <p className="mt-7 text-lg lg:text-xl text-black/55 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm lg:text-[14px] text-black/50 max-w-2xl mx-auto leading-relaxed mb-5">
               {segment.lead}
             </p>
-            <div className="mt-9 flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
               <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
             </div>
 
             {hero && (
-              <div className="mt-10 lg:mt-12 mx-auto max-w-[1100px]">
+              <div className="mx-auto mt-8 lg:mt-10" style={{ maxWidth: 1320 }}>
                 <img
                   src={`${bp}${hero.image}`}
                   alt={segment.h1}
