@@ -115,18 +115,18 @@ export default function WhyCompare() {
         </h2>
 
         <p className="lg:hidden text-center font-mono text-[10px] uppercase tracking-wide text-black/25 mb-2">
-          ← гортайте →
+          ← гортайте порівняння →
         </p>
 
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px] border-collapse">
+        <div className="overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
+          <table className="w-full min-w-[640px] sm:min-w-[760px] border-collapse">
             <caption className="sr-only">
               Порівняння JustCRM з Clio, Notion, ClickUp та Excel за можливостями,
               локалізацією під Україну, AI, гнучкістю та ціною.
             </caption>
             <thead>
               <tr>
-                <th scope="col" className="w-[32%] text-left align-bottom pb-4 pr-4" />
+                <th scope="col" className="w-[34%] sm:w-[32%] text-left align-bottom pb-4 pr-4 sticky left-0 z-20 bg-white" />
                 <th scope="col" className="w-[14%] align-bottom p-0">
                   <div className="bg-[#1c1c1c] rounded-t-xl px-3 pt-5 pb-4 text-center">
                     <span className="block font-mono text-[10px] uppercase tracking-wider text-white/45 mb-1">Це ми</span>
@@ -167,14 +167,14 @@ function Group({ g }: { g: Group }) {
         <th
           scope="colgroup"
           colSpan={6}
-          className="text-left px-1 pt-8 pb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-black/35"
+          className="text-left px-1 pt-8 pb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-black/35 sticky left-0 z-20 bg-white"
         >
           {g.group}
         </th>
       </tr>
       {g.rows.map((row) => (
         <tr key={row.c}>
-          <th scope="row" className="font-normal text-left px-1 py-3.5 text-[14px] text-black/65 border-b border-black/[0.07] align-middle">
+          <th scope="row" className="font-normal text-left px-1 py-3.5 pr-3 text-[13px] sm:text-[14px] text-black/65 border-b border-black/[0.07] align-middle sticky left-0 z-10 bg-white [box-shadow:9px_0_10px_-8px_rgba(0,0,0,0.12)] sm:shadow-none">
             {row.c}
           </th>
           <td className="px-3 py-3.5 bg-[#1c1c1c] align-middle">

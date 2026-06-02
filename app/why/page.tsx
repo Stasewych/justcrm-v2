@@ -58,23 +58,23 @@ export default function WhyPage() {
       <GuideLines />
       <main className="flex-1 relative z-[1]">
         {/* Hero */}
-        <section className="pt-28 lg:pt-32 pb-16 lg:pb-24 bg-[#f4f4f4] border-b border-black/10 relative overflow-hidden">
+        <section className="pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-24 bg-[#f4f4f4] border-b border-black/10 relative overflow-hidden">
           <FloatingDots count={20} />
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 relative z-10">
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10">
             <div className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
               <div>
                 <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-6">
                   Чому JustCRM
                 </p>
-                <h1 className="text-[40px] sm:text-6xl lg:text-[72px] font-light leading-[1.04] tracking-[-0.02em] max-w-3xl">
+                <h1 className="text-[34px] sm:text-6xl lg:text-[72px] font-light leading-[1.06] sm:leading-[1.04] tracking-[-0.02em] max-w-3xl">
                   Зроблено під українську юридичну практику
                 </h1>
-                <p className="mt-7 text-lg lg:text-xl text-black/50 max-w-2xl leading-relaxed">
+                <p className="mt-5 sm:mt-7 text-base sm:text-lg lg:text-xl text-black/50 max-w-2xl leading-relaxed">
                   JustCRM — українська AI-CRM для юридичних фірм. Нижче — чесне порівняння
                   з міжнародними платформами, українськими CRM і універсальними
                   інструментами: де ми сильні й де кращим вибором може бути хтось інший.
                 </p>
-                <div className="mt-9 flex items-center gap-3">
+                <div className="mt-8 sm:mt-9 flex flex-wrap items-center gap-3">
                   <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>
                   <Button href="https://calendly.com/stanislav-marynovych-justsolution/30min" variant="outline">Замовити демо</Button>
                 </div>
@@ -161,7 +161,7 @@ export default function WhyPage() {
               14 днів безкоштовно з повним функціоналом Pro AI. Або замовте
               демонстрацію — покажемо, як перенести вашу практику без втрати даних.
             </p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <a
                 href="https://crm.justsolution.org/register"
                 target="_blank"
