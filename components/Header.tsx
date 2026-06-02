@@ -13,13 +13,6 @@ const productLinks = [
   { href: "/product/documents", label: "Документи", hint: "Файли в контексті справи, шаблони з AI та захищене хмарне сховище з шифруванням.", icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" },
 ];
 
-const segmentLinks = [
-  { href: "/for/soloyuryst", label: "Приватний юрист", hint: "Соло-практика: справи, облік часу й рахунки замість Excel.", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
-  { href: "/for/advokat", label: "Адвокат", hint: "Справи, процесуальні строки й адвокатська таємниця.", icon: "M12 3l8 4v5c0 4.5-3 7.5-8 9-5-1.5-8-4.5-8-9V7z" },
-  { href: "/for/buro", label: "Адвокатське бюро", hint: "Команда, ролі та доступ, білінг фірми.", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-  { href: "/for/notarius", label: "Нотаріус", hint: "Клієнти, документи й облік практики українською.", icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" },
-];
-
 function Divider() {
   return <div className="w-px h-4 bg-black/10" />;
 }
@@ -29,20 +22,18 @@ const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
-  const [segmentOpen, setSegmentOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!productOpen && !segmentOpen) return;
+    if (!productOpen) return;
     const onClick = (e: MouseEvent) => {
       if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setProductOpen(false);
-        setSegmentOpen(false);
       }
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, [productOpen, segmentOpen]);
+  }, [productOpen]);
 
   return (
     <header ref={headerRef} className="relative z-50 bg-[#f4f4f4]">
@@ -56,7 +47,7 @@ export default function Header() {
         {/* Center nav */}
         <div className="hidden lg:flex items-center gap-1">
           <button
-            onClick={() => { setProductOpen(!productOpen); setSegmentOpen(false); }}
+            onClick={() => setProductOpen(!productOpen)}
             className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors"
           >
             Продукт
@@ -64,24 +55,6 @@ export default function Header() {
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
-
-          <Divider />
-
-          <button
-            onClick={() => { setSegmentOpen(!segmentOpen); setProductOpen(false); }}
-            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors"
-          >
-            Для кого
-            <svg className="inline-block ml-1 w-3 h-3 -mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-
-          <Divider />
-
-          <Link href="/why" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
-            Чому ми
-          </Link>
 
           <Divider />
 
@@ -240,35 +213,6 @@ export default function Header() {
         </div>
       )}
 
-      {/* "Для кого" menu */}
-      {segmentOpen && (
-        <div className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-black/5 shadow-xl shadow-black/10 animate-[menuSlide_0.2s_ease-out]">
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-8">
-            <p className="font-mono text-[10px] font-medium text-black/25 uppercase tracking-widest mb-5">
-              Рішення під вашу практику
-            </p>
-            <div className="grid grid-cols-2 gap-x-10 gap-y-1">
-              {segmentLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setSegmentOpen(false)}
-                  className="flex gap-3.5 p-2.5 -mx-2.5 rounded-lg hover:bg-black/[0.03] transition-colors group"
-                >
-                  <svg className="w-5 h-5 text-black/30 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={link.icon} />
-                  </svg>
-                  <div>
-                    <span className="text-[14px] font-semibold text-black/80 block">{link.label}</span>
-                    <span className="text-[12px] text-black/35 leading-relaxed block mt-0.5">{link.hint}</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-black/5 px-6 py-4 max-h-[calc(100vh-3.5rem)] overflow-y-auto">
@@ -289,28 +233,9 @@ export default function Header() {
           </nav>
 
           <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest mt-6 mb-1">
-            Для кого
-          </p>
-          <nav>
-            {segmentLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest mt-6 mb-1">
             Компанія
           </p>
           <nav>
-            <Link href="/why" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
-              Чому ми
-            </Link>
             <Link href="/pricing" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
               Тарифи
             </Link>
