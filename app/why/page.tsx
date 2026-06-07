@@ -158,7 +158,7 @@ export default function WhyPage() {
               Подивіться JustCRM у вашій практиці
             </h2>
             <p className="text-white/50 max-w-xl mx-auto text-base leading-relaxed mb-10">
-              14 днів безкоштовно з повним функціоналом Pro AI. Або замовте
+              30 днів безкоштовно з повним функціоналом Pro AI. Або замовте
               демонстрацію — покажемо, як перенести вашу практику без втрати даних.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">

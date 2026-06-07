@@ -70,7 +70,7 @@ export default function Home() {
               </div>
 
               <p className="relative z-10 mt-3 inline-block text-sm text-black/70 font-medium bg-[#f4f4f4]/80 backdrop-blur-sm px-4 py-1 rounded-full">
-                14 днів безкоштовно · Повний функціонал Pro AI
+                30 днів безкоштовно · Повний функціонал Pro AI
               </p>
             </div>
 

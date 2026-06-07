@@ -169,7 +169,7 @@ export default function SegmentPage({ segment }: { segment: Segment }) {
               Спробуйте JustCRM у вашій практиці
             </h2>
             <p className="text-white/50 max-w-xl mx-auto text-base leading-relaxed mb-10">
-              14 днів безкоштовно з повним функціоналом Pro AI. Або замовте демонстрацію —
+              30 днів безкоштовно з повним функціоналом Pro AI. Або замовте демонстрацію —
               покажемо, як перенести вашу практику без втрати даних.
             </p>
             <div className="flex items-center justify-center gap-3">

@@ -12,7 +12,7 @@ import { pricingGraph } from "@/app/structured-data";
 
 export const metadata = pageMeta({
   title: "Ціни на CRM для юристів",
-  description: "Прозорі тарифи юридичної CRM — 14 днів безкоштовно з повним функціоналом Pro AI, без прихованих платежів. Оплата у гривні.",
+  description: "Прозорі тарифи юридичної CRM — 30 днів безкоштовно з повним функціоналом Pro AI, без прихованих платежів. Оплата у гривні.",
   path: "/pricing",
 });
 
@@ -40,7 +40,7 @@ export default function PricingPage() {
                 <p className="text-lg text-black/50 max-w-2xl mx-auto leading-relaxed">
                   JustCRM коштує від 400 ₴ за користувача на місяць (Classic) або
                   600 ₴ (Pro AI з усіма AI-функціями); Enterprise — за домовленістю.
-                  Перші 14 днів — безкоштовно з повним Pro AI.
+                  Перші 30 днів — безкоштовно з повним Pro AI.
                 </p>
               </div>
             </div>

@@ -69,7 +69,7 @@ export default function FAQ({ transparent }: { transparent?: boolean }) {
           </h2>
           <p className="mt-5 text-black/50 max-w-lg mx-auto text-lg">
             Виведіть управління вашою юридичною практикою на новий рівень.
-            Розпочніть із безкоштовної 14-денної версії.
+            Розпочніть із безкоштовної 30-денної версії.
           </p>
           <div className="mt-10 flex items-center justify-center gap-3">
             <Button href="https://crm.justsolution.org/register">Почати безкоштовно</Button>

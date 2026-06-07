@@ -86,7 +86,7 @@ export default function Pricing({ transparent }: { transparent?: boolean }) {
               <strong className="font-medium">тарифні плани</strong>
             </h2>
             <p className="mt-4 text-black/40 text-sm">
-              14 днів безкоштовно з повним функціоналом Pro AI.
+              30 днів безкоштовно з повним функціоналом Pro AI.
             </p>
           </div>
         )}
