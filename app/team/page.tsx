@@ -30,7 +30,7 @@ const team = [
     bio: "Побудував JustCRM від першого customer discovery до робочого продукту з AI-функціями. До Just Solution керував клієнтськими проєктами в Norml Studio (US-based digital agency; клієнти — AstraZeneca, Nasdaq), займався операційним управлінням та бізнес-розвитком у Flintec (дистриб’юція промислового обладнання з Німеччини), у Smart Export керував проєктами з виходу українських та іноземних виробників на зовнішні ринки — понад 50 клієнтів за весь час, а зараз працює в ПриватБанку на позиції Senior AI Product Manager. Запустив кілька продуктів від нуля до перших користувачів — у сферах нетворкінгу, IoT, e-commerce та нерухомості.",
   },
   {
-    name: "Мар’ян Петлований",
+    name: "Мар’ян Петльований",
     role: "AI/ML Engineer & Co-founder",
     photo: "/images/team-marian.webp",
     linkedin: "https://www.linkedin.com/in/marian-petlovanyi/",

@@ -46,7 +46,7 @@ const PUBLISHER: Node = {
 const TEAM: { name: string; role: string; linkedin: string }[] = [
   { name: "Тарас Зубачик", role: "Chief of Business Development & Product, Co-founder", linkedin: "https://www.linkedin.com/in/taras-zubachyk-95077a215/" },
   { name: "Станіслав Маринович", role: "Chief of Marketing & Project, Co-founder", linkedin: "https://www.linkedin.com/in/stanislav-marynovych/" },
-  { name: "Мар'ян Петлований", role: "AI/ML Engineer & Co-founder", linkedin: "https://www.linkedin.com/in/marian-petlovanyi/" },
+  { name: "Мар'ян Петльований", role: "AI/ML Engineer & Co-founder", linkedin: "https://www.linkedin.com/in/marian-petlovanyi/" },
   { name: "Микола Ковалик", role: "CTO & Co-founder", linkedin: "https://www.linkedin.com/in/mykola-kovalyk/" },
 ];
 
