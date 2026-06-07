@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "Захист персональних даних у CRM",
-  description: "Як обрати CRM, що відповідає вимогам ст. 22 ЗУ «Про адвокатуру» та Регламенту GDPR.",
+  description: "Як обрати CRM, що відповідає вимогам ст. 22 ЗУ «Про адвокатуру» та GDPR: шифрування, ізоляція даних і контроль доступу до інформації клієнтів.",
   path: "/blog/data-protection-legal-crm",
   type: "article",
   publishedTime: "2026-04-18",

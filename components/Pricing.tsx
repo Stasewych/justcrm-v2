@@ -148,7 +148,7 @@ export default function Pricing({ transparent }: { transparent?: boolean }) {
                         {plan.cta}
                       </a>
                     ) : (
-                      <Button href={plan.name === "Enterprise" ? "/contacts" : "https://crm.justsolution.org/register"} variant={plan.ctaVariant}>
+                      <Button href={plan.name === "Enterprise" ? "https://calendly.com/stanislav-marynovych-justsolution/30min" : "https://crm.justsolution.org/register"} variant={plan.ctaVariant}>
                         {plan.cta}
                       </Button>
                     )}

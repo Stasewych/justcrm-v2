@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "Документообіг юридичної фірми",
@@ -22,6 +23,7 @@ export default function DocumentsPage() {
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
       relatedPosts={["ai-document-generation", "data-security-law-firms", "data-protection-legal-crm"]}
+      faqs={productFaqs["/product/documents"]}
       sections={[
         {
           tag: "Файли у справі",

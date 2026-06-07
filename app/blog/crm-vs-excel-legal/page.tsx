@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "CRM проти Excel для юриста",
-  description: "Справи в таблицях, фінанси в голові партнера — як централізація даних підвищує ефективність.",
+  description: "Справи в таблицях, фінанси в голові партнера — як централізація даних у CRM підвищує ефективність юридичної фірми та чому Excel зрештою перестає працювати.",
   path: "/blog/crm-vs-excel-legal",
   type: "article",
   publishedTime: "2026-04-25",

@@ -6,7 +6,9 @@ import FloatingDots from "./FloatingDots";
 import Button from "./Button";
 import FaqAccordion from "./FaqAccordion";
 import FeatureSections from "./FeatureSections";
+import BlogCard from "./BlogCard";
 import { SEGMENT_HERO, SEGMENT_FEATURES } from "./segmentFeatures";
+import { BLOG_POSTS } from "@/app/blog/posts";
 import type { Segment } from "./segments";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -18,6 +20,9 @@ const NOTCH = "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)";
 export default function SegmentPage({ segment }: { segment: Segment }) {
   const hero = SEGMENT_HERO[segment.slug];
   const features = SEGMENT_FEATURES[segment.slug] ?? [];
+  const related = (segment.relatedPosts ?? [])
+    .map((slug) => BLOG_POSTS.find((p) => p.slug === slug))
+    .filter((p): p is (typeof BLOG_POSTS)[number] => Boolean(p));
   return (
     <>
       <Header />
@@ -126,6 +131,33 @@ export default function SegmentPage({ segment }: { segment: Segment }) {
             </div>
           </div>
         </section>
+
+        {/* Matching reading — segment → blog, tightens the internal-link cluster */}
+        {related.length > 0 && (
+          <section className="py-14 lg:py-20 bg-white border-t border-black/8 relative overflow-hidden">
+            <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10">
+              <p className="font-mono text-[11px] font-medium text-black/30 uppercase tracking-[0.15em] mb-8">
+                Матеріали по темі
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                {related.map((p) => (
+                  <BlogCard
+                    key={p.slug}
+                    post={{
+                      slug: p.slug,
+                      title: p.title,
+                      excerpt: p.excerpt,
+                      image: p.image,
+                      date: p.displayDate,
+                      tag: p.tag,
+                      readTime: p.readTime,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Segment FAQ — feeds FAQPage JSON-LD */}
         <FaqAccordion faqs={segment.faqs} />

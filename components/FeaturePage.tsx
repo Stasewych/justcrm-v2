@@ -92,6 +92,8 @@ export default function FeaturePage({ tag, title, subtitle, heroImage, heroImage
                   alt={tag}
                   width={heroImageWidth ?? 2200}
                   height={heroImageHeight ?? 1467}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-auto select-none pointer-events-none"
                 />
               ) : (

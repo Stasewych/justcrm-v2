@@ -11,7 +11,7 @@ import Button from "@/components/Button";
 import Link from "next/link";
 
 export const metadata = pageMeta({
-  title: "Скільки часу юрист втрачає на білінг",
+  title: "Скільки часу з'їдає ручний білінг",
   description: "До 10 годин на місяць кожен юрист витрачає на ручний білінг. У фірмі з 15 осіб це €90 000 на рік на адміністрування.",
   path: "/blog/billing-eats-lawyer-time",
   type: "article",

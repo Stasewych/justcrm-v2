@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "Задачі та доручення для юристів",
@@ -21,6 +22,7 @@ export default function TasksPage() {
       heroImageWidth={2600}
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
+      faqs={productFaqs["/product/tasks"]}
       sections={[
         {
           tag: "Режими перегляду",

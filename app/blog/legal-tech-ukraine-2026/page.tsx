@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "LegalTech в Україні 2026: тренди",
-  description: "48 000 адвокатів, зростаючий попит на автоматизацію та нові гравці — огляд українського ринку legal tech.",
+  description: "48 000 адвокатів, зростаючий попит на автоматизацію та нові гравці — огляд українського ринку legal tech у 2026 році й що це означає для фірм.",
   path: "/blog/legal-tech-ukraine-2026",
   type: "article",
   publishedTime: "2026-03-20",

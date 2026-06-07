@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 
 export const metadata = pageMeta({
   title: "Політика конфіденційності",
-  description: "Як JustCRM збирає, обробляє та захищає персональні дані користувачів і клієнтів юридичних фірм.",
+  description: "Як JustCRM збирає, обробляє та захищає персональні дані користувачів і клієнтів юридичних фірм — політика конфіденційності відповідно до GDPR.",
   path: "/privacy",
 });
 

@@ -2,6 +2,7 @@ import { pageMeta } from "@/app/seo";
 import FeaturePage from "@/components/FeaturePage";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/app/structured-data";
+import { productFaqs } from "@/components/productFaqs";
 
 export const metadata = pageMeta({
   title: "Клієнтська база адвоката",
@@ -22,6 +23,7 @@ export default function ClientsPage() {
       heroImageHeight={1092}
       heroImageMaxWidth={1320}
       relatedPosts={["client-intake-funnel", "email-integration-legal-crm"]}
+      faqs={productFaqs["/product/clients"]}
       sections={[
         {
           tag: "Профіль клієнта",

@@ -24,6 +24,8 @@ export type Segment = {
   faqs: Faq[];
   metaTitle: string;
   metaDescription: string;
+  /** Blog slugs surfaced as "Матеріали по темі" — blog↔segment internal linking. */
+  relatedPosts?: string[];
 };
 
 export const SEGMENTS: Record<string, Segment> = {
@@ -73,8 +75,9 @@ export const SEGMENTS: Record<string, Segment> = {
         a: "Таймер фіксує час за ставкою адвоката; підтримуються погодинна, фіксована та абонентська моделі. З відпрацьованих годин за хвилину формується рахунок і акт наданих правових послуг — у гривні, з реквізитами ФОП.",
       },
     ],
+    relatedPosts: ["kanban-case-management", "data-security-law-firms", "billing-eats-lawyer-time"],
     metaTitle: "CRM для адвоката",
-    metaDescription: "AI-CRM для адвоката українською: досьє довірителів, ведення проваджень за інстанціями, процесуальні строки, гонорар і акти наданих послуг. Зберігання з урахуванням адвокатської таємниці (ст. 22).",
+    metaDescription: "AI-CRM для адвоката українською: досьє довірителів, ведення проваджень за інстанціями, процесуальні строки, гонорар та акти. З урахуванням адвокатської таємниці.",
   },
 
   firma: {
@@ -123,8 +126,9 @@ export const SEGMENTS: Record<string, Segment> = {
         a: "Базове налаштування — близько 15 хвилин, перенесення даних і навчання команди — 2-3 дні. Для команд від 5 осіб виділяємо менеджера впровадження.",
       },
     ],
-    metaTitle: "CRM для юридичної фірми та адвокатського об'єднання",
-    metaDescription: "CRM для юридичної фірми й адвокатського об'єднання: спільні досьє, ролі та доступ, облік часу команди, гонорарна політика, перевірка конфлікту інтересів. Українською, у гривні.",
+    relatedPosts: ["excel-to-crm-migration", "crm-vs-excel-legal", "data-security-law-firms"],
+    metaTitle: "CRM для юридичної фірми",
+    metaDescription: "CRM для юридичної фірми й адвокатського об'єднання: спільні досьє, ролі та доступ, облік часу команди, перевірка конфлікту інтересів. Українською, у гривні.",
   },
 
   yuryst: {
@@ -173,8 +177,9 @@ export const SEGMENTS: Record<string, Segment> = {
         a: "Так. Рахунки й акти наданих послуг у гривні, з реквізитами ФОП та юридичних осіб.",
       },
     ],
+    relatedPosts: ["excel-to-crm-migration", "billing-eats-lawyer-time", "client-intake-funnel"],
     metaTitle: "CRM для приватного юриста",
-    metaDescription: "Українська CRM для приватної юридичної практики: клієнти, договірна й претензійно-позовна робота, документи, облік строків і гонорарів (погодинно, фіксовано, абонплата). Рахунки й акти для ФОП.",
+    metaDescription: "Українська CRM для приватної практики: клієнти, договірна й позовна робота, документи, облік строків і гонорарів. Рахунки та акти для ФОП.",
   },
 
   notarius: {
@@ -223,6 +228,7 @@ export const SEGMENTS: Record<string, Segment> = {
         a: "Classic — 400 ₴ за користувача на місяць, Pro AI — 600 ₴. Перші 14 днів безкоштовно з повним функціоналом Pro AI.",
       },
     ],
+    relatedPosts: ["client-intake-funnel", "data-protection-legal-crm", "ai-document-generation"],
     metaTitle: "CRM для нотаріуса",
     metaDescription: "Українська CRM для організації роботи нотаріуса: облік клієнтів і звернень, документи, графік прийому та фінанси практики. Українською, рахунки й акти для ФОП.",
   },

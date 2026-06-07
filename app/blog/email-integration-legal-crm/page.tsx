@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "Інтеграція пошти з юридичною CRM",
-  description: "Вхідний лист автоматично потрапляє до відповідної справи — без ручного сортування по папках.",
+  description: "Вхідний лист автоматично потрапляє до відповідної справи, без ручного сортування по папках. Як інтеграція Gmail і Outlook з CRM економить час юриста.",
   path: "/blog/email-integration-legal-crm",
   type: "article",
   publishedTime: "2026-03-12",

@@ -4,7 +4,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata = pageMeta({
   title: "Публічна оферта",
   description:
-    "Публічна оферта про надання послуг доступу до програмного сервісу JustCRM.",
+    "Публічна оферта про надання послуг доступу до програмного сервісу JustCRM — умови використання, права та обов'язки сторін для юрфірм і ФОП.",
   path: "/offer",
 });
 

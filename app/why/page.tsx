@@ -9,7 +9,7 @@ import Button from "@/components/Button";
 import WhyCompare from "@/components/WhyCompare";
 
 export const metadata = pageMeta({
-  title: "Чому JustCRM — порівняння з Clio, Notion, ClickUp і Excel",
+  title: "Чому JustCRM, а не Clio чи Notion",
   description:
     "Чесне порівняння JustCRM з Clio, Notion, ClickUp та Excel: де ми сильніші (українською, у гривні, AI українською) і де кращим вибором може бути інший інструмент.",
   path: "/why",

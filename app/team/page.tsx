@@ -8,7 +8,7 @@ import FloatingDots from "@/components/FloatingDots";
 
 export const metadata = pageMeta({
   title: "Команда",
-  description: "Команда Just Solution — інженери та юристи, що будують українську AI-CRM для юридичних фірм JustCRM.",
+  description: "Команда Just Solution — інженери та юристи, що будують українську AI-CRM для юридичних фірм JustCRM. Хто стоїть за продуктом і нашою місією.",
   path: "/team",
 });
 

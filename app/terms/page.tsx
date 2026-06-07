@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 
 export const metadata = pageMeta({
   title: "Правила користування",
-  description: "Правила користування програмним сервісом JustCRM для юридичних фірм.",
+  description: "Правила користування програмним сервісом JustCRM для юридичних фірм — умови доступу, права користувачів та обов'язки сторін.",
   path: "/terms",
 });
 

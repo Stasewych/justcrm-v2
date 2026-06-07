@@ -93,7 +93,7 @@ export default function Header() {
             href="https://crm.justsolution.org/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/50 px-3 py-1.5 transition-colors hover:text-black"
+            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/65 px-3 py-1.5 transition-colors hover:text-black"
           >
             Увійти
           </a>

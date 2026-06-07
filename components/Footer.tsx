@@ -75,7 +75,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-[15px] text-black/45 hover:text-black transition-colors"
+                        className="text-[15px] text-black/60 hover:text-black transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -95,7 +95,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:stanislav.marynovych@justsolution.org"
-                    className="text-[14px] sm:text-[15px] text-black/45 hover:text-black transition-colors break-all"
+                    className="text-[14px] sm:text-[15px] text-black/60 hover:text-black transition-colors break-all"
                   >
                     stanislav.marynovych@justsolution.org
                   </a>
@@ -105,7 +105,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/company/just-solution-ua/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[15px] text-black/45 hover:text-black transition-colors"
+                    className="text-[15px] text-black/60 hover:text-black transition-colors"
                   >
                     LinkedIn
                   </a>
@@ -133,7 +133,7 @@ export default function Footer() {
 
       {/* Dark copyright bar */}
       <div className="mx-4 sm:mx-6 lg:mx-12 px-5 sm:px-8 lg:px-14 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="font-mono text-[12px] text-white/35 uppercase tracking-wide">
+        <span className="font-mono text-[12px] text-white/55 uppercase tracking-wide">
           © {new Date().getFullYear()} — Just Solution
         </span>
         <div className="flex items-center gap-3">
@@ -141,9 +141,10 @@ export default function Footer() {
             href="https://www.linkedin.com/company/just-solution-ua/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/35 hover:text-white transition-colors"
+            aria-label="JustCRM у LinkedIn"
+            className="text-white/55 hover:text-white transition-colors"
           >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
             </svg>
           </a>

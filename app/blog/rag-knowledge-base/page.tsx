@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "RAG-база знань для юрфірми",
-  description: "AI аналізує внутрішні документи, шаблони та матеріали справ і знаходить відповіді на запити юриста.",
+  description: "AI аналізує внутрішні документи, шаблони та матеріали справ і знаходить відповіді на запити юриста — база знань фірми на RAG-технології.",
   path: "/blog/rag-knowledge-base",
   type: "article",
   publishedTime: "2026-03-28",

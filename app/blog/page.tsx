@@ -8,6 +8,8 @@ import FloatingDots from "@/components/FloatingDots";
 import BlogCard from "@/components/BlogCard";
 import type { BlogPost } from "@/components/BlogCard";
 import { BLOG_POSTS } from "./posts";
+import JsonLd from "@/components/JsonLd";
+import { blogGraph } from "@/app/structured-data";
 
 const posts: BlogPost[] = BLOG_POSTS.map((p) => ({
   slug: p.slug,
@@ -27,6 +29,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <JsonLd data={blogGraph()} />
       <Header />
       <GuideLines />
       <main className="flex-1 relative z-[1]">

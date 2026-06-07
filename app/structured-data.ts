@@ -2,7 +2,7 @@ import { SITE } from "./seo";
 import { faqs, type Faq } from "@/components/faqData";
 import { productFaqs } from "@/components/productFaqs";
 import { SEGMENTS } from "@/components/segments";
-import { BLOG_POSTS_BY_SLUG } from "./blog/posts";
+import { BLOG_POSTS, BLOG_POSTS_BY_SLUG } from "./blog/posts";
 
 /**
  * Schema.org / JSON-LD builders for the marketing site.
@@ -65,6 +65,13 @@ export function organizationNode(): Node {
     logo: { "@type": "ImageObject", url: LOGO_URL },
     image: LOGO_URL,
     email: CONTACT_EMAIL,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: CONTACT_EMAIL,
+      availableLanguage: ["Ukrainian"],
+      areaServed: "UA",
+    },
     sameAs: SAME_AS,
   };
 }
@@ -168,6 +175,36 @@ export function siteGraph(): Node {
 /** Home: the product entity + the FAQ (FAQ is for AI; Google retired the rich result). */
 export function homeGraph(): Node {
   return graph(softwareApplicationNode(), faqNode("/"));
+}
+
+/** Blog index: a Blog node listing every post + breadcrumb. Gives search and
+    AI engines the full article inventory from one page. */
+export function blogGraph(): Node {
+  const url = `${SITE.url}/blog`;
+  return graph(
+    {
+      "@type": "Blog",
+      "@id": `${url}#blog`,
+      url,
+      name: "Блог JustCRM",
+      description:
+        "Статті про технології, AI та управління юридичною фірмою.",
+      inLanguage: "uk-UA",
+      publisher: { "@id": ORG_ID },
+      blogPost: BLOG_POSTS.map((p) => ({
+        "@type": "BlogPosting",
+        "@id": `${SITE.url}/blog/${p.slug}#article`,
+        headline: p.title,
+        url: `${SITE.url}/blog/${p.slug}`,
+        datePublished: p.date,
+        author: AUTHOR,
+      })),
+    },
+    breadcrumbNode([
+      { name: "Головна", path: "/" },
+      { name: "Блог", path: "/blog" },
+    ]),
+  );
 }
 
 /** Pricing: product entity + FAQ + breadcrumb. */

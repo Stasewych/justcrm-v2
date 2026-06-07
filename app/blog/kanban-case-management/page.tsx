@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export const metadata = pageMeta({
   title: "Kanban для ведення справ",
-  description: "Чотири режими перегляду справ — Kanban, список, таблиця, календар — і коли який обрати.",
+  description: "Чотири режими перегляду справ — Kanban, список, таблиця й календар — і коли який обрати для контролю проваджень у юридичній практиці.",
   path: "/blog/kanban-case-management",
   type: "article",
   publishedTime: "2026-04-12",
