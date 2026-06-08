@@ -112,6 +112,16 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
+                    href="https://t.me/justcrm_tg_bot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[15px] text-black/60 hover:text-black transition-colors"
+                  >
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://www.instagram.com/crm_just_solution/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -166,6 +176,17 @@ export default function Footer() {
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
+            </svg>
+          </a>
+          <a
+            href="https://t.me/justcrm_tg_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="JustCRM у Telegram"
+            className="text-white/55 hover:text-white transition-colors"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
             </svg>
           </a>
           <a

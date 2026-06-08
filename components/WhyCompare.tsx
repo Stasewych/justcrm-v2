@@ -16,8 +16,10 @@ type Group = { group: string; rows: { c: string; v: V[] }[] };
 
 // Column order: JustCRM, Clio, Notion, ClickUp, Excel.
 // Honest both ways — competitors keep the rows where they are genuinely stronger
-// (maturity, integrations, mobile, free tiers, flexibility), JustCRM owns
-// localisation, legal-specific work and Ukrainian AI.
+// (integrations, no-code flexibility, client portal, free tiers), JustCRM owns
+// localisation, legal-specific work, Ukrainian AI and the Telegram Mini App.
+// Mobile access is table-stakes on both sides now (JustCRM ships a responsive
+// web app + a Telegram Mini App), so that row reads yes across the board.
 const TABLE: Group[] = [
   {
     group: "Локалізація під Україну",
@@ -54,7 +56,8 @@ const TABLE: Group[] = [
     rows: [
       { c: "Вільне no-code налаштування простору", v: ["no", "no", "yes", "yes", "yes"] },
       { c: "Велика екосистема інтеграцій", v: ["no", "yes", "yes", "yes", "no"] },
-      { c: "Мобільний застосунок", v: ["no", "yes", "yes", "yes", "yes"] },
+      { c: "Мобільний застосунок", v: ["yes", "yes", "yes", "yes", "yes"] },
+      { c: "Telegram Mini App", v: ["yes", "no", "no", "no", "no"] },
       { c: "Клієнтський портал", v: ["no", "yes", "no", "no", "no"] },
       { c: "Безкоштовний тариф", v: ["no", "no", "yes", "yes", "yes"] },
     ],

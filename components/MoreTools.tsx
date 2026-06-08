@@ -4,6 +4,26 @@ import { useEffect, useRef, useState } from "react";
 
 const tools = [
   {
+    title: "Telegram Mini App",
+    desc: "Повноцінна версія JustCRM прямо в Telegram: справи, задачі, облік часу, клієнти й сповіщення — фактично весь функціонал веб-версії, без окремого встановлення.",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
+        <path d="M29 5L3 15l7 3 2 8 4-5 7 5z" />
+        <path d="M10 18L29 5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Робота з будь-якого пристрою",
+    desc: "Адаптивна веб-версія відкривається у браузері смартфона, планшета чи ноутбука. CRM завжди під рукою — встановлювати нічого не потрібно.",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="9" y="3" width="14" height="26" rx="3" />
+        <path d="M14 25h4" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
     title: "Календар юриста",
     desc: "Засідання, зустрічі з клієнтами та внутрішні дедлайни — все в одному календарі з фільтрацією по юристах та справах.",
     icon: (

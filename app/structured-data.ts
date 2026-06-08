@@ -93,11 +93,11 @@ export function softwareApplicationNode(): Node {
     "@id": SOFTWARE_ID,
     name: SITE.name,
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
+    operatingSystem: "Web, Android, iOS",
     url: SITE.url,
     inLanguage: "uk-UA",
     description:
-      "Українська AI-CRM для юридичних фірм: справи, клієнти, документи та білінг в одній системі.",
+      "Українська AI-CRM для юридичних фірм: справи, клієнти, документи та білінг в одній системі. Доступна з браузера на будь-якому пристрої та як Telegram Mini App.",
     publisher: { "@id": ORG_ID },
     offers: {
       "@type": "AggregateOffer",
@@ -113,6 +113,7 @@ export function softwareApplicationNode(): Node {
       "AI-асистент — RAG-пошук, голосове введення, генерація документів",
       "Клієнтська база з повною історією взаємодій",
       "Задачі, доручення та контроль доступу по справі",
+      "Мобільний доступ — адаптивна веб-версія та Telegram Mini App з повним функціоналом",
     ],
   };
 }
