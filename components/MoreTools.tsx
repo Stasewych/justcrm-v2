@@ -108,6 +108,28 @@ const tools = [
       </svg>
     ),
   },
+  {
+    title: "Задачі та доручення",
+    desc: "Ставте задачі колегам прямо у справі, з виконавцем і строком. Статус кожного доручення видно всій команді — без окремих табличок і нагадувань у чаті.",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="6" y="4" width="20" height="24" rx="3" />
+        <path d="M11 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M11 20l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Гнучкі права доступу",
+    desc: "Налаштуйте, хто які справи, документи та рахунки бачить. Помічник працює лише зі своїми справами, керівник бачить усю фірму — доступ до чутливих даних під контролем.",
+    icon: (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="7" y="14" width="18" height="13" rx="3" fill="currentColor" fillOpacity="0.08" />
+        <rect x="7" y="14" width="18" height="13" rx="3" />
+        <path d="M11 14v-3a5 5 0 0110 0v3" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 export default function MoreTools() {
