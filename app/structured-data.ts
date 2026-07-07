@@ -48,6 +48,7 @@ const TEAM: { name: string; role: string; linkedin: string }[] = [
   { name: "Станіслав Маринович", role: "Chief of Marketing & Project, Co-founder", linkedin: "https://www.linkedin.com/in/stanislav-marynovych/" },
   { name: "Мар'ян Петльований", role: "AI/ML Engineer & Co-founder", linkedin: "https://www.linkedin.com/in/marian-petlovanyi/" },
   { name: "Микола Ковалик", role: "CTO & Co-founder", linkedin: "https://www.linkedin.com/in/mykola-kovalyk/" },
+  { name: "Іван Волошанський", role: "Full-Stack Engineer", linkedin: "https://www.linkedin.com/in/ivan-voloshanskyi-394936272/" },
 ];
 
 /** Wrap one or more schema nodes into a single @graph document. */
