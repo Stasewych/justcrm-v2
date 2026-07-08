@@ -3,6 +3,7 @@ import { Roboto, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
+import CalendlyBookingTracker from "@/components/CalendlyBookingTracker";
 import { siteGraph } from "@/app/structured-data";
 import "./globals.css";
 
@@ -92,6 +93,7 @@ export default function RootLayout({
         <JsonLd data={siteGraph()} />
         {children}
         <Analytics />
+        <CalendlyBookingTracker />
 
         {/* Google tag (gtag.js) — Google Ads conversion tracking */}
         <Script
