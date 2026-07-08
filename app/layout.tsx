@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 import { siteGraph } from "@/app/structured-data";
@@ -91,6 +92,20 @@ export default function RootLayout({
         <JsonLd data={siteGraph()} />
         {children}
         <Analytics />
+
+        {/* Google tag (gtag.js) — Google Ads conversion tracking */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18253448763"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18253448763');
+          `}
+        </Script>
       </body>
     </html>
   );

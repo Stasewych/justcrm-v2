@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackConversionByHref } from "@/lib/gtag";
 
 type ButtonProps = {
   href: string;
@@ -19,11 +22,13 @@ export default function Button({
   const isExternal = href.startsWith("http");
   const Tag = isExternal ? "a" : Link;
   const extraProps = isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
+  const onClick = () => trackConversionByHref(href);
 
   if (variant === "outline") {
     return (
       <Tag
         href={href}
+        onClick={onClick}
         className={`relative z-10 inline-block font-mono text-[12px] font-medium uppercase tracking-wide text-black/70 px-6 py-2.5 transition-all hover:text-black ${className}`}
         {...extraProps}
       >
@@ -45,6 +50,7 @@ export default function Button({
   return (
     <Tag
       href={href}
+      onClick={onClick}
       className={`relative z-10 inline-block font-mono text-[12px] font-medium uppercase tracking-wide text-white bg-[#1c1c1c] px-6 py-2.5 transition-all hover:bg-[#333] hover:shadow-lg hover:shadow-black/10 ${className}`}
       style={{ clipPath: clip }}
       {...extraProps}
