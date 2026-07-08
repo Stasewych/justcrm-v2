@@ -36,15 +36,4 @@ export function trackDemoBooked() {
   });
 }
 
-/**
- * Router used by <Button onClick>. Fires the Trial conversion when the link
- * points at registration. Demo is deliberately NOT fired here — a click on
- * «Замовити демо» is not a booking; that conversion lives on /demo-thank-you.
- */
-export function trackConversionByHref(href: string) {
-  if (href.includes("crm.justsolution.org/register")) {
-    trackTrialSignup();
-  }
-}
-
 export {};

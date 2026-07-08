@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 import CalendlyBookingTracker from "@/components/CalendlyBookingTracker";
+import TrialClickTracker from "@/components/TrialClickTracker";
 import { siteGraph } from "@/app/structured-data";
 import "./globals.css";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <CalendlyBookingTracker />
+        <TrialClickTracker />
 
         {/* Google tag (gtag.js) — Google Ads conversion tracking */}
         <Script
