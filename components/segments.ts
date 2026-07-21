@@ -225,7 +225,7 @@ export const SEGMENTS: Record<string, Segment> = {
       },
       {
         q: "Скільки коштує JustCRM?",
-        a: "Classic — 400 ₴ за користувача на місяць, Pro AI — 600 ₴. Перші 30 днів безкоштовно з повним функціоналом Pro AI.",
+        a: "Pro AI — 600 ₴ за користувача на місяць з усіма AI-функціями, Enterprise — за домовленістю. Перші 30 днів безкоштовно з повним функціоналом Pro AI.",
       },
     ],
     relatedPosts: ["client-intake-funnel", "data-protection-legal-crm", "ai-document-generation"],

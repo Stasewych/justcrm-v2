@@ -6,7 +6,6 @@ type Cell = "check" | "cross" | string;
 
 interface Row {
   label: string;
-  classic: Cell;
   pro: Cell;
   enterprise: Cell;
 }
@@ -20,92 +19,92 @@ const data: Category[] = [
   {
     name: "Управління справами",
     rows: [
-      { label: "Кількість справ", classic: "до 20", pro: "Необмежено", enterprise: "Необмежено" },
-      { label: "Kanban-дошка", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Етапи справ", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Dashboard фірми", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Бюджети справ", classic: "cross", pro: "check", enterprise: "check" },
+      { label: "Кількість справ", pro: "Необмежено", enterprise: "Необмежено" },
+      { label: "Kanban-дошка", pro: "check", enterprise: "check" },
+      { label: "Етапи справ", pro: "check", enterprise: "check" },
+      { label: "Dashboard фірми", pro: "check", enterprise: "check" },
+      { label: "Бюджети справ", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Контакти та ліди",
     rows: [
-      { label: "Кількість контактів", classic: "до 50", pro: "Необмежено", enterprise: "Необмежено" },
-      { label: "Фізичні та юридичні особи", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Воронка лідів", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Глобальний пошук", classic: "check", pro: "check", enterprise: "check" },
+      { label: "Кількість контактів", pro: "Необмежено", enterprise: "Необмежено" },
+      { label: "Фізичні та юридичні особи", pro: "check", enterprise: "check" },
+      { label: "Воронка лідів", pro: "check", enterprise: "check" },
+      { label: "Глобальний пошук", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Задачі",
     rows: [
-      { label: "Список задач", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Kanban, таблиця, календар", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Прив'язка до справ", classic: "cross", pro: "check", enterprise: "check" },
+      { label: "Список задач", pro: "check", enterprise: "check" },
+      { label: "Kanban, таблиця, календар", pro: "check", enterprise: "check" },
+      { label: "Прив'язка до справ", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Білінг і час",
     rows: [
-      { label: "Базовий інвойсинг", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Мультивалютність (UAH, EUR, USD)", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Таймер активності", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Білінг у календарному режимі", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Індивідуальні ставки", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Зміна платника в рахунку", classic: "cross", pro: "check", enterprise: "check" },
+      { label: "Базовий інвойсинг", pro: "check", enterprise: "check" },
+      { label: "Мультивалютність (UAH, EUR, USD)", pro: "check", enterprise: "check" },
+      { label: "Таймер активності", pro: "check", enterprise: "check" },
+      { label: "Білінг у календарному режимі", pro: "check", enterprise: "check" },
+      { label: "Індивідуальні ставки", pro: "check", enterprise: "check" },
+      { label: "Зміна платника в рахунку", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Документи",
     rows: [
-      { label: "Сховище", classic: "1 GB", pro: "Необмежено", enterprise: "Необмежено" },
-      { label: "Google Drive / OneDrive", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Автоматизація документів", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Кастомні таблиці", classic: "cross", pro: "check", enterprise: "check" },
+      { label: "Сховище", pro: "Необмежено", enterprise: "Необмежено" },
+      { label: "Google Drive / OneDrive", pro: "check", enterprise: "check" },
+      { label: "Автоматизація документів", pro: "check", enterprise: "check" },
+      { label: "Кастомні таблиці", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "AI-можливості",
     rows: [
-      { label: "Голосове введення", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Покращення тексту з AI", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "RAG по базі знань фірми", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Майстер шаблонів з AI", classic: "cross", pro: "check", enterprise: "check" },
+      { label: "Голосове введення", pro: "check", enterprise: "check" },
+      { label: "Покращення тексту з AI", pro: "check", enterprise: "check" },
+      { label: "RAG по базі знань фірми", pro: "check", enterprise: "check" },
+      { label: "Майстер шаблонів з AI", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Комунікація",
     rows: [
-      { label: "Email-інтеграція (Gmail / Outlook)", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Календар", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Сповіщення та нагадування", classic: "check", pro: "check", enterprise: "check" },
+      { label: "Email-інтеграція (Gmail / Outlook)", pro: "check", enterprise: "check" },
+      { label: "Календар", pro: "check", enterprise: "check" },
+      { label: "Сповіщення та нагадування", pro: "check", enterprise: "check" },
     ],
   },
   {
     name: "Безпека",
     rows: [
-      { label: "Шифрування (TLS)", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Двофакторна автентифікація", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Ролі та дозволи (RBAC)", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Self-hosted (власний сервер)", classic: "cross", pro: "cross", enterprise: "check" },
+      { label: "Шифрування (TLS)", pro: "check", enterprise: "check" },
+      { label: "Двофакторна автентифікація", pro: "check", enterprise: "check" },
+      { label: "Ролі та дозволи (RBAC)", pro: "check", enterprise: "check" },
+      { label: "Self-hosted (власний сервер)", pro: "cross", enterprise: "check" },
     ],
   },
   {
     name: "Підтримка",
     rows: [
-      { label: "Email-підтримка", classic: "check", pro: "check", enterprise: "check" },
-      { label: "Телефон-підтримка", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Тренінги та онбординг", classic: "cross", pro: "check", enterprise: "check" },
-      { label: "Персональний менеджер", classic: "cross", pro: "cross", enterprise: "check" },
-      { label: "SLA підтримки", classic: "cross", pro: "cross", enterprise: "check" },
+      { label: "Email-підтримка", pro: "check", enterprise: "check" },
+      { label: "Телефон-підтримка", pro: "check", enterprise: "check" },
+      { label: "Тренінги та онбординг", pro: "check", enterprise: "check" },
+      { label: "Персональний менеджер", pro: "cross", enterprise: "check" },
+      { label: "SLA підтримки", pro: "cross", enterprise: "check" },
     ],
   },
   {
     name: "Enterprise",
     rows: [
-      { label: "Кастомні модифікації CRM", classic: "cross", pro: "cross", enterprise: "check" },
-      { label: "Розробка нових інструментів", classic: "cross", pro: "cross", enterprise: "check" },
-      { label: "Знижки на об'єм (20+ юристів)", classic: "cross", pro: "cross", enterprise: "check" },
+      { label: "Кастомні модифікації CRM", pro: "cross", enterprise: "check" },
+      { label: "Розробка нових інструментів", pro: "cross", enterprise: "check" },
+      { label: "Знижки на об'єм (20+ юристів)", pro: "cross", enterprise: "check" },
     ],
   },
 ];
@@ -124,10 +123,9 @@ function CellValue({ value, featured }: { value: Cell; featured?: boolean }) {
   return <span className={`block text-center text-[13px] ${featured ? "font-medium text-black/70" : "text-black/45"}`}>{value}</span>;
 }
 
-type PlanKey = "classic" | "pro" | "enterprise";
+type PlanKey = "pro" | "enterprise";
 
 const PLANS: { key: PlanKey; label: string; price: string; sub: string; featured?: boolean }[] = [
-  { key: "classic", label: "Classic", price: "400 ₴", sub: "за користувача / міс" },
   { key: "pro", label: "Pro AI", price: "600 ₴", sub: "за користувача / міс", featured: true },
   { key: "enterprise", label: "Enterprise", price: "Індивідуально", sub: "" },
 ];
@@ -203,22 +201,17 @@ export default function PricingCompare({ transparent }: { transparent?: boolean 
 
         {/* Desktop — side-by-side comparison table */}
         <div className="hidden lg:block overflow-x-auto">
-          <table className="w-full min-w-[700px] border-collapse">
+          <table className="w-full min-w-[560px] border-collapse">
             {/* Plan headers — sticky */}
             <thead>
               <tr className="sticky top-0 z-10 bg-[#fafafa]">
-                <th className="w-[40%] text-left p-4 border-b-2 border-black/10" />
-                <th className="w-[20%] p-4 border-b-2 border-black/10 text-center">
-                  <div className="font-mono text-[11px] uppercase tracking-wide text-black/40 mb-1">Classic</div>
-                  <div className="text-2xl font-bold tracking-tight">400 <span className="text-sm font-normal text-black/30">₴</span></div>
-                  <div className="text-[11px] text-black/30">за користувача / міс</div>
-                </th>
-                <th className="w-[20%] p-4 border-b-2 border-black bg-black text-white text-center rounded-t-xl">
+                <th className="w-[44%] text-left p-4 border-b-2 border-black/10" />
+                <th className="w-[28%] p-4 border-b-2 border-black bg-black text-white text-center rounded-t-xl">
                   <div className="font-mono text-[10px] uppercase tracking-wider text-white/40 mb-1">Pro AI</div>
                   <div className="text-2xl font-bold tracking-tight">600 <span className="text-sm font-normal text-white/40">₴</span></div>
                   <div className="text-[11px] text-white/40">за користувача / міс</div>
                 </th>
-                <th className="w-[20%] p-4 border-b-2 border-black/10 text-center">
+                <th className="w-[28%] p-4 border-b-2 border-black/10 text-center">
                   <div className="font-mono text-[11px] uppercase tracking-wide text-black/40 mb-1">Enterprise</div>
                   <div className="text-lg font-bold tracking-tight">Індивідуально</div>
                   <div className="text-[11px] text-black/30">&nbsp;</div>
@@ -230,7 +223,7 @@ export default function PricingCompare({ transparent }: { transparent?: boolean 
                 <Fragment key={cat.name}>
                   <tr>
                     <td
-                      colSpan={4}
+                      colSpan={3}
                       className="px-4 pt-6 pb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-black/35 bg-[#f0f0ee]"
                     >
                       {cat.name}
@@ -240,9 +233,6 @@ export default function PricingCompare({ transparent }: { transparent?: boolean 
                     <tr key={row.label} className="group hover:bg-black/[0.02] transition-colors">
                       <td className="px-4 py-3 text-[14px] font-medium text-black/60 border-b border-black/5">
                         {row.label}
-                      </td>
-                      <td className="px-4 py-3 border-b border-black/5">
-                        <CellValue value={row.classic} />
                       </td>
                       <td className="px-4 py-3 border-b border-black/5 bg-black/[0.015]">
                         <CellValue value={row.pro} featured />

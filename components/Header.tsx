@@ -184,10 +184,6 @@ export default function Header() {
               </p>
               <div className="space-y-4">
                 <Link href="/pricing" onClick={() => setProductOpen(false)} className="block group">
-                  <span className="text-[14px] font-semibold text-black/80 group-hover:text-black transition-colors">Classic</span>
-                  <span className="block text-[12px] text-black/35 mt-0.5">Для фірм, що переходять з Excel</span>
-                </Link>
-                <Link href="/pricing" onClick={() => setProductOpen(false)} className="block group">
                   <span className="text-[14px] font-semibold text-black/80 group-hover:text-black transition-colors">Pro AI</span>
                   <span className="block text-[12px] text-black/35 mt-0.5">Повний набір інструментів + AI</span>
                 </Link>

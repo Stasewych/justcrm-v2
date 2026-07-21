@@ -103,9 +103,8 @@ export function softwareApplicationNode(): Node {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "UAH",
-      lowPrice: "400",
-      highPrice: "600",
-      offerCount: 3,
+      lowPrice: "600",
+      offerCount: 2,
     },
     featureList: [
       "Управління справами — Kanban, таблиця, список, календар дедлайнів",

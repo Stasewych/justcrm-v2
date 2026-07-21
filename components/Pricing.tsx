@@ -4,23 +4,6 @@ import FloatingDots from "./FloatingDots";
 
 const plans = [
   {
-    name: "Classic",
-    desc: "Для фірм, що переходять з Excel і хочуть навести порядок",
-    price: 400,
-    period: "за користувача / місяць",
-    cta: "Почати безкоштовно",
-    ctaVariant: "outline" as const,
-    featuresTitle: "Включено",
-    features: [
-      "Управління справами (до 20)",
-      "Контакти (до 50)",
-      "Задачі (список)",
-      "Базовий інвойсинг (1 валюта)",
-      "1 GB сховище",
-      "Email-підтримка",
-    ],
-  },
-  {
     name: "Pro AI",
     desc: "Повний набір інструментів + AI для юридичної практики",
     price: 600,
@@ -91,7 +74,7 @@ export default function Pricing({ transparent }: { transparent?: boolean }) {
           </div>
         )}
 
-        <div className="grid lg:grid-cols-3 gap-6 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 items-start max-w-4xl mx-auto">
           {plans.map((plan) => {
             const clip = "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)";
             const btnClip = "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)";

@@ -38,8 +38,8 @@ export default function PricingPage() {
                   <span className="font-normal text-black/30"> для Вашої фірми</span>
                 </h1>
                 <p className="text-lg text-black/50 max-w-2xl mx-auto leading-relaxed">
-                  JustCRM коштує від 400 ₴ за користувача на місяць (Classic) або
-                  600 ₴ (Pro AI з усіма AI-функціями); Enterprise — за домовленістю.
+                  JustCRM коштує 600 ₴ за користувача на місяць (Pro AI з усіма
+                  AI-функціями); Enterprise — за домовленістю.
                   Перші 30 днів — безкоштовно з повним Pro AI.
                 </p>
               </div>
