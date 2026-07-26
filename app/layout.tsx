@@ -99,7 +99,7 @@ export default function RootLayout({
 
         {/* Google tag (gtag.js) — Google Ads conversion tracking */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18253448763"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18340117087"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
@@ -107,7 +107,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-18253448763');
+            gtag('config', 'AW-18340117087');
           `}
         </Script>
       </body>

@@ -1,5 +1,5 @@
 // Google Ads conversion tracking (gtag.js).
-// Base tag "AW-18253448763" is loaded in app/layout.tsx.
+// Base tag "AW-18340117087" is loaded in app/layout.tsx.
 //
 // Two conversions:
 //  - Trial: proxy on click of «Почати безкоштовно» (registration finishes on
@@ -15,9 +15,9 @@ declare global {
   }
 }
 
-const AW_ID = "AW-18253448763";
-const TRIAL_SEND_TO = `${AW_ID}/rFmzCKDHyswcELuM9v9D`;
-const DEMO_SEND_TO = `${AW_ID}/k185CI39y8wcELuM9v9D`;
+const AW_ID = "AW-18340117087";
+const TRIAL_SEND_TO = `${AW_ID}/8-UbCJaS8NYcEN_0n6lE`;
+const DEMO_SEND_TO = `${AW_ID}/ZrfLCJmS8NYcEN_0n6lE`;
 
 /**
  * Timing-safe gtag call. On pages where the conversion fires immediately (e.g.
@@ -41,7 +41,7 @@ function gtagSafe(...args: unknown[]) {
 export function trackTrialSignup() {
   gtagSafe("event", "conversion", {
     send_to: TRIAL_SEND_TO,
-    value: 200,
+    value: 150,
     currency: "UAH",
   });
 }
@@ -50,7 +50,7 @@ export function trackTrialSignup() {
 export function trackDemoBooked() {
   gtagSafe("event", "conversion", {
     send_to: DEMO_SEND_TO,
-    value: 500,
+    value: 750,
     currency: "UAH",
   });
 }
