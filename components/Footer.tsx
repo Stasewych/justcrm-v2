@@ -28,6 +28,7 @@ const columns = [
   {
     title: "Ресурси",
     links: [
+      { href: "/ai-kurs", label: "AI для фірм" },
       { href: "/why", label: "Чому JustCRM" },
       { href: "/pricing", label: "Тарифи" },
       { href: "/#security", label: "Безпека" },

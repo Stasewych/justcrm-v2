@@ -18,6 +18,7 @@ const STATIC_ROUTES: {
   { path: "/for/yuryst", changeFrequency: "monthly", priority: 0.7 },
   { path: "/for/notarius", changeFrequency: "monthly", priority: 0.7 },
   { path: "/pricing", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/ai-kurs", changeFrequency: "monthly", priority: 0.8 },
   { path: "/product/cases", changeFrequency: "monthly", priority: 0.8 },
   { path: "/product/clients", changeFrequency: "monthly", priority: 0.8 },
   { path: "/product/billing", changeFrequency: "monthly", priority: 0.8 },

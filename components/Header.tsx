@@ -45,10 +45,10 @@ export default function Header() {
         </Link>
 
         {/* Center nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden min-[1100px]:flex items-center gap-1">
           <button
             onClick={() => setProductOpen(!productOpen)}
-            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors"
+            className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors"
           >
             Продукт
             <svg className="inline-block ml-1 w-3 h-3 -mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -58,31 +58,37 @@ export default function Header() {
 
           <Divider />
 
-          <Link href="/pricing" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
+          <Link href="/ai-kurs" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors">
+            AI для фірм
+          </Link>
+
+          <Divider />
+
+          <Link href="/pricing" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors">
             Тарифи
           </Link>
 
           <Divider />
 
-          <Link href="/#security" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
+          <Link href="/#security" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors">
             Безпека
           </Link>
 
           <Divider />
 
-          <Link href="/team" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
+          <Link href="/team" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors">
             Про нас
           </Link>
 
           <Divider />
 
-          <Link href="/blog" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 transition-colors">
+          <Link href="/blog" className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-2 xl:px-3 py-1.5 transition-colors">
             Блог
           </Link>
         </div>
 
         {/* Right side — CTA */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden min-[1100px]:flex items-center gap-2">
           <Link
             href="/sales"
             className="font-mono text-[11px] font-medium uppercase tracking-wide text-black/70 hover:text-black px-3 py-1.5 border border-black/15 rounded hover:border-black/30 transition-all"
@@ -109,7 +115,7 @@ export default function Header() {
 
         {/* Mobile burger */}
         <button
-          className="lg:hidden p-2"
+          className="min-[1100px]:hidden p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Меню"
         >
@@ -125,7 +131,7 @@ export default function Header() {
 
       {/* Mega menu — sits directly under nav, inside header */}
       {productOpen && (
-        <div className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-black/5 shadow-xl shadow-black/10 animate-[menuSlide_0.2s_ease-out]">
+        <div className="hidden min-[1100px]:block absolute left-0 right-0 top-full bg-white border-t border-black/5 shadow-xl shadow-black/10 animate-[menuSlide_0.2s_ease-out]">
           <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-8 grid grid-cols-[1fr_1fr_280px] gap-x-10">
             {/* Left — features col 1 */}
             <div>
@@ -211,7 +217,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-black/5 px-6 py-4 max-h-[calc(100vh-3.5rem)] overflow-y-auto">
+        <div className="min-[1100px]:hidden bg-white border-t border-black/5 px-6 py-4 max-h-[calc(100vh-3.5rem)] overflow-y-auto">
           <p className="font-mono text-[10px] font-medium text-black/30 uppercase tracking-widest mt-2 mb-1">
             Продукт
           </p>
@@ -232,6 +238,9 @@ export default function Header() {
             Компанія
           </p>
           <nav>
+            <Link href="/ai-kurs" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
+              AI для фірм
+            </Link>
             <Link href="/pricing" className="block py-3 text-[15px] text-black/80 border-b border-black/[0.05]" onClick={() => setMobileOpen(false)}>
               Тарифи
             </Link>

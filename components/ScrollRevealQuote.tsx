@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import FloatingDots from "./FloatingDots";
 
-const words = [
+const DEFAULT_WORDS = [
   "Після", "спілкування", "з", "десятками",
   "юридичних", "фірм", "ми", "створили",
   "Just", "CRM", "—",
@@ -11,7 +11,17 @@ const words = [
   "вирішує", "їх", "конкретні", "проблеми.",
 ];
 
-export default function ScrollRevealQuote() {
+/** `words` дозволяє перевикористати блок на інших сторінках із власною
+    цитатою; без пропа рендериться дефолтна фраза з головної. */
+export default function ScrollRevealQuote({
+  words = DEFAULT_WORDS,
+  heightVh = 250,
+}: {
+  words?: string[];
+  /** Довжина pinned-скролу. Коротшій цитаті потрібно менше, інакше блок
+      читається як порожнеча між секціями. */
+  heightVh?: number;
+}) {
   const outerRef = useRef<HTMLDivElement>(null);
   const wordEls = useRef<(HTMLSpanElement | null)[]>([]);
   // null = not yet measured (SSR / first paint). "desktop" = pinned scroll
@@ -83,7 +93,7 @@ export default function ScrollRevealQuote() {
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(rafId);
     };
-  }, [mode]);
+  }, [mode, words]);
 
   const isStatic = mode === "static";
 
@@ -91,7 +101,7 @@ export default function ScrollRevealQuote() {
     <div
       ref={outerRef}
       className="relative bg-white bg-dot-grid"
-      style={{ height: isStatic ? "auto" : "250vh" }}
+      style={{ height: isStatic ? "auto" : `${heightVh}vh` }}
     >
       <FloatingDots count={isStatic ? 18 : 40} />
       <div

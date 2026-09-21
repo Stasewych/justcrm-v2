@@ -32,9 +32,9 @@ export default function Integrations() {
               Інтеграції
             </p>
             <h2 className="text-3xl lg:text-[38px] font-bold leading-[1.15] tracking-tight mb-5">
-              Ваші інструменти вже працюють —{" "}
+              JustCRM дуже просто під'єднується{" "}
               <span className="font-normal text-black/40">
-                JustCRM просто під'єднується до них
+                до інструментів, з якими ви вже працюєте
               </span>
             </h2>
             <p className="text-base text-black/45 leading-relaxed mb-10">

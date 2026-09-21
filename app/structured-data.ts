@@ -2,6 +2,7 @@ import { SITE } from "./seo";
 import { faqs, type Faq } from "@/components/faqData";
 import { productFaqs } from "@/components/productFaqs";
 import { SEGMENTS } from "@/components/segments";
+import { aiCourseFaqs } from "@/components/aiCourseFaqs";
 import { BLOG_POSTS, BLOG_POSTS_BY_SLUG } from "./blog/posts";
 
 /**
@@ -322,5 +323,56 @@ export function segmentGraph(slug: string): Node {
       { name: seg.h1, path },
     ]),
     faqNode(path, seg.faqs),
+  );
+}
+
+/** Сторінка навчання (/ai-kurs): Course + FAQPage + breadcrumb.
+
+    Без offers і без цін: вартість рахується під замовлення, а вигаданий
+    прайс у розмітці був би розходженням зі змістом сторінки. hasCourseInstance
+    описує реальні формати (онлайн-воркшоп і очне навчання), без дат — розкладу
+    з фіксованими датами наразі немає. */
+export function aiCourseGraph(): Node {
+  const url = `${SITE.url}/ai-kurs`;
+  return graph(
+    {
+      "@type": "Course",
+      "@id": `${url}#course`,
+      url,
+      name: "Навчання зі штучного інтелекту для юристів і юридичних фірм",
+      description:
+        "Практичне навчання для юристів і юридичних фірм: як працювати з AI без вигаданої судової практики, як шукати практику з перевіркою джерел, аналізувати договори, генерувати документи за шаблоном і автоматизувати звітність через агентів і MCP.",
+      inLanguage: "uk-UA",
+      provider: { "@id": ORG_ID },
+      teaches: [
+        "Керування контекстом і робота з перевіреними джерелами замість пам'яті моделі",
+        "Розпізнавання галюцинацій AI у юридичних задачах",
+        "Пошук судової практики з перевіркою джерел",
+        "Аналіз договорів і документів",
+        "Генерація документів за шаблоном",
+        "Побудова AI-агентів і робота в агентній сесії",
+        "Підключення AI до CRM через MCP і автоматизація звітності",
+      ],
+      hasCourseInstance: [
+        {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          name: "Воркшоп на чотири години",
+          courseWorkload: "PT4H",
+          inLanguage: "uk-UA",
+        },
+        {
+          "@type": "CourseInstance",
+          courseMode: "onsite",
+          name: "Навчання команди з виїздом в офіс",
+          inLanguage: "uk-UA",
+        },
+      ],
+    },
+    faqNode("/ai-kurs", aiCourseFaqs),
+    breadcrumbNode([
+      { name: "Головна", path: "/" },
+      { name: "Навчання зі штучного інтелекту для юристів", path: "/ai-kurs" },
+    ]),
   );
 }
